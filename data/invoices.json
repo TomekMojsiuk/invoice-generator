@@ -1,0 +1,87 @@
+[
+  {
+    "invoiceDate": "25.06.2018",
+    "paymentDate": "01.07.2018",
+    "seller": {
+      "name": "Nasza firma",
+      "NIP": "1234567890",
+      "streetAddress": "Szkolna",
+      "streetNumber": "25",
+      "postCode": "80-222",
+      "cityName": "Gdańsk"
+    },
+    "buyer": {
+      "name": "nazwaKlienta",
+      "NIP": "0987654321",
+      "streetAddress": "Szkolna",
+      "streetNumber": "25",
+      "postCode": "80-222",
+      "cityName": "Gdańsk"
+    },
+    "products": [
+      {
+        "name": "product 1",
+        "price": "1200",
+        "quantity": "3",
+        "unit": "kg",
+        "vat": "23"
+      },
+      {
+        "name": "product 2",
+        "price": "1200",
+        "quantity": "3",
+        "unit": "kg",
+        "vat": "23"
+      },
+      {
+        "name": "product 3",
+        "price": "1200",
+        "quantity": "3",
+        "unit": "kg",
+        "vat": "23"
+      }
+    ]
+  {
+    "invoiceDate": "25.06.2018",
+    "paymentDate": "01.07.2018",
+    "seller": {
+      "name": "Nasza firma",
+      "NIP": "1234567890",
+      "streetAddress": "Szkolna",
+      "streetNumber": "25",
+      "postCode": "80-222",
+      "cityName": "Gdańsk"
+    },
+    "buyer": {
+      "name": "nazwaKlienta",
+      "NIP": "0987654321",
+      "streetAddress": "Szkolna",
+      "streetNumber": "25",
+      "postCode": "80-222",
+      "cityName": "Gdańsk"
+    },
+    "products": [
+      {
+        "name": "product 1",
+        "price": "1200",
+        "quantity": "3",
+        "unit": "kg",
+        "vat": "23"
+      },
+      {
+        "name": "product 2",
+        "price": "1200",
+        "quantity": "3",
+        "unit": "kg",
+        "vat": "23"
+      },
+      {
+        "name": "product 3",
+        "price": "1200",
+        "quantity": "3",
+        "unit": "kg",
+        "vat": "23"
+      }
+    ]
+  }
+]
