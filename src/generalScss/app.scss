@@ -1,0 +1,36 @@
+@import "grid";
+@import "../invoices/invoiceList";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../assets/img/apartment-apartment-building-architecture-323705.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  min-height: 80vh;
+}
+
+.background--shadow {
+
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  border-radius: 15px;
+  z-index: -1;
+
+
+}
+.app {
+  text-align: center;
+}

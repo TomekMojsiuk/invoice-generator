@@ -1,0 +1,35 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+
+  P {
+    line-height: 40px;
+    float: left;
+    margin-right: 30px;
+
+    &:after {
+      content: '|';
+      color: #10a32d;
+      margin-left: 30px;
+    }
+    &:last-of-type {
+      clear: bottom;
+      margin-right: 0;
+
+      &:after {
+        content: '';
+        margin-left: 0;
+      }
+    }
+
+  }
+
+}
+
+.footer--text {
+  position: absolute;
+  margin-left: calc(50% - 215px);
+}

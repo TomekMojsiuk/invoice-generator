@@ -1,0 +1,26 @@
+.invoice--list--header {
+  background-color: lightgrey;
+  border-bottom: 1px solid black;
+  line-height: 30px;
+
+}
+
+.invoice--list--header_title {
+
+  width: 150px!important;
+  padding: 0 20px;
+
+}
+$color: #e1e8e2;
+
+[class*="invoice--item--"] {
+  line-height: 1.5rem;
+  font-weight: 450;
+  &:nth-child(even) {
+    background: fade_out($color, .1);
+  }
+  &:last-of-type {
+    border-bottom: 1px solid grey;
+  }
+
+}

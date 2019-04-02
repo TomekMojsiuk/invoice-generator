@@ -1,0 +1,39 @@
+body {
+  padding: 50px;
+}
+
+.c-loader-bar {
+  $bar-height: 6px;
+  $bar-color: #e1e8e2;
+  $indicator-color: #10a32d;
+
+  background-color: $bar-color;
+  border-radius: $bar-height / 2;
+  overflow: hidden;
+
+  &__indicator {
+    border-radius: inherit;
+    transform: translateX(-90%);
+    animation: loading 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+
+    &::before {
+      content: '';
+      display: block;
+      height: $bar-height;
+      background-color: $indicator-color;
+      border-radius: inherit;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: translate3d(-90%, 0, 0);
+  }
+  to {
+    transform: translate3d(90%, 0, 0);
+  }
+}

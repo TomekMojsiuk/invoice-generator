@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  //Ustawienia dla kontenera
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .row {
+    //Ustawienia dla row
+    &:before, &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    //[class*="col-"] - nazwa klasy zawiera "col-"
+    [class*="col-"] {
+      min-height: 1px;
+      float: left;
+      display: block;
+      padding: 0px 10px;
+      width: 100%;
+
+    }
+    //GRID -  pętla tworzy kolumny z odpowiednią klasą
+    @for $i from 1 through 12 {
+      .col-#{$i} {
+        width: 100% * $i/12;
+      }
+    }
+  }
+}
