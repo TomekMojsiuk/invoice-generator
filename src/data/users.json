@@ -1,0 +1,7 @@
+module.exports = [
+  {
+      "userName": "Janek",
+      "login": "jan.nowak@gamil.com",
+      "password": "123456"
+   },
+]

@@ -1,3 +1,7 @@
+.invoice--list {
+float: right !important;
+}
+
 .invoice--list--header {
   background-color: lightgrey;
   border-bottom: 1px solid black;
@@ -15,7 +19,7 @@ $color: #e1e8e2;
 
 [class*="invoice--item--"] {
   line-height: 1.5rem;
-  font-weight: 450;
+  font-weight: 500;
   &:nth-child(even) {
     background: fade_out($color, .1);
   }

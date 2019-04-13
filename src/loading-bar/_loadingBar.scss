@@ -1,11 +1,14 @@
+@import "../general-scss/colors";
+
 body {
   padding: 50px;
 }
 
 .c-loader-bar {
+
   $bar-height: 6px;
-  $bar-color: #e1e8e2;
-  $indicator-color: #10a32d;
+  $bar-color: fade_out($color-2, .2);
+  $indicator-color: $color-1;
 
   background-color: $bar-color;
   border-radius: $bar-height / 2;

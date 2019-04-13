@@ -7,14 +7,21 @@
   box-sizing: border-box;
 }
 
-body {
+.background--image {
+  position: fixed;
   background: url("../assets/img/apartment-apartment-building-architecture-323705.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
 
+
 .container {
-  min-height: 80vh;
+  //min-height: 60vh;
 }
 
 .background--shadow {

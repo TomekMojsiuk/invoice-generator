@@ -1,0 +1,19 @@
+
+$color-1: #10a32d;
+$color-2: #ffff;
+$color-3: darkgrey;
+
+
+@mixin backgroundShadow {
+
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  border-radius: 15px;
+  z-index: -1;
+}
+

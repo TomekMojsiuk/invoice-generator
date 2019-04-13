@@ -1,0 +1,61 @@
+@import "../general-scss/colors";
+
+.login--form {
+
+  margin-left: calc(50% - 146.43px);
+
+  .login--input {
+
+    padding: 10px;
+    margin: 5px 0 5px 0;
+    border-radius: 10px;
+    border: 0;
+    outline: none;
+    height: 35px;
+
+
+    &:focus {
+      background-color: fade_out($color-1, .2);
+    }
+  }
+
+  .password {
+    border-radius: 10px 0 0 10px;
+    width: 80%;
+    float: left;
+  }
+
+  button {
+
+    padding: 10px;
+    margin: 5px 0 5px 0;
+    border-radius: 10px;
+    border: 0;
+    background-color: fade_out($color-3, .5);
+    height: 35px;
+
+    &:hover {
+      background-color: fade_out($color-1, .2);
+    }
+
+    &:focus {
+      background-color: fade_out($color-1, .2);
+    }
+  }
+
+  $buttonWidth: 100px;
+  .show--button{
+    border-radius: 0 10px 10px 0;
+    float: right;
+    width: 20%;
+  }
+  .login--button {
+    float: left;
+    width: $buttonWidth;
+  }
+  .register--button {
+    float: right;
+    width: $buttonWidth;
+  }
+
+}
