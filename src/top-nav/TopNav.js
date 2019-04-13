@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLogo } from './NavLogo';
 import { NavLinks } from './NavLinks';
-import './topNav.scss'
+import './_topNav.scss'
 import { MainPanelShadow } from '../main-panel/MainPanel';
 
 export default class TopNav extends React.Component {

@@ -1,7 +1,20 @@
-module.exports = [
+[
   {
-      "userName": "Janek",
-      "login": "jan.nowak@gamil.com",
-      "password": "123456"
+    "id": "1",
+    "username": "Janek",
+    "login": "jan.nowak@gamil.com",
+    "password": "123456"
    },
+  {
+    "id": "2",
+    "username": "Adam",
+    "login": "adam.kowalski@gamil.com",
+    "password": "098765"
+  },
+  {
+    "id": "3",
+    "username": "Krzysztof",
+    "login": "krzysztof.kowalski@gamil.com",
+    "password": "098765"
+  }
 ]

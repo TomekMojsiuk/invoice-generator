@@ -1,7 +1,11 @@
 
-$color-1: #10a32d;
-$color-2: #ffff;
+$color-1: rgba(16,163,45,1);
+$color-2: rgba(255,255,255,1);
 $color-3: darkgrey;
+$color-4: rgba(56,84,105,1);
+$color-5: rgba(222,22,22,1);
+$color-6: rgba(255,166,0,1);
+
 
 
 @mixin backgroundShadow {
@@ -17,3 +21,12 @@ $color-3: darkgrey;
   z-index: -1;
 }
 
+@mixin backgroundColor ($color) {
+  background-color: fade_out($color, .4);
+}
+
+@mixin boxShadow ($rgbaBoxColor) {
+  -webkit-box-shadow: 0px 0px 5px 2px $rgbaBoxColor;
+  -moz-box-shadow: 0px 0px 5px 2px $rgbaBoxColor;
+  box-shadow: 0px 0px 5px 2px $rgbaBoxColor;
+}

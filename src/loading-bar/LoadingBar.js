@@ -1,5 +1,5 @@
 import React from 'react'
-import './loadingBar.scss'
+import './_loadingBar.scss'
 
 
 export const LoadingBar = () => {

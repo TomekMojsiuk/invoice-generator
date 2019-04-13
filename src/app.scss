@@ -1,5 +1,9 @@
-@import "grid";
-@import "../invoices/invoiceList";
+@import "general-scss/grid";
+@import "general-scss/colors";
+@import "invoices/invoiceList";
+@import "top-nav/topNav";
+@import "loading-bar/loadingBar";
+
 
 * {
   margin: 0;
@@ -9,7 +13,7 @@
 
 .background--image {
   position: fixed;
-  background: url("../assets/img/apartment-apartment-building-architecture-323705.jpg");
+  background: url("assets/img/apartment-apartment-building-architecture-323705.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -21,20 +25,12 @@
 
 
 .container {
-  //min-height: 60vh;
+  height: 700px;
 }
 
 .background--shadow {
 
-  height: 100%;
-  width: 100%;
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: .8;
-  border-radius: 15px;
-  z-index: -1;
+  @include backgroundShadow;
 
 
 }

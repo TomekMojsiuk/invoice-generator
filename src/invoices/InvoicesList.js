@@ -21,7 +21,7 @@ export class InvoiceList extends React.Component {
 			return <div className={'col-1 invoice--list--header_title'} {...props} />
 		}
 
-		return (<div className={'row'}>
+		return (<div className={'invoice--list col-9'}>
 				{invoices && invoices.length ? <h1>Lista faktur</h1> : <h1>Brak
 					faktur</h1>}
 				<button>Pobierz faktury</button>
@@ -61,3 +61,5 @@ export class InvoiceList extends React.Component {
 		);
 	}
 }
+
+//class InvoiceList used in MainContentInvoices.js
