@@ -7,18 +7,20 @@
     display: inline-block;
     height: 30px;
     margin: 0 20px 0 20px;
-    width: 80px;
+    padding: 3px 10px;
     transition: all .3s ease-in-out;
+    color: $color-4;
   }
 
   .controller--selected {
     border: 1px solid fade_out($color-4, .3);
     border-radius: 10px;
     @include backgroundColor($color-2);
-    color: $color-4;
+    color: $color-1;
   }
 
   .controls {
+    @include backgroundColor($color-2);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height: 40px;
@@ -34,6 +36,7 @@
 
 
   .form {
+    @include backgroundColor($color-2);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-left: calc(50% - 22%);
@@ -44,6 +47,8 @@
   }
 
   .form--body {
+    text-align: center;
+
     h1 {
       font-size: 1.3rem;
       height: 2.3rem;

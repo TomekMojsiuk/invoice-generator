@@ -1,5 +1,4 @@
 import React from 'react';
-import './_loginForm.scss';
 
 
 export class PasswordBar extends React.Component {

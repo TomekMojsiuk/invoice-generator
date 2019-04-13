@@ -61,5 +61,3 @@ export class InvoiceList extends React.Component {
 		);
 	}
 }
-
-//class InvoiceList used in MainContentInvoices.js

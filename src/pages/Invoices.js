@@ -1,11 +1,10 @@
 import React from 'react'
 import invoices from '../data/invoices';
 import { InvoiceList } from '../invoices/InvoicesList';
-import './_mainPanel.scss'
 import { SideNav } from '../side-nav/SideNav';
 
 
-export class MainContentInvoices extends React.Component {
+export class Invoices extends React.Component {
 
 	render () {
 		return (

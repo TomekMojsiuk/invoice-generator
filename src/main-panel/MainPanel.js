@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { LoadingBar } from '../loading-bar/LoadingBar';
-import { MainContentInvoices } from './MainContentInvoices';
+import { Invoices } from '../pages/Invoices';
 import {
 	HashRouter,
 	Route,
@@ -10,8 +10,6 @@ import {
 	NavLink
 } from 'react-router-dom'
 import { NotFound } from '../top-nav/NavLinks';
-import { MainContentLogin } from './MainContentLogin';
-import { Controllers } from '../main-controller/MainController';
 
 //Box with shadow
 export class MainPanelShadow extends React.Component {
@@ -30,7 +28,6 @@ export class MainPanel extends React.Component {
 		}
 	}
 
-
 	componentDidMount () {
 
 		this.timeout = setTimeout(() => {
@@ -41,18 +38,6 @@ export class MainPanel extends React.Component {
 
 	}
 
-	/*render () {
-			if (this.state.loading === false) {
-				return <div className="col-12 app">
-					<MainContent />
-				</div>
-			} else {
-				return <div className="col-12 app">
-					<LoadingBar />
-				</div>
-			}
-
-	}*/
 	//Renderujemy przełączniki
 	render () {
 		if (this.state.loading === false) {
@@ -60,8 +45,7 @@ export class MainPanel extends React.Component {
 				<MainPanelShadow />
 				<HashRouter>
 				<Switch>
-				<Route exact path="/" render={() => (<MainContentLogin isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert} />)}/>
-				<Route path="/kontrahenci" component={MainContentInvoices}/>
+				<Route exact path="/" render={() => (<Invoices isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert} />)}/>
 				<Route component={NotFound}/>
 			</Switch>
 				</HashRouter>

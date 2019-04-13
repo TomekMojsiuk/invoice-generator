@@ -1,9 +1,12 @@
 @import "general-scss/grid";
 @import "general-scss/colors";
+@import "main-controller/loginForm";
+@import "top-nav/topNav";
 @import "invoices/invoiceList";
 @import "top-nav/topNav";
 @import "loading-bar/loadingBar";
-
+@import "main-panel/mainPanel";
+@import "side-nav/sideNav";
 
 * {
   margin: 0;
@@ -25,7 +28,7 @@
 
 
 .container {
-  height: 700px;
+  height: auto;
 }
 
 .background--shadow {

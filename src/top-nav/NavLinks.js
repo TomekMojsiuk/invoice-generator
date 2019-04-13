@@ -26,23 +26,26 @@ export class NavLinks extends React.Component {
 
 
 	render () {
+		const {isLoggesIn, handleLogOut} = this.props
 		return (
 			<div className={'col-9 nav--top--links-container'}>
 				<div className={'nav--top--links'}>
 					<HashRouter>
 						{(
-							!this.props.isLoggesIn ?
+							isLoggesIn ?
 								<Fragment>
-									<MyLink exact to="/">Login</MyLink>
+
 								</Fragment>
 								:
 								<Fragment>
+									<MyLink exact to="/">Faktury</MyLink>
 									<MyLink exact to="/kontrahenci">Kontrahenci</MyLink>
 									<MyLink exact to="/calendar">Kalendarz</MyLink>
 									<MyLink exact to="/contact">Kontakt</MyLink>
 								</Fragment>
 						)}
 					</HashRouter>
+					<button onClick={handleLogOut}>Wyloguj</button>
 				</div>
 			</div>
 		)
