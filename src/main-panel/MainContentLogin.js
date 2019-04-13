@@ -7,7 +7,7 @@ export class MainContentLogin extends React.Component {
 	render () {
 		return (
 			<div className={'main--content--box'}>
-				<Controllers />
+				<Controllers isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert} />
 			</div>
 		);
 	}

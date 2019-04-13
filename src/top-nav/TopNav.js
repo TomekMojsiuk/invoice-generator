@@ -11,7 +11,7 @@ export default class TopNav extends React.Component {
 			<div className={'row nav--top'}>
 				<MainPanelShadow />
 				<NavLogo />
-				<NavLinks />
+				<NavLinks isLoggesIn={this.props.isLoggesIn} />
 			</div>
 		)
 	}

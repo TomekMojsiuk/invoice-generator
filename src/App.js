@@ -10,8 +10,8 @@ class App extends Component {
 	render () {
 		return (<div className={'container'}>
 				<BackgroundImg />
-				<TopNav />
-				<MainPanel />
+				<TopNav/>
+				<MainPanel/>
 				<Footer/>
 			</div>
 		);

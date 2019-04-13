@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom'
 import { NotFound } from '../top-nav/NavLinks';
 import { MainContentLogin } from './MainContentLogin';
+import { Controllers } from '../main-controller/MainController';
 
 //Box with shadow
 export class MainPanelShadow extends React.Component {
@@ -59,7 +60,7 @@ export class MainPanel extends React.Component {
 				<MainPanelShadow />
 				<HashRouter>
 				<Switch>
-				<Route exact path="/" component={MainContentLogin}/>
+				<Route exact path="/" render={() => (<MainContentLogin isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert} />)}/>
 				<Route path="/kontrahenci" component={MainContentInvoices}/>
 				<Route component={NotFound}/>
 			</Switch>

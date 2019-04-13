@@ -2,6 +2,9 @@ import React from 'react';
 import users from '../data/users.json';
 import { LoginForm } from './LoginForm';
 import { RegistrationForm } from './RegistrationForm';
+import BackgroundImg from '../App';
+import { MainPanel } from '../main-panel/MainPanel';
+import { Footer } from '../footer/Footer';
 
 export class Controllers extends React.Component {
 
@@ -65,6 +68,17 @@ export class Controllers extends React.Component {
 	}
 
 	render () {
+		!this.state.isLoggedIn ?
+		return (<div className={'container'}>
+				<BackgroundImg />
+				<TopNav />
+				<MainPanel />
+				<Footer />
+			</div>
+		);
+	}
+
+	/*render () {
 
 		return (<div>
 
@@ -88,5 +102,5 @@ export class Controllers extends React.Component {
 				</div>
 			</div>
 		);
-	}
+	}*/
 }
