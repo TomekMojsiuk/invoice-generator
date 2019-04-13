@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {
 	HashRouter,
 	Route,
@@ -22,32 +22,30 @@ const MyLink = props => {
 	return <NavLink className={'nav--item'} {...props} /> //Rozsmarowujemy wszystkie pozostałe propsy, które przekażemy do NavLink
 }
 
-class NavItems extends React.Component {
+export class NavLinks extends React.Component {
+
 
 	render () {
 		return (
 			<div className={'col-9 nav--top--links-container'}>
 				<div className={'nav--top--links'}>
-					<MyLink exact to="/">Home</MyLink>
-					<MyLink exact to="/kontrahenci">Kontrahenci</MyLink>
-					<MyLink exact to="/calendar">Kalendarz</MyLink>
-					<MyLink exact to="/contact">Kontakt</MyLink>
+					<HashRouter>
+						{(
+							!this.props.isLoggesIn ?
+								<Fragment>
+									<MyLink exact to="/">Login</MyLink>
+								</Fragment>
+								:
+								<Fragment>
+									<MyLink exact to="/kontrahenci">Kontrahenci</MyLink>
+									<MyLink exact to="/calendar">Kalendarz</MyLink>
+									<MyLink exact to="/contact">Kontakt</MyLink>
+								</Fragment>
+						)}
+					</HashRouter>
 				</div>
 			</div>
 		)
 	}
 
-}
-
-export class NavLinks extends React.Component {
-
-	render () {
-		return (
-			<div>
-				<HashRouter>
-					<NavItems />
-				</HashRouter>
-			</div>
-		);
-	}
 }

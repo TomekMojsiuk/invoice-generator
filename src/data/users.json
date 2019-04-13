@@ -4,7 +4,7 @@
     "username": "Janek",
     "login": "jan.nowak@gamil.com",
     "password": "123456"
-   },
+  },
   {
     "id": "2",
     "username": "Adam",
@@ -16,5 +16,11 @@
     "username": "Krzysztof",
     "login": "krzysztof.kowalski@gamil.com",
     "password": "098765"
+  },
+  {
+    "id": "4",
+    "username": "Tomek",
+    "login": "tomasz.mojsiuk@gmail.com",
+    "password": "123"
   }
 ]

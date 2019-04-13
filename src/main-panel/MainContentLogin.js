@@ -1,6 +1,6 @@
 import React from 'react';
 import '../app.scss';
-import { Controllers } from '../login-form/LoginForm';
+import { Controllers } from '../main-controller/MainController';
 
 export class MainContentLogin extends React.Component {
 
