@@ -1,4 +1,7 @@
 import React from 'react';
+import PasswordBar from '../PasswordBar/PasswordBar'
+
+import './_loginForm.scss'
 
 export class LoginForm extends React.Component {
 	constructor (props) {
@@ -193,9 +196,9 @@ export class LoginForm extends React.Component {
 						<small className={'validation-error'}>{userPasswordError
 							? userPasswordError
 							: ''}</small>
-						{/* <PasswordBar passworsWeak={passwordWeak}
+						 <PasswordBar passworsWeak={passwordWeak}
 						             passwordMedium={passwordMedium}
-						             passwordStrong={passwordStrong} /> */}
+						             passwordStrong={passwordStrong} />
 
 					</div>
 

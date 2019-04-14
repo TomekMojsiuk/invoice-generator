@@ -1,8 +1,6 @@
 import React from 'react';
 
-import InvoiceList from '../../pages/InvoiceList';
-import InvoiceAdd from '../../pages/InvoiceAdd';
-
+import './_mainPanel.scss'
 import LoadingBar from '../LoadingBar/LoadingBar';
 import MainPanelShadow from '../MainPanelShadow/MainPanelShadow';
 

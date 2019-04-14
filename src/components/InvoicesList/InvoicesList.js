@@ -1,4 +1,5 @@
 import React from 'react';
+import './_invoiceList.scss'
 
 class InvoicesList extends React.Component {
 

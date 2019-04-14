@@ -5,6 +5,8 @@
   position: relative;
   margin-bottom: 50px;
   padding: 30px;
+  @include backgroundColor($color-2)
+  border-radius: 10px;
 }
 
 

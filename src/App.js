@@ -7,12 +7,11 @@ import users from "./data/data";
 import Footer from "./components/Footer/Footer";
 import BackgroundImg from "./components/BackgroundImg/BackgroundImg";
 import TopNav from "./components/TopNav/TopNav";
-import MainPanel from "./components/MainPanel/MainPanel";
-
 import InvoiceList from "./pages/InvoiceList";
 import InvoiceAdd from "./pages/InvoiceAdd";
 import Login from "./pages/Login";
 import NotFound from './pages/NotFound';
+import Clients from './pages/Clients';
 
 class App extends Component {
   constructor(props) {
@@ -99,7 +98,8 @@ class App extends Component {
       <div className={"container"}>
         <BrowserRouter>
           <BackgroundImg />
-          <TopNav handleLogOut={this.handleLogOut} />
+          <TopNav handleLogOut={this.handleLogOut} isLoggedIn={this.state.isLoggedIn} />
+
           {this.state.isLoggedIn ? (
             <Switch>
               <Route
@@ -108,15 +108,18 @@ class App extends Component {
                 render={() => (
                   <InvoiceList
                     isLoggedIn={this.props.isLoggedIn}
-                    loginFailAlert={this.props.loginFailAlert}
-                  />
-                )}
+                    loginFailAlert={this.props.loginFailAlert}/>)}
               />
               <Route
                 exact
-                path="/invoice-add"
-                render={() => <InvoiceAdd invoices={this.state.invoices} />}
-              />
+                path="/add-invoice"
+                render={() => <InvoiceAdd invoices={this.state.invoices} />}/>
+
+              <Route
+                exact
+                path="/kontrahenci"
+                render={() => <Clients invoices={this.state.invoices} />}/>
+
               <Route component={NotFound}/>
             </Switch>
           ) : (
@@ -140,7 +143,6 @@ class App extends Component {
               <Route component={NotFound}/>
             </Switch>
           )}
-          <MainPanel />
           <Footer />
         </BrowserRouter>
       </div>

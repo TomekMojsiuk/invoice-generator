@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm/LoginForm';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
-// import '../main-controller/_loginForm.scss';
+/*import '../components/LoginForm/_loginForm.scss'*/
 
 class Login extends React.Component {
 

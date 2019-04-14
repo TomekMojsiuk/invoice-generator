@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './_topNav.scss'
 import NavLogo from '../NavLogo/NavLogo';
 import NavLinks from '../NavLinks/NavLinks';
 import MainPanelShadow from '../MainPanel/MainPanel';
@@ -11,7 +12,7 @@ class TopNav extends React.Component {
 			<div className={'row nav--top'}>
 				<MainPanelShadow />
 				<NavLogo />
-				<NavLinks isLoggesIn={this.props.isLoggesIn} handleLogOut={this.props.handleLogOut} />
+				<NavLinks isLoggedIn={this.props.isLoggedIn} handleLogOut={this.props.handleLogOut} />
 			</div>
 		)
 	}

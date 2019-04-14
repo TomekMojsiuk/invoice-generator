@@ -1,4 +1,6 @@
 import React from 'react'
+import SideNav from '../components/SideNav/SideNav';
+import InvoiceAddForm from '../components/InvoiceAddForm/InvoiceAddForm';
 
 class InvoiceAdd extends React.Component{
 
@@ -11,21 +13,9 @@ class InvoiceAdd extends React.Component{
 
 	render () {
 		return (<div className={'col-10'}>
-				<form>
-					<label>
-						Numer faktury:
-						<input type="text" name="numer_faktury"/>
-					</label>
-					<label>
-						Data wystawienia:
-						<input type="date"/>
-					</label>
-					<label>
-						Data płatności:
-						<input type="date"/>
-					</label>
-				</form>
-				</div>
+				<SideNav />
+				<InvoiceAddForm/>
+		</div>
 		)
 	}
 }
