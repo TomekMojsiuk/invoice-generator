@@ -1,9 +1,9 @@
 import React from 'react';
-import { LoginForm } from '../main-controller/LoginForm';
-import { RegistrationForm } from '../main-controller/RegistrationForm';
-import '../main-controller/_loginForm.scss';
+import LoginForm from '../components/LoginForm/LoginForm';
+import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
+// import '../main-controller/_loginForm.scss';
 
-export class Login extends React.Component {
+class Login extends React.Component {
 
 	render () {
 
@@ -34,3 +34,5 @@ export class Login extends React.Component {
 			);
 		}
 	}
+
+export default Login;

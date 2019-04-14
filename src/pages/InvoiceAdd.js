@@ -1,8 +1,6 @@
 import React from 'react'
 
-
-
-export class InvoiceAdd extends React.Component{
+class InvoiceAdd extends React.Component{
 
 	constructor (props) {
 		super(props);
@@ -10,8 +8,6 @@ export class InvoiceAdd extends React.Component{
 			newInvoice: []
 		}
 	}
-
-
 
 	render () {
 		return (<div className={'col-10'}>
@@ -32,5 +28,6 @@ export class InvoiceAdd extends React.Component{
 				</div>
 		)
 	}
-
 }
+
+export default InvoiceAdd;

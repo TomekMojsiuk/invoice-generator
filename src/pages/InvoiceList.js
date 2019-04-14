@@ -1,16 +1,8 @@
 import React from 'react'
-import { InvoicesList } from '../invoices/InvoicesList';
-import { SideNav } from '../side-nav/SideNav';
-import {
-	HashRouter,
-	Route,
-	Link,
-	Switch,
-	NavLink
-} from 'react-router-dom'
+import InvoicesList from '../components/InvoicesList/InvoicesList';
+import SideNav from '../components/SideNav/SideNav';
 
-
-export class InvoiceList extends React.Component {
+class InvoiceList extends React.Component {
 
 	constructor (props) {
 		super(props);
@@ -52,3 +44,5 @@ export class InvoiceList extends React.Component {
 		)
 	}
 }
+
+export default InvoiceList;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavLogo } from './NavLogo';
-import { NavLinks } from './NavLinks';
 
-import { MainPanelShadow } from '../main-panel/MainPanel';
+import NavLogo from '../NavLogo/NavLogo';
+import NavLinks from '../NavLinks/NavLinks';
+import MainPanelShadow from '../MainPanel/MainPanel';
 
-export default class TopNav extends React.Component {
+class TopNav extends React.Component {
 
 	render () {
 		return (
@@ -17,3 +17,5 @@ export default class TopNav extends React.Component {
 	}
 
 }
+
+export default TopNav;

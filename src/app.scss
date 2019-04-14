@@ -1,14 +1,3 @@
-@import "general-scss/grid";
-@import "general-scss/colors";
-@import "main-controller/loginForm";
-@import "top-nav/topNav";
-@import "invoices/invoiceList";
-@import "top-nav/topNav";
-@import "loading-bar/loadingBar";
-@import "main-panel/mainPanel";
-@import "side-nav/sideNav";
-@import "footer/footer";
-
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +23,7 @@
 
 .background--shadow {
 
-  @include backgroundShadow;
+  // @include backgroundShadow;
 
 
 }

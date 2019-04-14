@@ -1,7 +1,6 @@
 import React from 'react'
 
-
-export class NavLogo extends React.Component {
+class NavLogo extends React.Component {
 
 	render () {
 		return (
@@ -10,5 +9,6 @@ export class NavLogo extends React.Component {
 			</div>
 		)
 	}
-
 }
+
+export default NavLogo;

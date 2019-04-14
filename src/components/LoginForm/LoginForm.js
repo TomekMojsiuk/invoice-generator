@@ -1,11 +1,6 @@
+import React from 'react';
 
-import React from 'react'
-import './_loginForm.scss';
-import { PasswordBar } from './LoginForm';
-
-//Registration ======================================================================
-
-export class RegistrationForm extends React.Component {
+export class LoginForm extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
@@ -22,8 +17,10 @@ export class RegistrationForm extends React.Component {
 		};
 
 		this.toggleShow = this.toggleShow.bind(this);
-		this.handleRegister = this.handleRegister.bind(this);
+		this.handleFormValidation = this.handleFormValidation.bind(this);
 	}
+
+	//Validation
 
 	showValidationError (elm, msg) {
 		this.setState((prevState) => ({ errors: [...prevState.errors, { elm, msg }] }));
@@ -97,7 +94,7 @@ export class RegistrationForm extends React.Component {
 		}
 	}
 
-	handleRegister (e) {
+	handleFormValidation (e) {
 
 		if (this.state.username === '') {
 			this.showValidationError('username', 'Username cannot be empty!');
@@ -109,6 +106,14 @@ export class RegistrationForm extends React.Component {
 			this.showValidationError('password', 'password cannot be empty!');
 		}
 
+	}
+
+	beforeLogin = (e) => {
+		e.preventDefault();
+		this.props.handleLogin({
+			username: this.state.username,
+			password: this.state.password,
+		});
 	}
 
 	render () {
@@ -129,6 +134,7 @@ export class RegistrationForm extends React.Component {
 
 		}
 
+		//Passwors Validation =========================================================
 		let passwordWeak = false, passwordMedium = false, passwordStrong = false
 		let password = this.state.passwordStrength;
 
@@ -149,8 +155,10 @@ export class RegistrationForm extends React.Component {
 
 		return (
 			<div className={'form--body register'}>
-				<h1>Register</h1>
-				<form>
+				<h1>Login</h1>
+				<p className={'alert--msg'}>{this.props.handleError}</p>
+
+				<form onSubmit={this.beforeLogin}>
 
 					<div className={'form--input--username col-12'}>
 						<input autoFocus={true} className={'form--input col-12'}
@@ -180,24 +188,27 @@ export class RegistrationForm extends React.Component {
 						       value={this.state.password}
 						       onChange={this.handlePasswordChange}
 						       placeholder="hasło"/>
-						<button className={'button toggle'}
+						<button className={'button toggle'} type="button"
 						        onClick={this.toggleShow}>{this.state.toggleShowText}</button>
 						<small className={'validation-error'}>{userPasswordError
 							? userPasswordError
 							: ''}</small>
-						<PasswordBar passworsWeak={passwordWeak}
+						{/* <PasswordBar passworsWeak={passwordWeak}
 						             passwordMedium={passwordMedium}
-						             passwordStrong={passwordStrong} />
+						             passwordStrong={passwordStrong} /> */}
 
 					</div>
 
 					<div className={'col-12'}>
 						<button type="submit" className={'button login'}
-						        onClick={this.handleRegister}>Register
+						        onClick={this.handleFormValidation}>Login
 						</button>
 					</div>
+
 				</form>
 			</div>
 		);
 	}
 }
+
+export default LoginForm;

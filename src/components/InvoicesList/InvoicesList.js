@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class InvoicesList extends React.Component {
+class InvoicesList extends React.Component {
 
 	constructor (props) {
 		super(props);
@@ -65,3 +65,5 @@ export class InvoicesList extends React.Component {
 		);
 	}
 }
+
+export default InvoicesList;
