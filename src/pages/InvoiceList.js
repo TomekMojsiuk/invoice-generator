@@ -1,10 +1,16 @@
 import React from 'react'
-import invoices from '../data/invoices';
-import { InvoiceList } from '../invoices/InvoicesList';
+import { InvoicesList } from '../invoices/InvoicesList';
 import { SideNav } from '../side-nav/SideNav';
+import {
+	HashRouter,
+	Route,
+	Link,
+	Switch,
+	NavLink
+} from 'react-router-dom'
 
 
-export class Invoices extends React.Component {
+export class InvoiceList extends React.Component {
 
 	constructor (props) {
 		super(props);
@@ -23,15 +29,25 @@ export class Invoices extends React.Component {
 			})).then(() => {
 			console.log(this.state.invoices);
 		});
+	}
+
+	sideNavRouter = () => {
 
 	}
 
-	render () {
+	addInvoice = () => {
+
+
+
+	}
+
+
+	render (){
 
 		return (
 			<div className={'main--content--box col-12'}>
-				<SideNav/>
-				<InvoiceList invoices={this.state.invoices} />
+				<SideNav />
+				<InvoicesList invoices={this.state.invoices} />
 			</div>
 		)
 	}

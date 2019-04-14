@@ -1,26 +1,15 @@
 import React from 'react';
-import { LoginForm } from './LoginForm';
-import { RegistrationForm } from './RegistrationForm';
-import { MainPanel } from '../main-panel/MainPanel';
-import TopNav from '../top-nav/TopNav';
-import './_loginForm.scss';
+import { LoginForm } from '../main-controller/LoginForm';
+import { RegistrationForm } from '../main-controller/RegistrationForm';
+import '../main-controller/_loginForm.scss';
 
-export class Controller extends React.Component {
+export class Login extends React.Component {
 
 	render () {
 
 		const { handleLogin, handleLogOut, isLoggedIn, isLoginOpen, isRegistrationOpen, loginFailAlert, showLoginBox, showRegistrationBox } = this.props;
-		//TODO włączyć widok formularza logowania (usunąć ! poniżej)
-		if (!isLoggedIn) {
-			return (<div className={'container'}>
 
-					<TopNav handleLogOut={handleLogOut}/>
-					<MainPanel />
-				</div>
-			);
-		} else {
-
-			return (<div className={''}>
+		return (<div>
 
 					<div className="box--controller row">
 						<div className={'controls col-5'}>
@@ -45,4 +34,3 @@ export class Controller extends React.Component {
 			);
 		}
 	}
-}

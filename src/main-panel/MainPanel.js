@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { LoadingBar } from '../loading-bar/LoadingBar';
-import { Invoices } from '../pages/Invoices';
 import {
 	HashRouter,
 	Route,
@@ -10,6 +9,8 @@ import {
 	NavLink
 } from 'react-router-dom'
 import { NotFound } from '../top-nav/NavLinks';
+import { InvoiceList } from '../pages/InvoiceList';
+import { InvoiceAdd } from '../pages/InvoiceAdd';
 
 //Box with shadow
 export class MainPanelShadow extends React.Component {
@@ -48,12 +49,12 @@ export class MainPanel extends React.Component {
 		if (this.state.loading === false) {
 			return <div className="row app">
 				<MainPanelShadow />
-				<HashRouter>
 				<Switch>
-				<Route exact path="/" render={() => (<Invoices isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert} />)}/>
-				<Route component={NotFound}/>
-			</Switch>
-				</HashRouter>
+					<Route exact path="/" render={() => (<InvoiceList isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert} />)}/>
+					<Route exact path="/invoice-list" render={() => (<InvoiceList invoices={this.state.invoices} />)}/>
+					<Route path="/add-invoice" render={() => (<InvoiceAdd invoices={this.state.invoices} />)}/>
+					<Route component={NotFound}/>
+				</Switch>
 			</div>
 		} else {
 			return <div className="col-12 app">

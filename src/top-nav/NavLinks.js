@@ -28,7 +28,6 @@ export class NavLinks extends React.Component {
 		return (
 			<div className={'col-5 nav--top--links-container'}>
 				<div className={'nav--top--links'}>
-					<HashRouter>
 						{(
 							!isLoggesIn ?
 								<Fragment>
@@ -37,7 +36,6 @@ export class NavLinks extends React.Component {
 								</Fragment>
 								: null
 						)}
-					</HashRouter>
 					<button className={'btn--logout'} onClick={handleLogOut}>Wyloguj</button>
 				</div>
 			</div>

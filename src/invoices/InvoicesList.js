@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class InvoiceList extends React.Component {
+export class InvoicesList extends React.Component {
 
 	constructor (props) {
 		super(props);
@@ -14,6 +14,7 @@ export class InvoiceList extends React.Component {
 	}
 
 	render () {
+
 		const invoices = this.props.invoices.map((invoice) => {
 			console.log(invoice.invoiceNumber);
 		}) || [];
@@ -21,7 +22,7 @@ export class InvoiceList extends React.Component {
 		let counter = 0;
 
 		const MyCol = props => {
-			return <div className={'col-1 invoice--list--header_title'} {...props} />
+			return <div className={'col-2 invoice--list--header_title'} {...props} />
 		}
 
 		return (<div className={'invoice--list col-10'}>
@@ -38,10 +39,10 @@ export class InvoiceList extends React.Component {
 					<MyCol>Kwota</MyCol>
 				</div>
 
-				<div className={'row invoice--list--body'}>
+				<div className={'row invoice--list--body col-12'}>
 					{this.props.invoices.map(invoice => {
 						return (
-							<div key={invoice.invoiceNumber} className={`invoice--item--${counter}`}>
+							<div key={invoice.invoiceNumber} className={`invoice--item--${counter} col-12`}>
 								<MyCol>{counter += 1}</MyCol>
 								<MyCol>{invoice.invoiceNumber}</MyCol>
 								<MyCol>{invoice.invoiceDate}</MyCol>
@@ -51,7 +52,7 @@ export class InvoiceList extends React.Component {
 								<MyCol>{`${invoice.products.reduce((acc, product) => {
 									return acc + (product.quantity * product.price);
 								},0)} zł`}</MyCol>
-								<div className={'col-1 invoice--delete'}>X</div>
+								<div className={'col-2 invoice--delete'}>X</div>
 							</div>
 						);
 					})}

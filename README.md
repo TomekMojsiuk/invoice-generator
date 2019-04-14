@@ -102,9 +102,8 @@ Aplikacja pozwala na zarządzanie fakturami; archiwizacja, wystawianie faktur. M
 
 - Pobierz repozytorium i zainstaluj node_modules za pomocą polecenia _**npm i**_
 - Zainstaluj json server za pomocą polecenia: _**npm install -g json-server**_
-- Uruchom watchery dla aplikacji oraz danych. Użyj poleceń:
+- Uruchom watchery dla aplikacji oraz pliku danych. Użyj poleceń:
     - npm start
-    - json-server -p 3001  ./src/data/users.json
-    - json-server -p 3002  ./src/data/invoices.json
+    - json-server -p 3001  ./src/data/data.json
 
 

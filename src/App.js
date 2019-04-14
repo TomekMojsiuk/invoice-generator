@@ -1,9 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './app.scss';
 import { Footer } from './footer/Footer';
 import BackgroundImg from './BackgroundImg';
 import users from './data/data';
-import { Controller } from './main-controller/Controller';
+import { Login } from './pages/Login';
+import {
+	BrowserRouter,
+	HashRouter,
+	Route,
+	Link,
+	Switch,
+	NavLink
+} from 'react-router-dom'
+import TopNav from './top-nav/TopNav';
+import { InvoiceList } from './pages/InvoiceList';
+import { InvoiceAdd } from './pages/InvoiceAdd';
+import { MainPanel } from './main-panel/MainPanel';
 
 class App extends Component {
 
@@ -86,22 +98,45 @@ class App extends Component {
 			this.setState({
 				isLoggedIn: false,
 			});
-		}, 2000);
+		}, 1000);
 	};
 
+
 	render () {
+		console.log(this.state.isLoggedIn)
 		return (<div className={'container'}>
-				<BackgroundImg/>
-				<Controller handleLogin={this.handleLogin}
-				            handleLogOut={this.handleLogOut}
-				            showLoginBox={this.showLoginBox}
-				            showRegistrationBox={this.showRegistrationBox}
-				            isLoggedIn={this.state.isLoggedIn}
-				            isLoginOpen={this.state.isLoginOpen}
-				            isRegistrationOpen={this.state.isRegistrationOpen}
-				            loginFailAlert={this.state.loginFailAlert}
-				/>
-				<Footer/>
+				<BrowserRouter>
+					<BackgroundImg/>
+
+					<TopNav handleLogOut={this.handleLogOut}/>
+					{!this.state.isLoggedIn ? (
+						<Fragment>
+							<Route exact path="/login" render={() => (
+								<Login handleLogin={this.handleLogin}
+								handleLogOut={this.handleLogOut}
+								showLoginBox={this.showLoginBox}
+								showRegistrationBox={this.showRegistrationBox}
+								isLoggedIn={this.state.isLoggedIn}
+								isLoginOpen={this.state.isLoginOpen}
+								isRegistrationOpen={this.state.isRegistrationOpen}
+								loginFailAlert={this.state.loginFailAlert}
+								/>
+								)}/>
+						</Fragment>
+					):(
+						<Fragment>
+
+							<Route exact path="/" render={() => (
+								<InvoiceList isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert} /> )}/>
+
+							<Route exact path="/invoice-add" render={() => (
+								<InvoiceAdd invoices={this.state.invoices} />)}/>
+
+						</Fragment>
+						)}
+						<MainPanel/>
+					<Footer/>
+				</BrowserRouter>
 			</div>
 
 		);

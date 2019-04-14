@@ -1,5 +1,5 @@
 .invoice--list {
-float: right !important;
+  float: right !important;
 }
 
 .invoice--list--header {
@@ -10,16 +10,23 @@ float: right !important;
 }
 
 .invoice--list--header_title {
+  font-size: .8rem;
+  //width: 100px!important;
+  padding: 0 10px;
 
-  width: 150px!important;
-  padding: 0 20px;
+}
 
+.invoice--list--body {
+  padding: 0!important;
 }
 $color: #e1e8e2;
 
 [class*="invoice--item--"] {
+
+  padding: 0!important;
   line-height: 1.5rem;
   font-weight: 500;
+  width: 100%;
   &:nth-child(even) {
     background: fade_out($color, .1);
   }
@@ -27,4 +34,11 @@ $color: #e1e8e2;
     border-bottom: 1px solid grey;
   }
 
+}
+
+.invoice--delete {
+
+  &:after {
+
+  }
 }
