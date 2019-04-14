@@ -1,8 +1,7 @@
 import React from 'react'
 import './_loadingBar.scss'
 
-
-export const LoadingBar = () => {
+const LoadingBar = () => {
 	return (
 		<div className="c-loader-bar">
 			<h1>Loading...</h1>
@@ -10,3 +9,5 @@ export const LoadingBar = () => {
 		</div>
 	)
 }
+
+export default LoadingBar;

@@ -1,11 +1,11 @@
 
 import React from 'react'
-import './_loginForm.scss';
-import { PasswordBar } from './LoginForm';
+// import './_loginForm.scss';
+// import PasswordBar from '../PasswordBar/PasswordBar';
 
 //Registration ======================================================================
 
-export class RegistrationForm extends React.Component {
+class RegistrationForm extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
@@ -185,9 +185,9 @@ export class RegistrationForm extends React.Component {
 						<small className={'validation-error'}>{userPasswordError
 							? userPasswordError
 							: ''}</small>
-						<PasswordBar passworsWeak={passwordWeak}
+						{/* <PasswordBar passworsWeak={passwordWeak}
 						             passwordMedium={passwordMedium}
-						             passwordStrong={passwordStrong} />
+						             passwordStrong={passwordStrong} /> */}
 
 					</div>
 
@@ -201,3 +201,5 @@ export class RegistrationForm extends React.Component {
 		);
 	}
 }
+
+export default RegistrationForm;

@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-@import "../general-scss/colors";
+@import "../../sass/colors";
 
 .nav--top {
   position: relative;
   margin-bottom: 50px;
   padding: 30px;
+  @include backgroundColor($color-2)
+  border-radius: 10px;
 }
 
 

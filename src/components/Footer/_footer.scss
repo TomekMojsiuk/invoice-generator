@@ -1,3 +1,5 @@
+@import "../../sass/colors";
+
 .footer {
   position: sticky;
   display: block;
@@ -8,6 +10,7 @@
   width: 100%;
   text-align: center;
   border-radius: 10px;
+
   @include backgroundColor($color-2);
 
   .footer--text {

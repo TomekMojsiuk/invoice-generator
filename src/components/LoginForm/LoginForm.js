@@ -1,23 +1,7 @@
 import React from 'react';
+import PasswordBar from '../PasswordBar/PasswordBar'
 
-
-export class PasswordBar extends React.Component {
-
-	render () {
-		return (
-			<div className={"password--strength col-12"}>
-				<div className={"password--weak col-4 " +
-				(this.props.passworsWeak ? 'show' : '')}></div>
-				<div className={"password--medium col-4 " +
-				(this.props.passwordMedium ? 'show' : '')}></div>
-				<div className={"password--strong col-4 " +
-				(this.props.passwordStrong ? 'show' : '')}></div>
-			</div>
-		)
-	}
-}
-
-//Login ======================================================================
+import './_loginForm.scss'
 
 export class LoginForm extends React.Component {
 	constructor (props) {
@@ -212,7 +196,7 @@ export class LoginForm extends React.Component {
 						<small className={'validation-error'}>{userPasswordError
 							? userPasswordError
 							: ''}</small>
-						<PasswordBar passworsWeak={passwordWeak}
+						 <PasswordBar passworsWeak={passwordWeak}
 						             passwordMedium={passwordMedium}
 						             passwordStrong={passwordStrong} />
 
@@ -229,3 +213,5 @@ export class LoginForm extends React.Component {
 		);
 	}
 }
+
+export default LoginForm;
