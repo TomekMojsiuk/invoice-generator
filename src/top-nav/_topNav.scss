@@ -7,11 +7,18 @@
   padding: 30px;
 }
 
+
 .nav--top-logo {
   font-family: 'Indie Flower', cursive;
   font-size: 1.2rem;
   color: $color-1;
 
+}
+
+.nav--top--links-container {
+  position: absolute;
+  top: 40px;
+  right: 20px;
 }
 
 .nav--top--links {
@@ -22,9 +29,41 @@
   float: right;
 
   .nav--item {
+    font-size: .9rem;
     float: left;
-    line-height: 56px;
+    padding: 5px;
     margin-right: 30px;
+    text-decoration: none;
+    color: $color-4;
+    border: 1px solid transparent;
+    background: none;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: $color-1;
+      border: 1px solid fade_out($color-4, .3);
+      @include backgroundColor($color-2);
+      border-radius: 10px;
+    }
+  }
+
+  .btn--logout {
+    font-size: .9rem;
+    padding: 5px;
+    margin-right: 30px;
+    text-decoration: none;
+    color: $color-4;
+    border: 1px solid transparent;
+    background: none;
+    transition: all .3s ease-in-out;
+    outline: none;
+
+    &:hover {
+      color: $color-5;
+      border: 1px solid fade_out($color-5, .3);
+      @include backgroundColor($color-2);
+      border-radius: 10px;
+    }
   }
 
 }

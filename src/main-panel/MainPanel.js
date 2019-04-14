@@ -38,6 +38,11 @@ export class MainPanel extends React.Component {
 
 	}
 
+	//TODO obsługa sideNava
+	handleSideNav = () => {
+
+	}
+
 	//Renderujemy przełączniki
 	render () {
 		if (this.state.loading === false) {

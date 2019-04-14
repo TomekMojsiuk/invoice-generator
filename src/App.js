@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './app.scss';
 import { Footer } from './footer/Footer';
-import BackgroundImg from './BackgroundImg'
-import users from './data/users';
+import BackgroundImg from './BackgroundImg';
+import users from './data/data';
 import { Controller } from './main-controller/Controller';
 
 class App extends Component {
@@ -10,12 +10,26 @@ class App extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
+			users: [],
+
 			isLoginOpen: true,
 			isRegistrationOpen: false,
 
 			isLoggedIn: false,
-			loginFailAlert: ''
+			loginFailAlert: '',
 		};
+
+	}
+
+	componentDidMount () {
+
+		fetch('http://localhost:3001/users').
+			then(response => response.json()).
+			then(users => this.setState({
+				users: users,
+			})).then(() => {
+			console.log(this.state.users);
+		});
 
 	}
 
@@ -45,7 +59,7 @@ class App extends Component {
 
 		console.log(users);
 
-		const userFound = users.find((user) => {
+		const userFound = this.state.users.find((user) => {
 			console.log(user);
 			console.log(username, password);
 
@@ -56,28 +70,28 @@ class App extends Component {
 		if (userFound) {
 			this.setState({
 				isLoggedIn: true,
-				loginFailAlert: ''
-			})
-		}else {
+				loginFailAlert: '',
+			});
+		} else {
 			this.setState({
-				loginFailAlert: "Wpisz poprawne dane logowania"
-			})
+				loginFailAlert: 'Wpisz poprawne dane logowania',
+			});
 		}
 
-	}
+	};
 
 	handleLogOut = () => {
 		const timeout = setTimeout(() => {
 
 			this.setState({
-				isLoggedIn: false
-			})
-		},2000)
-	}
+				isLoggedIn: false,
+			});
+		}, 2000);
+	};
 
 	render () {
 		return (<div className={'container'}>
-				<BackgroundImg />
+				<BackgroundImg/>
 				<Controller handleLogin={this.handleLogin}
 				            handleLogOut={this.handleLogOut}
 				            showLoginBox={this.showLoginBox}
@@ -86,9 +100,10 @@ class App extends Component {
 				            isLoginOpen={this.state.isLoginOpen}
 				            isRegistrationOpen={this.state.isRegistrationOpen}
 				            loginFailAlert={this.state.loginFailAlert}
-				            />
-				<Footer />
+				/>
+				<Footer/>
 			</div>
+
 		);
 	}
 }

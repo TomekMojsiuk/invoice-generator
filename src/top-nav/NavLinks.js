@@ -7,8 +7,6 @@ import {
 	NavLink
 } from 'react-router-dom'
 
-import { MainPanel } from '../main-panel/MainPanel'
-
 export class NotFound extends React.Component {
 	render () {
 		return (<div className={'link--not--found'}>
@@ -28,24 +26,19 @@ export class NavLinks extends React.Component {
 	render () {
 		const {isLoggesIn, handleLogOut} = this.props
 		return (
-			<div className={'col-9 nav--top--links-container'}>
+			<div className={'col-5 nav--top--links-container'}>
 				<div className={'nav--top--links'}>
 					<HashRouter>
 						{(
-							isLoggesIn ?
-								<Fragment>
-
-								</Fragment>
-								:
+							!isLoggesIn ?
 								<Fragment>
 									<MyLink exact to="/">Faktury</MyLink>
 									<MyLink exact to="/kontrahenci">Kontrahenci</MyLink>
-									<MyLink exact to="/calendar">Kalendarz</MyLink>
-									<MyLink exact to="/contact">Kontakt</MyLink>
 								</Fragment>
+								: null
 						)}
 					</HashRouter>
-					<button onClick={handleLogOut}>Wyloguj</button>
+					<button className={'btn--logout'} onClick={handleLogOut}>Wyloguj</button>
 				</div>
 			</div>
 		)
