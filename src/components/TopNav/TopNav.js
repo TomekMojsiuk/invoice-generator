@@ -10,7 +10,6 @@ class TopNav extends React.Component {
 	render () {
 		return (
 			<div className={'row nav--top'}>
-				<MainPanelShadow />
 				<NavLogo />
 				<NavLinks isLoggedIn={this.props.isLoggedIn} handleLogOut={this.props.handleLogOut} />
 			</div>

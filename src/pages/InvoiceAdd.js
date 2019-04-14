@@ -2,6 +2,8 @@ import React from 'react'
 import SideNav from '../components/SideNav/SideNav';
 import InvoiceAddForm from '../components/InvoiceAddForm/InvoiceAddForm';
 
+import './_Pages.scss'
+
 class InvoiceAdd extends React.Component{
 
 	constructor (props) {
@@ -12,10 +14,10 @@ class InvoiceAdd extends React.Component{
 	}
 
 	render () {
-		return (<div className={'col-10'}>
+		return (<div className={'row main--content--box'}>
 				<SideNav />
-				<InvoiceAddForm/>
-		</div>
+				<InvoiceAddForm />
+			</div>
 		)
 	}
 }

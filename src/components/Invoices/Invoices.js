@@ -1,7 +1,7 @@
 import React from 'react';
-import './_invoiceList.scss'
+import './_invoice.scss'
 
-class InvoicesList extends React.Component {
+class Invoices extends React.Component {
 
 	constructor (props) {
 		super(props);
@@ -26,7 +26,7 @@ class InvoicesList extends React.Component {
 			return <div className={'col-2 invoice--list--header_title'} {...props} />
 		}
 
-		return (<div className={'invoice--list col-10'}>
+		return (<div className={'pages--content--container col-10'}>
 				{invoices && invoices.length ? <h1>Lista faktur</h1> : <h1>Brak
 					faktur</h1>}
 				<button>Pobierz faktury</button>
@@ -67,4 +67,4 @@ class InvoicesList extends React.Component {
 	}
 }
 
-export default InvoicesList;
+export default Invoices;

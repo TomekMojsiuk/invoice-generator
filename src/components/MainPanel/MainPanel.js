@@ -1,8 +1,10 @@
 import React from 'react';
 
-import './_mainPanel.scss'
+import '../../pages/_Pages.scss'
 import LoadingBar from '../LoadingBar/LoadingBar';
 import MainPanelShadow from '../MainPanelShadow/MainPanelShadow';
+
+//TODO jeśli nie używany, usunąć
 
 //Main panel
 class MainPanel extends React.Component {
@@ -33,7 +35,7 @@ class MainPanel extends React.Component {
 	render () {
 		if (this.state.loading === false) {
 			return <div className="row app">
-				<MainPanelShadow />
+
 			</div>
 		} else {
 			return <div className="col-12 app">

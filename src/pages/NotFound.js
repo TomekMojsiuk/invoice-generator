@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './_Pages.scss'
+
 class NotFound extends React.Component {
 	render () {
 		return (<div className={'link--not--found'}>

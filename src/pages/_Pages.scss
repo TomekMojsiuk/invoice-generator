@@ -1,0 +1,14 @@
+@import "../sass/colors";
+
+.main--content--box {
+  position: relative;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 200px;
+  @include backgroundColor($color-2)
+}
+
+.pages--content--container {
+  float: right !important;
+}
+

@@ -1,4 +1,28 @@
+@import "../../sass/colors";
+
 .nav--side {
   position: absolute;
-  height: 100%;
+  min-height: 87% !important;
+  margin-right: 5px;
+  @include boxShadow($color-4);
+
+  .nav--side--link {
+    margin-top: 5px;
+    display: block;
+    font-size: .9rem;
+    color: $color-4;
+    text-decoration: none;
+    width: 100%;
+    padding: 5px;
+    transition: all .3s ease-in-out;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid $color-4;
+      @include backgroundColor($color-2)
+      color: $color-1;
+      border-radius: 10px;
+    }
+  }
+
 }

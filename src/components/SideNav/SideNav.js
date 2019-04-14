@@ -1,16 +1,17 @@
 import React from 'react'
 import {
-	Link,
-} from 'react-router-dom'
+	Link, NavLink,
+} from 'react-router-dom';
 
 import './_sideNav.scss'
+
 
 class SideNav extends React.Component {
 
 	render () {
-		return (<div className={'nav--side col-2'}>
-				<Link to="/">Lista faktur</Link>
-				<Link to="/add-invoice">Wystaw fakturę</Link>
+		return (<div className={'col-2 nav--side '}>
+				<NavLink className={'nav--side--link'} to="/">Lista faktur</NavLink>
+				<NavLink className={'nav--side--link'} to="/add-invoice">Wystaw fakturę</NavLink>
 			</div>
 		)
 	}

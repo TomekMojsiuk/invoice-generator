@@ -1,13 +1,12 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm/LoginForm';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
-/*import '../components/LoginForm/_loginForm.scss'*/
 
 class Login extends React.Component {
 
 	render () {
 
-		const { handleLogin, handleLogOut, isLoggedIn, isLoginOpen, isRegistrationOpen, loginFailAlert, showLoginBox, showRegistrationBox } = this.props;
+		const { handleLogin, isLoginOpen, isRegistrationOpen, loginFailAlert, showLoginBox, showRegistrationBox } = this.props;
 
 		return (<div>
 

@@ -1,6 +1,8 @@
 import React from 'react'
-import InvoicesList from '../components/InvoicesList/InvoicesList';
+import Invoices from '../components/Invoices/Invoices';
 import SideNav from '../components/SideNav/SideNav';
+
+import './_Pages.scss'
 
 class InvoiceList extends React.Component {
 
@@ -37,9 +39,9 @@ class InvoiceList extends React.Component {
 	render (){
 
 		return (
-			<div className={'main--content--box col-12'}>
+			<div className={'row main--content--box'}>
 				<SideNav />
-				<InvoicesList invoices={this.state.invoices} />
+				<Invoices invoices={this.state.invoices} />
 			</div>
 		)
 	}
