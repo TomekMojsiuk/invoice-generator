@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import BackgroundImg from './components/BackgroundImg/BackgroundImg';
 import TopNav from './components/TopNav/TopNav';
 import InvoiceList from './pages/InvoiceList';
-import InvoiceAdd from './pages/InvoiceAdd';
+import InvoiceAddNew from './pages/InvoiceAddNew';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Clients from './pages/Clients';
@@ -108,7 +108,7 @@ class App extends Component {
 								<InvoiceList isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert}/>)} />
 
 							<Route exact path="/add-invoice" render={() =>
-								<InvoiceAdd invoices={this.state.invoices}/>}/>
+								<InvoiceAddNew invoices={this.state.invoices}/>}/>
 
 							<Route exact path="/kontrahenci" render={() =>
 								<Clients invoices={this.state.invoices}/>}/>

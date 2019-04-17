@@ -1,0 +1,43 @@
+@import "../../sass/colors";
+
+.form--section {
+  height: auto;
+  margin: 20px 0 20px 0;
+}
+
+.form--input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    //position: sticky;
+    font-size: .9rem;
+    color: $color-4;
+
+  }
+
+  input, select, div {
+    position: relative;
+    width: 350px;
+    padding: 5px;
+    outline: none;
+    border: 1px solid $color-4;
+    border-radius: 10px;
+    color: $color-4;
+    @include backgroundColor($color-2);
+    margin: 0 0 10px 0;
+
+    &:focus {
+      @include backgroundColor($color-3);
+    }
+
+    &::placeholder {
+      color: $color-4;
+    }
+
+    option {
+      border-radius: 10px;
+    }
+
+  }
+}

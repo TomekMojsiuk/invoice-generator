@@ -16,23 +16,13 @@ class InvoiceList extends React.Component {
 
 	componentDidMount () {
 
-		fetch('http://localhost:3001/faktury').
+		fetch('http://localhost:3001/invoices').
 			then(response => response.json()).
 			then(invoices => this.setState({
 				invoices: invoices,
 			})).then(() => {
 			console.log(this.state.invoices);
 		});
-	}
-
-	sideNavRouter = () => {
-
-	}
-
-	addInvoice = () => {
-
-
-
 	}
 
 

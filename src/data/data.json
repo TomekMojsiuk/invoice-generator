@@ -24,12 +24,75 @@
       "login": "tomasz.mojsiuk@gmail.com",
       "password": "123"
     }
-    ],
-
-  "faktury": [
+  ],
+  "seller": {
+      "sellerId": "1",
+      "sellerName": "Nasza Firma Sp. z o.o.",
+      "sellerNIP": "000 000 00 00",
+      "sellerStreetAddress": "al. Grunwaldzka",
+      "sellerStreetNumber": "471",
+      "sellerPostCode": "80-309",
+      "sellerCityName": "Gdańsk"
+    },
+  "clients": [
+    {
+      "clientId": "1",
+      "clientName": "Ich Firma Sp. z o.o.",
+      "clientNIP": "000 000 00 00",
+      "clientStreetAddress": "al. Przykładowa",
+      "clientStreetNumber": "1",
+      "clientPostCode": "80-355",
+      "clientCityName": "Gdańsk"
+    },
+    {
+      "clientId": "2",
+      "clientName": "Jakaś kolejna firma Sp. z o.o.",
+      "clientNIP": "000 111 00 00",
+      "clientStreetAddress": "al. Kolejowa",
+      "clientStreetNumber": "55",
+      "clientPostCode": "80-124",
+      "clientCityName": "Gdańsk"
+    },
+    {
+      "clientId": "3",
+      "clientName": "Jakaś kolejna firma Sp. z o.o.",
+      "clientNIP": "000 222 00 00",
+      "clientStreetAddress": "al. Kolejna",
+      "clientStreetNumber": "23",
+      "clientPostCode": "80-132",
+      "clientCityName": "Gdańsk"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "product 1",
+      "price": "1200",
+      "quantity": "3",
+      "unit": "kg",
+      "vat": "23"
+    },
+    {
+      "id": "2",
+      "name": "product 2",
+      "price": "1200",
+      "quantity": "3",
+      "unit": "kg",
+      "vat": "23"
+    },
+    {
+      "id": "3",
+      "name": "product 3",
+      "price": "1200",
+      "quantity": "3",
+      "unit": "kg",
+      "vat": "23"
+    }
+  ],
+  "invoices": [
     {
       "invoiceNumber": "FV/01/2018",
-      "invoiceDate": "25.06.2018",
+      "issuingDate": "25.06.2018",
       "paymentDate": "01.07.2018",
       "seller": {
         "name": "Nasza firma",
@@ -59,157 +122,8 @@
         {
           "id": "2",
           "name": "product 2",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        },
-        {
-          "id": "3",
-          "name": "product 3",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "invoiceNumber": "FV/02/2018",
-      "invoiceDate": "25.06.2018",
-      "paymentDate": "01.07.2018",
-      "seller": {
-        "name": "Nasza firma",
-        "NIP": "1234567890",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "buyer": {
-        "name": "nazwaKlienta",
-        "NIP": "0987654321",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "id": "1",
-          "name": "product 1",
-          "price": "11.50",
-          "quantity": "7",
-          "unit": "kg",
-          "vat": "23"
-        },
-        {
-          "id": "2",
-          "name": "product 2",
-          "price": "9",
-          "quantity": "5",
-          "unit": "kg",
-          "vat": "23"
-        },
-        {
-          "id": "3",
-          "name": "product 3",
-          "price": "50",
+          "price": "1300",
           "quantity": "2",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "invoiceNumber": "FV/03/2018",
-      "invoiceDate": "25.06.2018",
-      "paymentDate": "01.07.2018",
-      "seller": {
-        "name": "Nasza firma",
-        "NIP": "1234567890",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "buyer": {
-        "name": "nazwaKlienta",
-        "NIP": "0987654321",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "id": "1",
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        },
-        {
-          "id": "2",
-          "name": "product 2",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        },
-        {
-          "id": "3",
-          "name": "product 3",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "invoiceNumber": "FV/04/2018",
-      "invoiceDate": "25.06.2018",
-      "paymentDate": "01.07.2018",
-      "seller": {
-        "name": "Nasza firma",
-        "NIP": "1234567890",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "buyer": {
-        "name": "nazwaKlienta",
-        "NIP": "0987654321",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "id": "1",
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        },
-        {
-          "id": "2",
-          "name": "product 2",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        },
-        {
-          "id": "3",
-          "name": "product 3",
-          "price": "1200",
-          "quantity": "3",
           "unit": "kg",
           "vat": "23"
         }
