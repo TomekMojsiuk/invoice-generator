@@ -11,6 +11,8 @@ class InvoiceAddNewForm extends React.Component {
 			IssueDateFieldType: 'text',
 			DueDateFieldType: 'text',
 
+			chosenClientName: "",
+			chosenClientNIP: "",
 		};
 	}
 
@@ -28,6 +30,39 @@ class InvoiceAddNewForm extends React.Component {
 			});
 		}
 	};
+
+	handleClientSelection = (e) => {
+
+		this.setState({
+			chosenClientName: e.target.value
+		})
+
+
+
+		//TODO moduł do wyświetlenia danych wyranego klienta w textarea. Przeiterować po klientach, porównać name z kluczem i wyświetlić dane
+
+		/*const clientFound = this.props.clients.find(client => {
+			console.log(client);
+			console.log(clientName, clientNIP);
+
+			return
+		})
+
+
+		const userFound = this.state.users.find(user => {
+			console.log(user);
+			console.log(username, password);
+
+			return user.username === username && user.password === password;
+		});
+
+		if (userFound) {
+			this.setState({
+				isLoggedIn: true,
+				loginFailAlert: '',
+			});*/
+
+	}
 
 	render () {
 
@@ -89,7 +124,8 @@ class InvoiceAddNewForm extends React.Component {
 							<h2 className={'form--section--title'}>Nabywca</h2>
 
 							<div className={'form--input'}>
-								<select value={this.props.clients} multiple={false}>
+
+								<select onChange={this.handleClientSelection} value={this.state.chosenClientName} multiple={false}>
 									<option defaultValue={''}>Wybierz klienta</option>
 									{this.props.clients.map(client => {
 										return <option key={client.clientNIP}
@@ -98,6 +134,14 @@ class InvoiceAddNewForm extends React.Component {
 								</select>
 
 							</div>
+
+							<div className={'form--input'}>
+								<label>Dane Dane kupującego:</label>
+								<textarea className={"form--textarea"} type='text' name="Numer_faktury"
+								       placeholder={'Wybierz z listy lub wprowadź dane ręcznie'}
+								          value={(this.state.chosenClientName)+ "\n" + (this.state.chosenClientNIP)}/>
+							</div>
+
 						</div>
 					</div>
 					<div className={'form--section invoice'}><h2

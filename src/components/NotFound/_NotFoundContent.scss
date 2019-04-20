@@ -1,4 +1,4 @@
-@import "../sass/colors";
+@import "../../sass/colors";
 
 $margin: 15px 0;
 
@@ -35,7 +35,7 @@ $margin: 15px 0;
     position: relative;
     height: 280px;
     width: 498px;
-    background: url("../assets/img/404gif.gif");
+    background: url("../../assets/img/404gif.gif");
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 10px;

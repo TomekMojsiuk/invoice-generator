@@ -38,7 +38,7 @@
     {
       "clientId": "1",
       "clientName": "Ich Firma Sp. z o.o.",
-      "clientNIP": "000 000 00 00",
+      "clientNIP": "111 000 00 00",
       "clientStreetAddress": "al. Przykładowa",
       "clientStreetNumber": "1",
       "clientPostCode": "80-355",
@@ -55,7 +55,7 @@
     },
     {
       "clientId": "3",
-      "clientName": "Jakaś kolejna firma Sp. z o.o.",
+      "clientName": "Jeszcze jedna firma SA",
       "clientNIP": "000 222 00 00",
       "clientStreetAddress": "al. Kolejna",
       "clientStreetNumber": "23",

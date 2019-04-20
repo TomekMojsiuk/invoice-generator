@@ -1,5 +1,5 @@
 import React from 'react'
-import "./_NotFound.scss"
+import "../components/NotFound/_NotFoundContent.scss"
 import './_Pages.scss'
 
 
