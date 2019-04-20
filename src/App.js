@@ -101,7 +101,7 @@ class App extends Component {
 
 					<TopNav handleLogOut={this.handleLogOut} isLoggedIn={this.state.isLoggedIn}/>
 
-					{!this.state.isLoggedIn ? (
+					{this.state.isLoggedIn ? (
 						<Switch>
 
 							<Route exact path="/" render={() => (

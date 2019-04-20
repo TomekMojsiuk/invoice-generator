@@ -1,0 +1,66 @@
+@import "../sass/colors";
+
+$margin: 15px 0;
+
+.link--not--found {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $color-4;
+  @include backgroundColor($color-2);
+
+  h1 {
+    margin: $margin;
+  }
+
+  p {
+    margin: $margin;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+
+  /*&--background--404 {
+    top: 155px;
+    position: absolute;
+    font-size: 14rem;
+    opacity: .8;
+
+
+  }*/
+
+  &_img {
+    position: relative;
+    height: 280px;
+    width: 498px;
+    background: url("../assets/img/404gif.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    margin: $margin;
+
+    &:before {
+      content: "404";
+      position: absolute;
+      left: -35%;
+      top: 30%;
+      font-size: 8rem;
+      transform: rotate(-50deg);
+      opacity: .7;
+    }
+
+    &:after {
+      content: "404";
+      position: absolute;
+      right: -35%;
+      top: 10%;
+      font-size: 8rem;
+      transform: rotate(50deg);
+      opacity: .7;
+    }
+
+  }
+
+}

@@ -23,7 +23,7 @@ class NavLinks extends React.Component {
 								<Fragment>
 									<MyLink exact to="/">Faktury</MyLink>
 									<MyLink exact to="/kontrahenci">Kontrahenci</MyLink>
-									<button className={'btn--logout'} onClick={handleLogOut}>Wyloguj</button>
+									<MyLink  exact to="/" className={'btn--logout'} onClick={handleLogOut}>Wyloguj</MyLink>
 								</Fragment>
 								:
 								<Fragment>

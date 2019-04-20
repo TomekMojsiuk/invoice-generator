@@ -100,13 +100,13 @@ export class LoginForm extends React.Component {
 	handleFormValidation (e) {
 
 		if (this.state.username === '') {
-			this.showValidationError('username', 'Username cannot be empty!');
+			this.showValidationError('username', 'Nazwa użytkownika nie może być pusta');
 		}
 		if (this.state.email === '') {
-			this.showValidationError('email', 'Email cannot be empty!');
+			this.showValidationError('email', 'Email nie może być pusty');
 		}
 		if (this.state.password === '') {
-			this.showValidationError('password', 'password cannot be empty!');
+			this.showValidationError('password', 'Hasło nie może bybć puste');
 		}
 
 	}
@@ -163,7 +163,7 @@ export class LoginForm extends React.Component {
 
 				<form onSubmit={this.beforeLogin}>
 
-					<div className={'form--input--username col-12'}>
+					<div className={'form--input--username row'}>
 						<input autoFocus={true} className={'form--input col-12'}
 						       type={'text'}
 						       value={this.state.username}
@@ -174,7 +174,7 @@ export class LoginForm extends React.Component {
 							: ''}</small>
 					</div>
 
-					<div className={'form--input--email col-12'}>
+					<div className={'form--input--email row'}>
 						<input className={'form--input col-12'}
 						       type={'email'}
 						       value={this.state.email}
@@ -185,7 +185,7 @@ export class LoginForm extends React.Component {
 							: ''}</small>
 					</div>
 
-					<div className={'form--input--password col-12'}>
+					<div className={'form--input--password row'}>
 						<input className={'form--input password'}
 						       type={this.state.hidden ? 'password' : 'text'}
 						       value={this.state.password}
