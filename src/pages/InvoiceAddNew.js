@@ -10,7 +10,7 @@ class InvoiceAddNew extends React.Component {
 		super(props)
 
 		this.state = {
-			seller: [],
+			sellers: [],
 			clients: [],
 			products: [],
 			invoices: [],
@@ -37,12 +37,22 @@ class InvoiceAddNew extends React.Component {
 				return error.message;
 			})
 
-			fetch('http://localhost:3001/seller').
+			fetch('http://localhost:3001/sellers').
 				then(response => response.json()).
 				then(seller => this.setState({
-					seller: seller,
+					sellers: seller,
 				})).then(() => {
-				console.log(this.state.seller);
+				console.log(this.state.sellers);
+			}).catch(error => {
+				return error.message;
+			})
+
+			fetch('http://localhost:3001/products').
+				then(response => response.json()).
+				then(product => this.setState({
+					products: product,
+				})).then(() => {
+				console.log(this.state.products);
 			}).catch(error => {
 				return error.message;
 			})
@@ -51,7 +61,7 @@ class InvoiceAddNew extends React.Component {
 		render() {
 			return (<div className={'row main--content--box'}>
 					<SideNav/>
-					<InvoiceAddNewForm clients={this.state.clients} seller={this.state.seller}/>
+					<InvoiceAddNewForm clients={this.state.clients} seller={this.state.sellers} products={this.state.products}/>
 				</div>
 			)
 		}

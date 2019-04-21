@@ -1,0 +1,47 @@
+@import "../../../sass/colors";
+
+
+.button--delete{
+
+  position: relative;
+  font-size: .9rem;
+  text-decoration: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid transparent;
+  transition: all .3s ease-in-out;
+  float: right;
+  right: 5px;
+  top: 2px;
+
+  &:before, &:after {
+    content: ' ';
+    position: absolute;
+    top: 23%;
+    left: 44%;
+    height: 10px;
+    width: 2px;
+    transition: all 0.5s ease-in-out;
+    background: $color-4;
+
+  }
+
+  &:hover {
+    border: 1px solid $color-4;
+    @include backgroundColor($color-2)
+    border-radius: 20px;
+  }
+
+  &:hover:after, &:hover:before {
+    background: $color-5;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+}

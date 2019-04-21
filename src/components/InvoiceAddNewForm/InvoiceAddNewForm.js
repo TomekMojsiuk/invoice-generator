@@ -2,6 +2,10 @@ import React from 'react';
 
 import './InvoiceAddNewForm.scss';
 
+import RegularButton from '../Buttons/RegularButton/RegularButton';
+import GenerateNewProductSale
+	from './GenerateNewProductSale/GenerateNewProductSale';
+
 class InvoiceAddNewForm extends React.Component {
 
 	constructor (props) {
@@ -11,9 +15,35 @@ class InvoiceAddNewForm extends React.Component {
 			IssueDateFieldType: 'text',
 			DueDateFieldType: 'text',
 
-			chosenClientName: "",
-			chosenClientNIP: "",
-		};
+			chosenSellerName: '',
+			chosenSellerNIP: '',
+			chosenSellerStreetAddress: '',
+			chosenSellerStreetNumber: '',
+			chosenSellerPostCode: '',
+			chosenSellerCityName: '',
+
+			chosenClientName: '',
+			chosenClientNIP: '',
+			chosenClientStreetAddress: '',
+			chosenClientStreetNumber: '',
+			chosenClientPostCode: '',
+			chosenClientCityName: '',
+
+			addNewLineCounter: "3",
+
+			product: [
+				{
+					chosenProductName: '',
+					chosenProductPrice: '',
+					chosenProductQuantity: '',
+					chosenProductUnit: '',
+					chosenProductVAT: '',
+					chosenProductTotal: 0,
+				}
+			]
+
+
+		}
 	}
 
 	handleDateFieldTypeOnFocus = (e) => {
@@ -31,101 +61,130 @@ class InvoiceAddNewForm extends React.Component {
 		}
 	};
 
+	handleSellerSelection = (e) => {
+
+		this.props.seller.map(seller => {
+
+			if (e.target.value === seller.sellerName)
+
+				this.setState({
+					chosenSellerName: seller.sellerName,
+					chosenSellerNIP: seller.sellerNIP,
+					chosenSellerStreetAddress: seller.sellerStreetAddress,
+					chosenSellerStreetNumber: seller.sellerStreetNumber,
+					chosenSellerPostCode: seller.sellerPostCode,
+					chosenSellerCityName: seller.sellerCityName,
+				});
+		});
+	};
+
 	handleClientSelection = (e) => {
 
-		this.setState({
-			chosenClientName: e.target.value
-		})
+		//TODO moduł do wyświetlenia danych wyranego klienta w textarea.
+		// Przeiterować po klientach, porównać name z kluczem i wyświetlić dane
 
+		this.props.clients.map(client => {
 
+			if (e.target.value === client.clientName)
 
-		//TODO moduł do wyświetlenia danych wyranego klienta w textarea. Przeiterować po klientach, porównać name z kluczem i wyświetlić dane
-
-		/*const clientFound = this.props.clients.find(client => {
-			console.log(client);
-			console.log(clientName, clientNIP);
-
-			return
-		})
-
-
-		const userFound = this.state.users.find(user => {
-			console.log(user);
-			console.log(username, password);
-
-			return user.username === username && user.password === password;
+				this.setState({
+					chosenClientName: client.clientName,
+					chosenClientNIP: client.clientNIP,
+					chosenClientStreetAddress: client.clientStreetAddress,
+					chosenClientStreetNumber: client.clientStreetNumber,
+					chosenClientPostCode: client.clientPostCode,
+					chosenClientCityName: client.clientCityName,
+				});
 		});
 
-		if (userFound) {
-			this.setState({
-				isLoggedIn: true,
-				loginFailAlert: '',
-			});*/
+	};
+
+	addNewProduct = () => {
+		this.setState((prevState) => {
+			addNewLineCounter: prevState ++
+		})
+		console.log(this.state.addNewLineCounter);
+	}
+
+	handleProductSelection = () => {
 
 	}
 
 	render () {
 
-		let { sellerId, sellerName, sellerNIP, sellerStreetAddress, sellerStreetNumber, sellerPostCode, sellerCityName } = this.props.seller;
-
 		return (<div className={'col-10 pages--content--container'}>
 				<form>
+					{/*============================== Dane faktury ==============================*/}
 
-					<div className={'form--section invoice'}>
+					<div className={'form--section'}>
 
 						<h2 className={'form--section--title'}>Dane faktury</h2>
+						<div className={'flex--wrapper'}>
 
-						<div className={'form--input'}>
-							<label>Numer faktury:</label>
-							<input type='text' name="Numer_faktury"
-							       placeholder={'numer faktury'}/>
+							<div className={'form--input invoice--data'}>
+								<label>Numer faktury:</label>
+								<input type='text' name="Numer_faktury"
+								       placeholder={'numer faktury'}/>
+							</div>
+
+							<div className={'form--input invoice--data'}>
+								<label>Data wystawienia:</label>
+								<input name="issueDate" type={this.state.issueDateFieldType}
+								       onFocus={this.handleDateFieldTypeOnFocus}
+								       placeholder="Podaj datę wystawienia faktury"/>
+							</div>
+
+							<div className={'form--input invoice--data'}>
+								<label>Data płatności:</label>
+								<input name="dueDate" type={this.state.dueDateFieldType}
+								       onFocus={this.handleDateFieldTypeOnFocus}
+								       placeholder="Wprowadź datę płatności"/>
+							</div>
+
 						</div>
-
-						<div className={'form--input'}>
-							<label>Data wystawienia:</label>
-							<input name="issueDate" type={this.state.issueDateFieldType}
-							       onFocus={this.handleDateFieldTypeOnFocus}
-							       placeholder="Podaj datę wystawienia faktury"/>
-						</div>
-
-						<div className={'form--input'}>
-							<label>Data płatności:</label>
-							<input name="dueDate" type={this.state.dueDateFieldType}
-							       onFocus={this.handleDateFieldTypeOnFocus}
-							       placeholder="Wprowadź datę płatności"/>
-						</div>
-
 					</div>
-					<div className={'flex-wrapper'}>
-						<div className={'form--section seller'}>
+					<div className={'flex--wrapper'}>
+
+						{/*============================== Sprzedawca ==============================*/}
+						<div className={'form--section seller--data'}>
+
 							<h2 className={'form--section--title'}>Sprzedawca</h2>
 
 							<div className={'form--input'}>
-								<input type="text" value={sellerId}
-								       placeholder={'Id'}/>
-								<input type="text" value={sellerName}
-								       placeholder={'Nazwa sprzedawcy'}/>
-								<input type="text" value={sellerNIP}
-								       placeholder={'NIP sprzedawcy'}/>
-								<input type="text" value={sellerStreetAddress}
-								       placeholder={'Adres sprzedawcy'}/>
-								<input type="text" value={sellerStreetNumber}
-								       placeholder={'Numer budynku sprzedawcy'}/>
-								<input type="text" value={sellerPostCode}
-								       placeholder={'Kod pocztowy sprzedawcy'}/>
-								<input type="text" value={sellerCityName}
-								       placeholder={'Miejscowość sprzedawcy'}/>
+
+								<select onChange={this.handleSellerSelection}
+								        value={this.state.chosenSellerName}>
+									<option defaultValue={''}>Wybierz sprzedawcę</option>
+									{this.props.seller.map(seller => {
+										return <option key={seller.sellerNIP}
+										               value={seller.sellerName}>{seller.sellerName}</option>;
+									})}
+								</select>
+
+							</div>
+
+							<div className={'form--input'}>
+								<label>Dane sprzedawcy:</label>
+								<textarea className={'form--textarea'}
+								          value={(this.state.chosenSellerName) +
+								          '\n' + (this.state.chosenSellerStreetAddress) + ' ' +
+								          (this.state.chosenSellerStreetNumber) +
+								          '\n' + (this.state.chosenSellerPostCode) + ' ' +
+								          (this.state.chosenSellerCityName) +
+								          '\n' + (this.state.chosenSellerNIP)}/>
 							</div>
 
 						</div>
 
-						<div className={'form--section client'}>
+						{/*============================== Nabywca ==============================*/}
+						<div className={'form--section client--data'}>
 
 							<h2 className={'form--section--title'}>Nabywca</h2>
 
 							<div className={'form--input'}>
 
-								<select onChange={this.handleClientSelection} value={this.state.chosenClientName} multiple={false}>
+								<select onChange={this.handleClientSelection}
+								        value={this.state.chosenClientName}>
 									<option defaultValue={''}>Wybierz klienta</option>
 									{this.props.clients.map(client => {
 										return <option key={client.clientNIP}
@@ -136,16 +195,32 @@ class InvoiceAddNewForm extends React.Component {
 							</div>
 
 							<div className={'form--input'}>
-								<label>Dane Dane kupującego:</label>
-								<textarea className={"form--textarea"} type='text' name="Numer_faktury"
-								       placeholder={'Wybierz z listy lub wprowadź dane ręcznie'}
-								          value={(this.state.chosenClientName)+ "\n" + (this.state.chosenClientNIP)}/>
+								<label>Dane nabywcy:</label>
+								<textarea className={'form--textarea'} type='text'
+								          name="Dane Nabywcy"
+								          placeholder={'Wybierz z listy lub wprowadź dane ręcznie'}
+								          value={(this.state.chosenClientName) +
+								          '\n' + (this.state.chosenClientStreetAddress) + ' ' +
+								          (this.state.chosenClientStreetNumber) +
+								          '\n' + (this.state.chosenClientPostCode) + ' ' +
+								          (this.state.chosenClientCityName) +
+								          '\n' + (this.state.chosenClientNIP)}/>
 							</div>
 
 						</div>
+
 					</div>
-					<div className={'form--section invoice'}><h2
-						className={'form--section--title'}>Linia kosztowa</h2></div>
+					{/*============================== Linia kosztowa ==============================*/}
+					<div className={'form--section invoice--details'}>
+						<h2 className={'form--section--title'}>Linia kosztowa</h2>
+						<RegularButton text={"Dodaj"} onClick={this.addNewProduct}/>
+					</div>
+					<div className={'form--input'}>
+						{/*<GenerateNewProductSale addNewLineCounter={this.state.addNewLineCounter}
+						                        onChange={this.handleProductSelection}
+						                        products={this.props.products} />*/}
+					</div>
+
 
 				</form>
 			</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './_invoice.scss'
+import DeleteButton from '../Buttons/DeleteButton/DeleteButton';
 
 class Invoices extends React.Component {
 
@@ -53,7 +54,6 @@ class Invoices extends React.Component {
 								<MyCol>{`${invoice.products.reduce((acc, product) => {
 									return acc + (product.quantity * product.price);
 								},0)} zł`}</MyCol>
-								<div className={'col-2 invoice--delete'}>X</div>
 							</div>
 						);
 					})}

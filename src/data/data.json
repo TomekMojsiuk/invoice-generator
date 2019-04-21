@@ -25,7 +25,8 @@
       "password": "123"
     }
   ],
-  "seller": {
+  "sellers": [
+    {
       "sellerId": "1",
       "sellerName": "Nasza Firma Sp. z o.o.",
       "sellerNIP": "000 000 00 00",
@@ -33,7 +34,8 @@
       "sellerStreetNumber": "471",
       "sellerPostCode": "80-309",
       "sellerCityName": "Gdańsk"
-    },
+    }
+    ],
   "clients": [
     {
       "clientId": "1",
@@ -65,12 +67,12 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "product 1",
-      "price": "12",
-      "quantity": "3",
-      "unit": "kg",
-      "vat": "23"
+      "productId": "1",
+      "productName": "Produkt 1",
+      "productPrice": "12",
+      "productQuantity": "3",
+      "productUnit": "kg",
+      "productVat": "23"
     }
   ],
   "invoices": [
