@@ -2,7 +2,6 @@ import React from 'react';
 
 import '../../pages/_Pages.scss'
 import LoadingBar from '../LoadingBar/LoadingBar';
-import MainPanelShadow from '../MainPanelShadow/MainPanelShadow';
 
 //TODO jeśli nie używany, usunąć
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import './_invoice.scss'
-import DeleteButton from '../Buttons/DeleteButton/DeleteButton';
 
 class Invoices extends React.Component {
 

@@ -79,7 +79,7 @@
     {
       "invoiceNumber": "FV/01/2018",
       "issuingDate": "25.06.2018",
-      "paymentDate": "01.07.2018",
+      "dueDate": "01.07.2018",
       "seller": {
         "name": "Nasza firma",
         "NIP": "1234567890",
@@ -88,7 +88,7 @@
         "postCode": "80-222",
         "cityName": "Gdańsk"
       },
-      "buyer": {
+      "client": {
         "name": "nazwaKlienta",
         "NIP": "0987654321",
         "streetAddress": "Szkolna",
