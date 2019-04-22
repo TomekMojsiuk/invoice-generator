@@ -49,15 +49,13 @@ class InvoiceAddNew extends React.Component {
 
 			invoice: [
 				{
-					"invoiceNumber": "",
-					"issuingDate": "",
-					"dueDate": "",
-
-					"seller": [],
-
-					"client": [],
+					invoiceNumber: "",
+					issuingDate: "",
+					dueDate: "",
+					seller: "",
+					client: "",
 				}
-			]
+			],
 		};
 	}
 
@@ -100,6 +98,7 @@ class InvoiceAddNew extends React.Component {
 		}).catch(error => {
 			return error.message;
 		});
+
 	}
 
 	handleSellerSelection = (e) => {
@@ -234,27 +233,52 @@ class InvoiceAddNew extends React.Component {
 		})
 	}
 
-	handleFormSubmit = (e) => {
-		e.preventDefault()
+	/*=================================== Submit handler ===================================*/
 
-		let newInvoice = {
-			"invoiceNumber": "",
-			"issuingDate": "25.06.2018",
-			"paymentDate": "01.07.2018",
+	handleFormSubmit = (e) => {
+		e.preventDefault();
+
+		const url = 'http://localhost:3001/invoices'
+		const invoice = {
+			"id": 0,
+			"invoiceNumber": this.state.invoiceNumber,
+			"issuingDate": this.state.issuingDate,
+			"dueDate": this.state.dueDate,
+			"seller": {
+				"name": this.state.chosenSellerName,
+				"NIP": this.state.chosenSellerNIP,
+				"streetAddress": this.state.chosenSellerStreetAddress,
+				"streetNumber": this.state.chosenSellerStreetNumber,
+				"postCode": this.state.chosenSellerPostCode,
+				"cityName": this.state.chosenSellerCityName
+			} ,
+			"client": {
+				"name": this.state.chosenClientName,
+				"NIP": this.state.chosenClientNIP,
+				"streetAddress": this.state.chosenClientStreetAddress,
+				"streetNumber": this.state.chosenClientStreetNumber,
+				"postCode": this.state.chosenClientPostCode,
+				"cityName": this.state.chosenClientCityName
+			},
+			"products":[
+				{
+					"name": "product 1",
+					"price": "1200",
+					"quantity": "3",
+					"unit": "kg",
+					"vat": "23"
+				},
+			]
 		}
 
-		/*let invoice = [...this.state.invoice, newInvoice]
+		console.log(invoice);
 
-		this.setState({
-			invoice: invoice
-		})*/
-
-
-
-		fetch('http://localhost:3001/invoices', {
-			method: 'post',
-			body: newInvoice
-		})
+		fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(invoice)
+		}).then(res => res.json())
+		.then(response => console.log('Success:', JSON.stringify(response)))
+		.catch(error => console.error('Error:', error));
 	}
 
 	render () {
@@ -267,8 +291,6 @@ class InvoiceAddNew extends React.Component {
 				                   InvoiceNumberOnChange={this.handleInvoiceNumber}
 				                   IssueDateOnChange={this.handleIssueDate}
 				                   DueDateOnChange={this.handleDueDate}
-				                   InvoiceSeller={this.handleInvoiceSeller}
-				                   InvoiceClient={this.handleInvoiceClient}
 
 				                   sellerSelectOnChange={this.handleSellerSelection}
 				                   sellerSelectValue={this.state.chosenSellerName}
@@ -287,6 +309,9 @@ class InvoiceAddNew extends React.Component {
 				                   '\n' + (this.state.chosenClientPostCode) + ' ' +
 				                   (this.state.chosenClientCityName) +
 				                   '\n' + (this.state.chosenClientNIP)}
+
+				                   InvoiceSeller={this.handleInvoiceSeller}
+				                   InvoiceClient={this.handleInvoiceClient}
 
 				                   addNewLineCounter={this.state.addNewLineCounter}
 				                   addNewLineCounterError={this.state.addNewLineCounterError}

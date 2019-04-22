@@ -41,6 +41,7 @@ class Invoices extends React.Component {
 				</div>
 
 				<div className={'row invoice--list--body col-12'}>
+
 					{this.props.invoices.map(invoice => {
 						return (
 							<div key={invoice.invoiceNumber} className={`invoice--item--${counter} col-12`}>
