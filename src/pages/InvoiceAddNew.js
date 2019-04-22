@@ -239,6 +239,9 @@ class InvoiceAddNew extends React.Component {
 		e.preventDefault();
 
 		const url = 'http://localhost:3001/invoices'
+		const products = {
+
+		}
 		const invoice = {
 			"id": 0,
 			"invoiceNumber": this.state.invoiceNumber,
@@ -275,7 +278,11 @@ class InvoiceAddNew extends React.Component {
 
 		fetch(url, {
 			method: 'POST',
-			body: JSON.stringify(invoice)
+			body: JSON.stringify(invoice),
+			redirect: "manual",
+			headers: {
+				"Content-Type": "application/json",
+			}
 		}).then(res => res.json())
 		.then(response => console.log('Success:', JSON.stringify(response)))
 		.catch(error => console.error('Error:', error));

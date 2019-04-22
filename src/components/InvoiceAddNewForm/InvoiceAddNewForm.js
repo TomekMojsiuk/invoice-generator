@@ -94,8 +94,7 @@ class InvoiceAddNewForm extends React.Component {
 							addNewProduct={this.props.addNewProduct}
 							removeNewProduct={this.props.removeNewProduct} />
 
-					<RegularButton text={'Wystaw fakturę VAT'}/>
-					<button className={"button--regular"} type={'submit'} onSubmit={e => e.preventDefault(this)}>Wystaw fakturę VAT</button>
+					<RegularButton text={'Wystaw fakturę VAT'} onClick={this.props.onSubmit}/>
 
 				</form>
 
