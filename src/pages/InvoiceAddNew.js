@@ -61,7 +61,7 @@ class InvoiceAddNew extends React.Component {
 		render() {
 			return (<div className={'row main--content--box'}>
 					<SideNav/>
-					<InvoiceAddNewForm clients={this.state.clients} seller={this.state.sellers} products={this.state.products}/>
+					<InvoiceAddNewForm clients={this.state.clients} sellers={this.state.sellers} products={this.state.products}/>
 				</div>
 			)
 		}

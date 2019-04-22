@@ -2,9 +2,10 @@ import React from 'react';
 
 import './InvoiceAddNewForm.scss';
 
-import RegularButton from '../Buttons/RegularButton/RegularButton';
-import GenerateNewProductSale
-	from './GenerateNewProductSale/GenerateNewLine';
+import GenerateNewProductSale from './GenerateNewProductSale/GenerateNewLine';
+import InvoiceGeneralData from './InvoiceGeneralData/InvoiceGeneralData';
+import InvoiceSellerInfo from './InvoiceSellerInfo/InvoiceSellerInfo';
+import InvoiceClientInfo from './InvoiceClientInfo/InvoiceClientInfo';
 
 class InvoiceAddNewForm extends React.Component {
 
@@ -46,6 +47,7 @@ class InvoiceAddNewForm extends React.Component {
 		};
 	}
 
+	/*================ Manage date fields ================*/
 	handleDateFieldTypeOnFocus = (e) => {
 
 		if (e.target.name === 'issueDate') {
@@ -61,9 +63,19 @@ class InvoiceAddNewForm extends React.Component {
 		}
 	};
 
+	handleDateFieldTypeOnBlur = () => {
+
+		this.setState({
+			issueDateFieldType: 'text',
+			dueDateFieldType: 'text',
+		});
+
+	};
+
+
 	handleSellerSelection = (e) => {
 
-		this.props.seller.map(seller => {
+		this.props.sellers.map(seller => {
 
 			if (e.target.value === seller.sellerName)
 
@@ -98,6 +110,7 @@ class InvoiceAddNewForm extends React.Component {
 		});
 
 	};
+
 
 	addNewProduct = () => {
 
@@ -136,125 +149,62 @@ class InvoiceAddNewForm extends React.Component {
 		console.log(this.state.addNewLineCounter);
 	};
 
+
 	handleProductSelection = () => {
 
 	};
+
 
 	render () {
 
 		return (<div className={'col-10 pages--content--container'}>
 				<form>
+
 					{/*============================== Dane faktury ==============================*/}
 
-					<div className={'form--section'}>
+					<InvoiceGeneralData issueDateFieldType={this.state.issueDateFieldType}
+					                    dueDateFieldType={this.state.dueDateFieldType}
+					                    onFocus={this.handleDateFieldTypeOnFocus}
+					                    onBlur={this.handleDateFieldTypeOnBlur}/>
 
-						<h2 className={'form--section--title'}>Dane faktury</h2>
-						<div className={'flex--wrapper'}>
-
-							<div className={'form--input invoice--data'}>
-								<label>Numer faktury:</label>
-								<input type='text' name="Numer_faktury"
-								       placeholder={'numer faktury'}/>
-							</div>
-
-							<div className={'form--input invoice--data'}>
-								<label>Data wystawienia:</label>
-								<input name="issueDate" type={this.state.issueDateFieldType}
-								       onFocus={this.handleDateFieldTypeOnFocus}
-								       placeholder="Podaj datę wystawienia faktury"/>
-							</div>
-
-							<div className={'form--input invoice--data'}>
-								<label>Data płatności:</label>
-								<input name="dueDate" type={this.state.dueDateFieldType}
-								       onFocus={this.handleDateFieldTypeOnFocus}
-								       placeholder="Wprowadź datę płatności"/>
-							</div>
-
-						</div>
-					</div>
 					<div className={'flex--wrapper'}>
 
 						{/*============================== Sprzedawca ==============================*/}
-						<div className={'form--section seller--data'}>
 
-							<h2 className={'form--section--title'}>Sprzedawca</h2>
-
-							<div className={'form--input'}>
-
-								<select onChange={this.handleSellerSelection}
-								        value={this.state.chosenSellerName}>
-									<option defaultValue={''}>Wybierz sprzedawcę</option>
-									{this.props.seller.map(seller => {
-										return <option key={seller.sellerNIP}
-										               value={seller.sellerName}>{seller.sellerName}</option>;
-									})}
-								</select>
-
-							</div>
-
-							<div className={'form--input'}>
-								<label>Dane sprzedawcy:</label>
-								<textarea className={'form--textarea'}
-								          value={(this.state.chosenSellerName) +
-								          '\n' + (this.state.chosenSellerStreetAddress) + ' ' +
-								          (this.state.chosenSellerStreetNumber) +
-								          '\n' + (this.state.chosenSellerPostCode) + ' ' +
-								          (this.state.chosenSellerCityName) +
-								          '\n' + (this.state.chosenSellerNIP)}/>
-							</div>
-
-						</div>
+						<InvoiceSellerInfo sellers={this.props.sellers}
+						                   selectOnChange={this.handleSellerSelection}
+						                   selectValue={this.state.chosenSellerName}
+						                   textAreaValue={(this.state.chosenSellerName) +
+																'\n' + (this.state.chosenSellerStreetAddress) + ' ' +
+																(this.state.chosenSellerStreetNumber) +
+																'\n' + (this.state.chosenSellerPostCode) + ' ' +
+																(this.state.chosenSellerCityName) +
+																'\n' + (this.state.chosenSellerNIP)}/>
 
 						{/*============================== Nabywca ==============================*/}
-						<div className={'form--section client--data'}>
 
-							<h2 className={'form--section--title'}>Nabywca</h2>
+						<InvoiceClientInfo clients={this.props.clients}
+						                   selectOnChange={this.handleClientSelection}
+						                   selectValue={this.state.chosenClientName}
+						                   textAreaValue={(this.state.chosenClientName) +
+						                   '\n' + (this.state.chosenClientStreetAddress) + ' ' +
+						                   (this.state.chosenClientStreetNumber) +
+						                   '\n' + (this.state.chosenClientPostCode) + ' ' +
+						                   (this.state.chosenClientCityName) +
+						                   '\n' + (this.state.chosenClientNIP)}/>
 
-							<div className={'form--input'}>
-
-								<select onChange={this.handleClientSelection}
-								        value={this.state.chosenClientName}>
-									<option defaultValue={''}>Wybierz klienta</option>
-									{this.props.clients.map(client => {
-										return <option key={client.clientNIP}
-										               value={client.clientName}>{client.clientName}</option>;
-									})}
-								</select>
-
-							</div>
-
-							<div className={'form--input'}>
-								<label>Dane nabywcy:</label>
-								<textarea className={'form--textarea'} type='text'
-								          name="Dane Nabywcy"
-								          placeholder={'Wybierz z listy lub wprowadź dane ręcznie'}
-								          value={(this.state.chosenClientName) +
-								          '\n' + (this.state.chosenClientStreetAddress) + ' ' +
-								          (this.state.chosenClientStreetNumber) +
-								          '\n' + (this.state.chosenClientPostCode) + ' ' +
-								          (this.state.chosenClientCityName) +
-								          '\n' + (this.state.chosenClientNIP)}/>
-							</div>
-
-						</div>
 
 					</div>
+
 					{/*============================== Linia kosztowa ==============================*/}
-					<div className={'form--section invoice--details'}>
-						<h2 className={'form--section--title'}>Linia kosztowa</h2>
-						<div className={"invice--details--buttons--container"}>
-							<RegularButton text={'Dodaj'} onClick={this.addNewProduct}/>
-							<RegularButton text={'Usuń'} onClick={this.removeNewProduct}/>
-							<div>{this.state.addNewLineCounterError}</div>
-						</div>
-					</div>
-					<div className={'form--input'}>
+
 						<GenerateNewProductSale
 							addNewLineCounter={this.state.addNewLineCounter}
+							addNewLineCounterError={this.state.addNewLineCounterError}
 							onChange={this.handleProductSelection}
-							products={this.props.products}/>
-					</div>
+							products={this.props.products}
+							addNewProduct={this.addNewProduct}
+							removeNewProduct={this.removeNewProduct} />
 
 
 				</form>
