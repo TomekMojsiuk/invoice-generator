@@ -62,9 +62,18 @@
   }
 
   .form--textarea {
+    font-family: 'Nunito', sans-serif;
+    @include backgroundColor($color-2);
+    border: 1px solid $color-1;
+    padding: 5px;
     height: 100px;
     max-width: 350px;
     max-height: 150px;
     outline: none;
   }
+}
+
+.invice--details--buttons--container {
+ display: flex;
+  flex-direction: row;
 }

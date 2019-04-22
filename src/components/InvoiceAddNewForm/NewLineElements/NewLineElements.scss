@@ -1,0 +1,26 @@
+@import "../../../sass/colors";
+
+.new--line--container {
+  display: flex;
+  flex-direction: row
+
+  &:before {
+    content: "";
+    margin-bottom: 7px ;
+    width: 100%;
+    border-top: 1px solid $color-1;
+  }
+
+
+
+  .form--input {
+    width: 30%;
+    &:first-child {
+      width: 50px;
+    }
+    input, select {
+      height: 28px;
+    }
+
+  }
+}

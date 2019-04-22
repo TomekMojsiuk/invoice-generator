@@ -4,7 +4,7 @@ import './InvoiceAddNewForm.scss';
 
 import RegularButton from '../Buttons/RegularButton/RegularButton';
 import GenerateNewProductSale
-	from './GenerateNewProductSale/GenerateNewProductSale';
+	from './GenerateNewProductSale/GenerateNewLine';
 
 class InvoiceAddNewForm extends React.Component {
 
@@ -29,7 +29,8 @@ class InvoiceAddNewForm extends React.Component {
 			chosenClientPostCode: '',
 			chosenClientCityName: '',
 
-			addNewLineCounter: "3",
+			addNewLineCounter: 1,
+			addNewLineCounterError: '',
 
 			product: [
 				{
@@ -39,11 +40,10 @@ class InvoiceAddNewForm extends React.Component {
 					chosenProductUnit: '',
 					chosenProductVAT: '',
 					chosenProductTotal: 0,
-				}
-			]
+				},
+			],
 
-
-		}
+		};
 	}
 
 	handleDateFieldTypeOnFocus = (e) => {
@@ -100,15 +100,45 @@ class InvoiceAddNewForm extends React.Component {
 	};
 
 	addNewProduct = () => {
+
 		this.setState((prevState) => {
-			addNewLineCounter: prevState ++
-		})
+
+			return {
+				addNewLineCounter: prevState.addNewLineCounter + 1,
+				addNewLineCounterError: '',
+			};
+
+		});
 		console.log(this.state.addNewLineCounter);
-	}
+	};
+
+	removeNewProduct = () => {
+		if (!this.state.addNewLineCounter < 1) {
+			this.setState((prevState) => {
+
+				return {
+					addNewLineCounter: prevState.addNewLineCounter - 1,
+					addNewLineCounterError: '',
+				};
+
+			});
+		} else {
+			this.setState(() => {
+
+				return {
+					addNewLineCounter: 0,
+					addNewLineCounterError: 'Brak elementów do usunięcia',
+				};
+
+			});
+		}
+
+		console.log(this.state.addNewLineCounter);
+	};
 
 	handleProductSelection = () => {
 
-	}
+	};
 
 	render () {
 
@@ -213,12 +243,17 @@ class InvoiceAddNewForm extends React.Component {
 					{/*============================== Linia kosztowa ==============================*/}
 					<div className={'form--section invoice--details'}>
 						<h2 className={'form--section--title'}>Linia kosztowa</h2>
-						<RegularButton text={"Dodaj"} onClick={this.addNewProduct}/>
+						<div className={"invice--details--buttons--container"}>
+							<RegularButton text={'Dodaj'} onClick={this.addNewProduct}/>
+							<RegularButton text={'Usuń'} onClick={this.removeNewProduct}/>
+							<div>{this.state.addNewLineCounterError}</div>
+						</div>
 					</div>
 					<div className={'form--input'}>
-						{/*<GenerateNewProductSale addNewLineCounter={this.state.addNewLineCounter}
-						                        onChange={this.handleProductSelection}
-						                        products={this.props.products} />*/}
+						<GenerateNewProductSale
+							addNewLineCounter={this.state.addNewLineCounter}
+							onChange={this.handleProductSelection}
+							products={this.props.products}/>
 					</div>
 
 

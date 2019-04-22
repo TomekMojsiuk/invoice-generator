@@ -1,5 +1,7 @@
 @import "sass/grid";
 @import "sass/colors";
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 * {
   margin: 0;
@@ -22,6 +24,8 @@
 
 .container {
   height: auto;
+  font-family: 'Nunito', sans-serif;
+
 }
 
 .background--shadow {
