@@ -177,62 +177,6 @@
           "vat": "23"
         }
       ]
-    },
-    {
-      "id": 4,
-      "seller": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
-      },
-      "client": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "seller": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
-      },
-      "client": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
     }
   ]
 }

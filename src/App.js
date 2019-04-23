@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+
 import './app.scss';
 import users from './data/data';
 
@@ -12,12 +13,13 @@ import InvoiceAddNew from './pages/InvoiceAddNew';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Clients from './pages/Clients';
-import LoadingBar from './components/LoadingBar/LoadingBar';
+import Products from './pages/Products';
 
 class App extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
+
 			users: [],
 
 			isLoginOpen: true,
@@ -29,6 +31,7 @@ class App extends Component {
 	}
 
 	componentDidMount () {
+
 		fetch('http://localhost:3001/users').
 			then(response => response.json()).
 			then(users =>
@@ -109,10 +112,13 @@ class App extends Component {
 								<InvoiceList isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert}/>)} />
 
 							<Route exact path="/add-invoice" render={() =>
-								<InvoiceAddNew invoices={this.state.invoices}/>}/>
+								<InvoiceAddNew />}/>
 
-							<Route exact path="/kontrahenci" render={() =>
-								<Clients invoices={this.state.invoices}/>}/>
+							<Route exact path="/clients" render={() =>
+								<Clients />}/>
+
+							<Route exact path="/products" render={() =>
+								<Products />}/>
 
 							<Route component={NotFound}/>
 

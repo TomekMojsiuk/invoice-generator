@@ -79,11 +79,13 @@ Aplikacja pozwala na zarządzanie fakturami; archiwizacja, wystawianie faktur. M
     Hasło: 1234admin
 
 
-# Technologie:
+# Technologie i paczki:
 
 - React
 - ES6
 - json-server
+
+- react-number-format
 
 # Podstawowe funkcjonalności:
 

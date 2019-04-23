@@ -29,7 +29,6 @@ class Invoices extends React.Component {
 		return (<div className={'pages--content--container col-10'}>
 				{invoices && invoices.length ? <h1>Lista faktur</h1> : <h1>Brak
 					faktur</h1>}
-				<button>Pobierz faktury</button>
 				<div className={'row invoice--list--header'}>
 					<MyCol>LP</MyCol>
 					<MyCol>Numer faktury</MyCol>

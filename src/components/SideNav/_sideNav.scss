@@ -2,7 +2,9 @@
 
 .nav--side {
   position: absolute;
-  min-height: 87% !important;
+  top: 10px;
+  padding: 30px 10px!important;
+  /*min-height: 87% !important;*/
   margin-right: 5px;
   @include boxShadow($color-4);
 

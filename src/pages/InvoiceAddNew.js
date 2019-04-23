@@ -7,6 +7,8 @@ import './_Pages.scss';
 
 class InvoiceAddNew extends React.Component {
 
+//FIXME jak dodać kilka obiektów do jednej tablicy? - pozycje faktury.
+
 	constructor (props) {
 		super(props);
 
@@ -56,6 +58,7 @@ class InvoiceAddNew extends React.Component {
 					client: "",
 				}
 			],
+			invoiceProducts:'',
 		};
 	}
 
@@ -120,9 +123,6 @@ class InvoiceAddNew extends React.Component {
 
 	handleClientSelection = (e) => {
 
-		//TODO moduł do wyświetlenia danych wybranego klienta w textarea.
-		// Przeiterować po klientach, porównać name z kluczem i wyświetlić dane
-
 		this.state.clients.map(client => {
 
 			if (e.target.value === client.clientName)
@@ -177,6 +177,24 @@ class InvoiceAddNew extends React.Component {
 	};
 
 	handleProductSelection = (e) => {
+
+	};
+
+	handleAddingProducts = () => {
+
+		const newProduct = {
+
+				name: this.state.chosenProductName,
+				price: this.state.chosenProductPrice,
+				quantity: this.state.chosenProductQuantity,
+				unit: this.state.chosenProductUnit,
+				vat: this.state.chosenProductVAT,
+				total: this.state.chosenProductTotal
+		};
+
+		this.setState({
+			invoiceProducts: [...this.state.invoiceProducts, newProduct]
+		})
 
 	};
 
@@ -239,9 +257,6 @@ class InvoiceAddNew extends React.Component {
 		e.preventDefault();
 
 		const url = 'http://localhost:3001/invoices'
-		const products = {
-
-		}
 		const invoice = {
 			"id": 0,
 			"invoiceNumber": this.state.invoiceNumber,
@@ -263,15 +278,13 @@ class InvoiceAddNew extends React.Component {
 				"postCode": this.state.chosenClientPostCode,
 				"cityName": this.state.chosenClientCityName
 			},
-			"products":[
-				{
-					"name": "product 1",
-					"price": "1200",
-					"quantity": "3",
-					"unit": "kg",
-					"vat": "23"
-				},
-			]
+			"products": {
+				"name": "product 1",
+				"price": "1200",
+				"quantity": "3",
+				"unit": "kg",
+				"vat": "23"
+			}
 		}
 
 		console.log(invoice);
