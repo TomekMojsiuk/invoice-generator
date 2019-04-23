@@ -12,6 +12,7 @@ import InvoiceAddNew from './pages/InvoiceAddNew';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Clients from './pages/Clients';
+import LoadingBar from './components/LoadingBar/LoadingBar';
 
 class App extends Component {
 	constructor (props) {
@@ -100,8 +101,8 @@ class App extends Component {
 					<BackgroundImg/>
 
 					<TopNav handleLogOut={this.handleLogOut} isLoggedIn={this.state.isLoggedIn}/>
+					{this.state.isLoggedIn ? (
 
-					{!this.state.isLoggedIn ? (
 						<Switch>
 
 							<Route exact path="/" render={() => (
