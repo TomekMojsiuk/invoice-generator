@@ -4,20 +4,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding-top: 10px;
   border-top: 1px solid $color-1;
 }
 
 .form--section {
   height: auto;
-  margin: 20px 0 20px 0;
+  margin: 0 0 20px 0;
 
   .form--section--title {
-   margin: 10px 0 20px 0;
+   margin: 0 0 20px 0;
   }
 
 }
 
-.invoice--data {
+.invoice--general--data {
   width: 30%;
 }
 
@@ -73,7 +74,14 @@
   }
 }
 
-.invice--details--buttons--container {
+.invoice--details--buttons--container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .button--regular {
+    margin-top: 0
+  }
+
 }
