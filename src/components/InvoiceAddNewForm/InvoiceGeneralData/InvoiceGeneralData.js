@@ -1,36 +1,49 @@
-import React from 'react'
+import React from 'react';
 
 class InvoiceGeneralData extends React.Component {
-
 
 	render () {
 		return (<div className={'form--section'}>
 
-					<h2 className={'form--section--title'}>Dane faktury</h2>
-					<div className={'flex--wrapper'}>
+				<h2 className={'form--section--title'}>Dane faktury</h2>
+				<div className={'flex--wrapper invoice--general--data--container'}>
 
-						<div className={'form--input invoice--data'}>
-							<label>Numer faktury:</label>
-							<input type='text' name="Numer_faktury"
-							       placeholder={'numer faktury'}/>
-						</div>
-
-						<div className={'form--input invoice--data'}>
-							<label>Data wystawienia:</label>
-							<input name="issueDate" type={this.props.issueDateFieldType}
-							       onFocus={this.props.onFocus} onBlur={this.props.onBlur}
-							       placeholder="Podaj datę wystawienia faktury"/>
-						</div>
-
-						<div className={'form--input invoice--data'}>
-							<label>Data płatności:</label>
-							<input name="dueDate" type={this.props.dueDateFieldType}
-							       onFocus={this.props.onFocus} onBlur={this.props.onBlur}
-							       placeholder="Wprowadź datę płatności"/>
-						</div>
+					<div className={'form--input invoice--general--data'}>
+						<label>Numer faktury:</label>
+						<input type='text'
+						       name="Numer_faktury"
+						       placeholder={'numer faktury'}
+						       onChange={this.props.InvoiceNumberOnChange}
+						/>
 
 					</div>
+
+					<div className={'form--input invoice--general--data'}>
+						<label>Data wystawienia:</label>
+						<input name="issueDate"
+						       type={this.props.issueDateFieldType}
+						       onFocus={this.props.onFocus}
+						       onBlur={this.props.onBlur}
+						       onChange={this.props.IssueDateOnChange}
+						       placeholder="Podaj datę wystawienia faktury"
+						/>
+
+					</div>
+
+					<div className={'form--input invoice--general--data'}>
+						<label>Data płatności:</label>
+						<input name="dueDate"
+						       type={this.props.dueDateFieldType}
+						       onFocus={this.props.onFocus}
+						       onBlur={this.props.onBlur}
+						       onChange={this.props.DueDateOnChange}
+						       placeholder="Wprowadź datę płatności"
+						/>
+
+					</div>
+
 				</div>
+			</div>
 		);
 	}
 }

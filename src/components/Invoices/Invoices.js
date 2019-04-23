@@ -1,6 +1,5 @@
 import React from 'react';
 import './_invoice.scss'
-import DeleteButton from '../Buttons/DeleteButton/DeleteButton';
 
 class Invoices extends React.Component {
 
@@ -42,6 +41,7 @@ class Invoices extends React.Component {
 				</div>
 
 				<div className={'row invoice--list--body col-12'}>
+
 					{this.props.invoices.map(invoice => {
 						return (
 							<div key={invoice.invoiceNumber} className={`invoice--item--${counter} col-12`}>

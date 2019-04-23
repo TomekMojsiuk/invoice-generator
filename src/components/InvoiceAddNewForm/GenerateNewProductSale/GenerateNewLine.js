@@ -26,13 +26,12 @@ class GenerateNewLine extends React.Component {
 
 					<h2 className={'form--section--title'}>Linia kosztowa</h2>
 
-					<div className={"invice--details--buttons--container"}>
+					<div className={"invoice--details--buttons--container"}>
 						<RegularButton text={'Dodaj'} onClick={this.props.addNewProduct}/>
 						<RegularButton text={'Usuń'} onClick={this.props.removeNewProduct}/>
 						<div>{this.props.addNewLineCounterError}</div>
 
 					</div>
-
 				{newProductLine}
 			</div>
 		);

@@ -23,6 +23,15 @@
       "username": "Tomek",
       "login": "tomasz.mojsiuk@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "ZHBNv0_"
+    },
+    {
+      "id": "ujhKaP_"
+    },
+    {
+      "id": "A0m8VWc"
     }
   ],
   "sellers": [
@@ -35,7 +44,7 @@
       "sellerPostCode": "80-309",
       "sellerCityName": "Gdańsk"
     }
-    ],
+  ],
   "clients": [
     {
       "clientId": "1",
@@ -77,9 +86,10 @@
   ],
   "invoices": [
     {
+      "id": 1,
       "invoiceNumber": "FV/01/2018",
       "issuingDate": "25.06.2018",
-      "paymentDate": "01.07.2018",
+      "dueDate": "01.07.2018",
       "seller": {
         "name": "Nasza firma",
         "NIP": "1234567890",
@@ -88,7 +98,7 @@
         "postCode": "80-222",
         "cityName": "Gdańsk"
       },
-      "buyer": {
+      "client": {
         "name": "nazwaKlienta",
         "NIP": "0987654321",
         "streetAddress": "Szkolna",
@@ -98,18 +108,99 @@
       },
       "products": [
         {
-          "id": "1",
           "name": "product 1",
           "price": "1200",
           "quantity": "3",
           "unit": "kg",
           "vat": "23"
-        },
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "invoiceNumber": "1/04/2019",
+      "issuingDate": "2019-04-01",
+      "dueDate": "2019-04-11",
+      "seller": {
+        "name": "Nasza Firma Sp. z o.o.",
+        "NIP": "000 000 00 00",
+        "streetAddress": "al. Grunwaldzka",
+        "streetNumber": "471",
+        "postCode": "80-309",
+        "cityName": "Gdańsk"
+      },
+      "client": {
+        "name": "Jeszcze jedna firma SA",
+        "NIP": "000 222 00 00",
+        "streetAddress": "al. Kolejna",
+        "streetNumber": "23",
+        "postCode": "80-132",
+        "cityName": "Gdańsk"
+      },
+      "products": [
         {
-          "id": "2",
-          "name": "product 2",
-          "price": "1300",
-          "quantity": "2",
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "invoiceNumber": "1/04/2019",
+      "issuingDate": "2019-04-07",
+      "dueDate": "2019-04-17",
+      "seller": {
+        "name": "Nasza Firma Sp. z o.o.",
+        "NIP": "000 000 00 00",
+        "streetAddress": "al. Grunwaldzka",
+        "streetNumber": "471",
+        "postCode": "80-309",
+        "cityName": "Gdańsk"
+      },
+      "client": {
+        "name": "Jakaś kolejna firma Sp. z o.o.",
+        "NIP": "000 111 00 00",
+        "streetAddress": "al. Kolejowa",
+        "streetNumber": "55",
+        "postCode": "80-124",
+        "cityName": "Gdańsk"
+      },
+      "products": [
+        {
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seller": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
+      },
+      "client": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
+      },
+      "products": [
+        {
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
           "unit": "kg",
           "vat": "23"
         }

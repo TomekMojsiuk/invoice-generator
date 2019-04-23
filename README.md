@@ -95,8 +95,7 @@ Aplikacja pozwala na zarządzanie fakturami; archiwizacja, wystawianie faktur. M
 - rejestracja nowego użytkownika w aplikacji. Na razie możemy tylko logować się jako już dodany użytkownik.
 - input mask - walidacja pól formularza pod kątem dozwolonych znaków, formatów wpisywania np. dla kodu pocztowego czy nipu.
 - kalkultor walutowy, jeśli chcielibyśmy wystawić fakturę w obcej walucie.
-- zarządzanie fakturami i kontrahentami, tj. dodawanie,
-- podpiąć json server i bazy danych pod aplikację, żeby można było je modyfikować.
+- zarządzanie fakturami i kontrahentami, tj. dodawanie, usuwanie, modyfikowanie danych
 
 #Instalacja i uruchomienie:
 

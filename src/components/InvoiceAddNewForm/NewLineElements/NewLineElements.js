@@ -43,6 +43,7 @@ class NewLineElements extends React.Component {
 				<div className={'form--input'}>
 					<select onChange={''}
 					        defaultValue={''}>
+						<option value={''}>Jednostka</option>
 						<option value={'szt'}>Szt</option>
 						<option value={'kg'}>Kg</option>
 					</select>
@@ -51,6 +52,7 @@ class NewLineElements extends React.Component {
 				<div className={'form--input'}>
 					<select onChange={''}
 					        defaultValue={'Wybierz wysokość VAT'}>
+						<option value={''}>VAT</option>
 						<option value={'23'}>23%</option>
 						<option value={'8'}>8%</option>
 					</select>

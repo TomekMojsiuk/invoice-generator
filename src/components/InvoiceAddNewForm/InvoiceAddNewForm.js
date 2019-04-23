@@ -2,10 +2,11 @@ import React from 'react';
 
 import './InvoiceAddNewForm.scss';
 
-import GenerateNewProductSale from './GenerateNewProductSale/GenerateNewLine';
 import InvoiceGeneralData from './InvoiceGeneralData/InvoiceGeneralData';
 import InvoiceSellerInfo from './InvoiceSellerInfo/InvoiceSellerInfo';
 import InvoiceClientInfo from './InvoiceClientInfo/InvoiceClientInfo';
+import GenerateNewProductSale from './GenerateNewProductSale/GenerateNewLine';
+import RegularButton from '../Buttons/RegularButton/RegularButton';
 
 class InvoiceAddNewForm extends React.Component {
 
@@ -13,36 +14,9 @@ class InvoiceAddNewForm extends React.Component {
 		super(props);
 
 		this.state = {
+
 			IssueDateFieldType: 'text',
 			DueDateFieldType: 'text',
-
-			chosenSellerName: '',
-			chosenSellerNIP: '',
-			chosenSellerStreetAddress: '',
-			chosenSellerStreetNumber: '',
-			chosenSellerPostCode: '',
-			chosenSellerCityName: '',
-
-			chosenClientName: '',
-			chosenClientNIP: '',
-			chosenClientStreetAddress: '',
-			chosenClientStreetNumber: '',
-			chosenClientPostCode: '',
-			chosenClientCityName: '',
-
-			addNewLineCounter: 1,
-			addNewLineCounterError: '',
-
-			product: [
-				{
-					chosenProductName: '',
-					chosenProductPrice: '',
-					chosenProductQuantity: '',
-					chosenProductUnit: '',
-					chosenProductVAT: '',
-					chosenProductTotal: 0,
-				},
-			],
 
 		};
 	}
@@ -72,142 +46,60 @@ class InvoiceAddNewForm extends React.Component {
 
 	};
 
-
-	handleSellerSelection = (e) => {
-
-		this.props.sellers.map(seller => {
-
-			if (e.target.value === seller.sellerName)
-
-				this.setState({
-					chosenSellerName: seller.sellerName,
-					chosenSellerNIP: seller.sellerNIP,
-					chosenSellerStreetAddress: seller.sellerStreetAddress,
-					chosenSellerStreetNumber: seller.sellerStreetNumber,
-					chosenSellerPostCode: seller.sellerPostCode,
-					chosenSellerCityName: seller.sellerCityName,
-				});
-		});
-	};
-
-	handleClientSelection = (e) => {
-
-		//TODO moduł do wyświetlenia danych wyranego klienta w textarea.
-		// Przeiterować po klientach, porównać name z kluczem i wyświetlić dane
-
-		this.props.clients.map(client => {
-
-			if (e.target.value === client.clientName)
-
-				this.setState({
-					chosenClientName: client.clientName,
-					chosenClientNIP: client.clientNIP,
-					chosenClientStreetAddress: client.clientStreetAddress,
-					chosenClientStreetNumber: client.clientStreetNumber,
-					chosenClientPostCode: client.clientPostCode,
-					chosenClientCityName: client.clientCityName,
-				});
-		});
-
-	};
-
-
-	addNewProduct = () => {
-
-		this.setState((prevState) => {
-
-			return {
-				addNewLineCounter: prevState.addNewLineCounter + 1,
-				addNewLineCounterError: '',
-			};
-
-		});
-		console.log(this.state.addNewLineCounter);
-	};
-
-	removeNewProduct = () => {
-		if (!this.state.addNewLineCounter < 1) {
-			this.setState((prevState) => {
-
-				return {
-					addNewLineCounter: prevState.addNewLineCounter - 1,
-					addNewLineCounterError: '',
-				};
-
-			});
-		} else {
-			this.setState(() => {
-
-				return {
-					addNewLineCounter: 0,
-					addNewLineCounterError: 'Brak elementów do usunięcia',
-				};
-
-			});
-		}
-
-		console.log(this.state.addNewLineCounter);
-	};
-
-
-	handleProductSelection = () => {
-
-	};
-
-
 	render () {
 
 		return (<div className={'col-10 pages--content--container'}>
-				<form>
+				<form onSubmit={this.props.onSubmit}>
 
 					{/*============================== Dane faktury ==============================*/}
 
 					<InvoiceGeneralData issueDateFieldType={this.state.issueDateFieldType}
 					                    dueDateFieldType={this.state.dueDateFieldType}
 					                    onFocus={this.handleDateFieldTypeOnFocus}
-					                    onBlur={this.handleDateFieldTypeOnBlur}/>
+					                    onBlur={this.handleDateFieldTypeOnBlur}
+					                    InvoiceNumberOnChange={this.props.InvoiceNumberOnChange}
+					                    IssueDateOnChange={this.props.IssueDateOnChange}
+					                    DueDateOnChange={this.props.DueDateOnChange}
+					/>
 
 					<div className={'flex--wrapper'}>
 
 						{/*============================== Sprzedawca ==============================*/}
 
 						<InvoiceSellerInfo sellers={this.props.sellers}
-						                   selectOnChange={this.handleSellerSelection}
-						                   selectValue={this.state.chosenSellerName}
-						                   textAreaValue={(this.state.chosenSellerName) +
-																'\n' + (this.state.chosenSellerStreetAddress) + ' ' +
-																(this.state.chosenSellerStreetNumber) +
-																'\n' + (this.state.chosenSellerPostCode) + ' ' +
-																(this.state.chosenSellerCityName) +
-																'\n' + (this.state.chosenSellerNIP)}/>
+						                   sellerSelectOnChange={this.props.sellerSelectOnChange}
+						                   sellerSelectValue={this.props.sellerSelectValue}
+						                   sellerTextAreaValue={this.props.sellerTextAreaValue}
+						                   InvoiceSeller={this.props.InvoiceSeller}
+						/>
 
 						{/*============================== Nabywca ==============================*/}
 
 						<InvoiceClientInfo clients={this.props.clients}
-						                   selectOnChange={this.handleClientSelection}
-						                   selectValue={this.state.chosenClientName}
-						                   textAreaValue={(this.state.chosenClientName) +
-						                   '\n' + (this.state.chosenClientStreetAddress) + ' ' +
-						                   (this.state.chosenClientStreetNumber) +
-						                   '\n' + (this.state.chosenClientPostCode) + ' ' +
-						                   (this.state.chosenClientCityName) +
-						                   '\n' + (this.state.chosenClientNIP)}/>
-
+						                   clientSelectOnChange={this.props.clientSelectOnChange}
+						                   clientSelectValue={this.props.clientSelectValue}
+						                   clientTextAreaValue={this.props.clientTextAreaValue}
+						                   InvoiceClient={this.props.InvoiceClient}
+						/>
 
 					</div>
 
 					{/*============================== Linia kosztowa ==============================*/}
 
 						<GenerateNewProductSale
-							addNewLineCounter={this.state.addNewLineCounter}
-							addNewLineCounterError={this.state.addNewLineCounterError}
-							onChange={this.handleProductSelection}
+							addNewLineCounter={this.props.addNewLineCounter}
+							addNewLineCounterError={this.props.addNewLineCounterError}
+							onChange={this.props.productOnChange}
 							products={this.props.products}
-							addNewProduct={this.addNewProduct}
-							removeNewProduct={this.removeNewProduct} />
+							addNewProduct={this.props.addNewProduct}
+							removeNewProduct={this.props.removeNewProduct} />
 
+					<RegularButton text={'Wystaw fakturę VAT'} onClick={this.props.onSubmit}/>
 
 				</form>
+
+
+
 			</div>
 		);
 	}

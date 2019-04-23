@@ -2,11 +2,6 @@ import React from 'react'
 
 class InvoiceSellerInfo extends React.Component {
 
-	constructor (props) {
-		super(props);
-
-	}
-
 	render () {
 		return (<div className={'form--section seller--data'}>
 
@@ -14,12 +9,14 @@ class InvoiceSellerInfo extends React.Component {
 
 				<div className={'form--input'}>
 
-					<select onChange={this.props.selectOnChange}
-					        value={this.props.selectValue}>
+					<select onChange={this.props.sellerSelectOnChange}
+					        value={this.props.sellerSelectValue}>
+
 						<option defaultValue={''}>Wybierz sprzedawcę</option>
 						{this.props.sellers.map(seller => {
 							return <option key={seller.sellerNIP}
-							               value={seller.sellerName}>{seller.sellerName}</option>;
+							               value={seller.sellerName}
+							               onChange={this.props.InvoiveSeller}>{seller.sellerName}</option>;
 						})}
 					</select>
 
@@ -28,7 +25,7 @@ class InvoiceSellerInfo extends React.Component {
 				<div className={'form--input'}>
 					<label>Dane sprzedawcy:</label>
 					<textarea className={'form--textarea'}
-					          value={this.props.textAreaValue}/>
+					          value={this.props.sellerTextAreaValue}/>
 				</div>
 
 			</div>
