@@ -278,13 +278,15 @@ class InvoiceAddNew extends React.Component {
 				"postCode": this.state.chosenClientPostCode,
 				"cityName": this.state.chosenClientCityName
 			},
-			"products": {
+			"products": [
+				{
 				"name": "product 1",
 				"price": "1200",
 				"quantity": "3",
 				"unit": "kg",
 				"vat": "23"
 			}
+			]
 		}
 
 		console.log(invoice);

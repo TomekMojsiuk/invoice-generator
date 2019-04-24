@@ -34,8 +34,8 @@ class Invoices extends React.Component {
 					<MyCol>Numer faktury</MyCol>
 					<MyCol>Data wystawienia</MyCol>
 					<MyCol>Data płatności</MyCol>
-					{/*<MyCol>Sprzedający</MyCol>
-					<MyCol>Kupujący</MyCol>*/}
+					<MyCol>Sprzedający</MyCol>
+					<MyCol>Kupujący</MyCol>
 					<MyCol>Kwota</MyCol>
 				</div>
 
@@ -46,8 +46,10 @@ class Invoices extends React.Component {
 							<div key={invoice.invoiceNumber} className={`invoice--item--${counter} col-12`}>
 								<MyCol>{counter += 1}</MyCol>
 								<MyCol>{invoice.invoiceNumber}</MyCol>
-								<MyCol>{invoice.invoiceDate}</MyCol>
-								<MyCol>{invoice.paymentDate}</MyCol>
+								<MyCol>{invoice.issuingDate}</MyCol>
+								<MyCol>{invoice.dueDate}</MyCol>
+								<MyCol>{invoice.seller.name}</MyCol>
+								<MyCol>{invoice.client.name}</MyCol>
 								{/*<MyCol>{invoice.seller.name}</MyCol>
 								<MyCol>{invoice.buyer.name}</MyCol>*/}
 								<MyCol>{`${invoice.products.reduce((acc, product) => {

@@ -295,6 +295,37 @@
           "vat": "23"
         }
       ]
+    },
+    {
+      "id": 8,
+      "invoiceNumber": "5/04/2019",
+      "issuingDate": "2019-04-08",
+      "dueDate": "2019-04-30",
+      "seller": {
+        "name": "Nasza Firma Sp. z o.o.",
+        "NIP": "000 000 00 00",
+        "streetAddress": "al. Grunwaldzka",
+        "streetNumber": "471",
+        "postCode": "80-309",
+        "cityName": "Gdańsk"
+      },
+      "client": {
+        "name": "Jakaś kolejna firma Sp. z o.o.",
+        "NIP": "000 111 00 00",
+        "streetAddress": "al. Kolejowa",
+        "streetNumber": "55",
+        "postCode": "80-124",
+        "cityName": "Gdańsk"
+      },
+      "products": [
+        {
+        "name": "product 1",
+        "price": "1200",
+        "quantity": "3",
+        "unit": "kg",
+        "vat": "23"
+      }
+        ]
     }
   ]
 }

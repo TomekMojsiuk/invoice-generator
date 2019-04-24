@@ -4,6 +4,7 @@
   border-bottom: 1px solid black;
   line-height: 30px;
 
+
 }
 
 .invoice--list--header_title {
@@ -11,6 +12,9 @@
   //width: 100px!important;
   padding: 0 10px;
 
+  &:first-child {
+    width: 20px!important;
+  }
 }
 
 .invoice--list--body {

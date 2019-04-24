@@ -22,6 +22,7 @@ class App extends Component {
 
 			users: [],
 
+			loading: true,
 			isLoginOpen: true,
 			isRegistrationOpen: false,
 
@@ -40,12 +41,11 @@ class App extends Component {
 				}),
 			).
 			then(() => {
-				console.log(this.state.users);
+
 			});
 	}
 
 	showLoginBox = () => {
-		console.log('login clicked');
 		this.setState({
 			isLoginOpen: true,
 			isRegistrationOpen: false,
@@ -53,7 +53,6 @@ class App extends Component {
 	};
 
 	showRegistrationBox = () => {
-		console.log('registration clicked');
 		this.setState({
 			isRegistrationOpen: true,
 			isLoginOpen: false,
@@ -104,7 +103,7 @@ class App extends Component {
 					<BackgroundImg/>
 
 					<TopNav handleLogOut={this.handleLogOut} isLoggedIn={this.state.isLoggedIn}/>
-					{!this.state.isLoggedIn ? (
+					{this.state.isLoggedIn ? (
 
 						<Switch>
 
