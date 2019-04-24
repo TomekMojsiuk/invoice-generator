@@ -1,12 +1,5 @@
 @import "../../sass/colors";
-
-.flex--wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding-top: 10px;
-  border-top: 1px solid $color-1;
-}
+@import "../../sass/flex";
 
 .form--section {
   height: auto;

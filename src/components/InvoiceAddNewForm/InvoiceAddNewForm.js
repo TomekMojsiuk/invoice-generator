@@ -5,8 +5,8 @@ import './InvoiceAddNewForm.scss';
 import InvoiceGeneralData from './InvoiceGeneralData/InvoiceGeneralData';
 import InvoiceSellerInfo from './InvoiceSellerInfo/InvoiceSellerInfo';
 import InvoiceClientInfo from './InvoiceClientInfo/InvoiceClientInfo';
-import GenerateNewProductSale from './GenerateNewProductSale/GenerateNewLine';
 import RegularButton from '../Buttons/RegularButton/RegularButton';
+import GenerateNewLine from './GenerateNewLine/GenerateNewLine';
 
 class InvoiceAddNewForm extends React.Component {
 
@@ -62,7 +62,7 @@ class InvoiceAddNewForm extends React.Component {
 					                    DueDateOnChange={this.props.DueDateOnChange}
 					/>
 
-					<div className={'flex--wrapper'}>
+					<div className={'flex--wrapper--1'}>
 
 						{/*============================== Sprzedawca ==============================*/}
 
@@ -86,7 +86,7 @@ class InvoiceAddNewForm extends React.Component {
 
 					{/*============================== Linia kosztowa ==============================*/}
 
-						<GenerateNewProductSale
+						<GenerateNewLine
 							addNewLineCounter={this.props.addNewLineCounter}
 							addNewLineCounterError={this.props.addNewLineCounterError}
 							onChange={this.props.productOnChange}

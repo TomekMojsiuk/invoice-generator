@@ -1,0 +1,28 @@
+@import "../../../sass/colors";
+
+
+.button--edit{
+
+  position: relative;
+  font-size: .9rem;
+  text-decoration: none;
+  width: 20px;
+  height: 20px;
+  background: url("../../../assets/icons/setting-wheel--black.svg");
+  background-size: contain;
+  border: 1px solid transparent;
+  transition: all .3s ease-in-out;
+  float: right;
+  right: 5px;
+  top: 2px;
+
+  &:hover {
+    border: 1px solid $color-4;
+    @include backgroundColor($color-2);
+    transform: rotate(180deg);
+    background: url("../../../assets/icons/setting-wheel--green.svg");
+    background-size: contain;
+    border-radius: 20px;
+  }
+
+}

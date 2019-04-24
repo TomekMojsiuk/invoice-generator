@@ -6,7 +6,7 @@ class InvoiceGeneralData extends React.Component {
 		return (<div className={'form--section'}>
 
 				<h2 className={'form--section--title'}>Dane faktury</h2>
-				<div className={'flex--wrapper invoice--general--data--container'}>
+				<div className={'flex--wrapper--1 invoice--general--data--container'}>
 
 					<div className={'form--input invoice--general--data'}>
 						<label>Numer faktury:</label>

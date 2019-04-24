@@ -1,5 +1,5 @@
 import React from 'react';
-import NumberFormat from 'react-number-format'
+import NumberFormat from 'react-number-format';
 
 import './NewLineElements.scss';
 
@@ -19,9 +19,9 @@ class NewLineElements extends React.Component {
 					unit: '',
 					vat: '',
 					brutto: '',
-				}
-			]
-		}
+				},
+			],
+		};
 	}
 
 	productNameOnChange = (e) => {
@@ -42,30 +42,30 @@ class NewLineElements extends React.Component {
 
 	productQuantityOnChange = (e) => {
 
-	if (e.target.value > 0) {
+		if (e.target.value > 0) {
 
-		let totalNet = Number(this.state.price * this.state.quantity)
-		let vat = (Number(this.state.price * this.state.vat) / 100) * this.state.quantity
-		let brutto = totalNet + vat;
+			let totalNet = Number(this.state.price * this.state.quantity);
+			let vat = (Number(this.state.price * this.state.vat) / 100) *
+				this.state.quantity;
+			let brutto = totalNet + vat;
 
-		this.setState({
-			quantity: e.target.value,
-			brutto: brutto
-		})
+			this.setState({
+				quantity: e.target.value,
+				brutto: brutto,
+			});
 
-	} else {
-		this.setState({
-			quantity: e.target.value,
-			brutto: 0
-		})
-	}
+		} else {
+			this.setState({
+				quantity: e.target.value,
+				brutto: 0,
+			});
+		}
 
-	}
-
+	};
 
 	render () {
 
-		let NumberFormat = require('react-number-format')
+		let NumberFormat = require('react-number-format');
 
 		return (<div className={'new--line--container'}>
 
@@ -89,14 +89,15 @@ class NewLineElements extends React.Component {
 				</div>
 				<div className={'form--input'}>
 					<NumberFormat thousandSeparator={true}
-												placeholder={'Cena netto'}
+					              placeholder={'Cena netto'}
 					              suffix={' zł'}
-					              value={this.state.price} />
+					              value={this.state.price}/>
 				</div>
 
 				<div className={'form--input'}>
 					<input name="productQuantity" type="number"
-					       placeholder="Liczba szt" onChange={this.productQuantityOnChange}/>
+					       placeholder="Liczba szt"
+					       onChange={this.productQuantityOnChange}/>
 				</div>
 
 				<div className={'form--input'}>
@@ -105,21 +106,19 @@ class NewLineElements extends React.Component {
 				</div>
 
 
-
 				<div className={'form--input'}>
 					<NumberFormat thousandSeparator={false}
 					              placeholder={'stawka VAT'}
-					              suffix={"%"}
-					              value={this.state.vat} />
+					              suffix={'%'}
+					              value={this.state.vat}/>
 				</div>
 
 				<div className={'form--input'}>
 					<NumberFormat thousandSeparator={true}
 					              placeholder={'Cena brutto'}
-					              suffix={" zł"}
-					              value={this.state.brutto} />
+					              suffix={' zł'}
+					              value={this.state.brutto}/>
 				</div>
-
 
 
 			</div>
