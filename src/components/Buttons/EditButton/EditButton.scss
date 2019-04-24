@@ -17,7 +17,7 @@
   top: 2px;
 
   &:hover {
-    border: 1px solid $color-4;
+    /*border: 1px solid $color-4;*/
     @include backgroundColor($color-2);
     transform: rotate(180deg);
     background: url("../../../assets/icons/setting-wheel--green.svg");
