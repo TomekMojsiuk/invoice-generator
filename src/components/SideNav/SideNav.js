@@ -10,7 +10,7 @@ class SideNav extends React.Component {
 		return (<div className={'col-2 nav--side '}>
 				<NavLink className={'nav--side--link'} to="/">Lista faktur</NavLink>
 				<NavLink className={'nav--side--link'} to="/add-invoice">Wystaw fakturę</NavLink>
-				<NavLink className={'nav--side--link'} to="/clients">Kontrahenci</NavLink>
+				<NavLink className={'nav--side--link'} to="/clients">Klienci</NavLink>
 				<NavLink className={'nav--side--link'} to="/products">Produkty</NavLink>
 			</div>
 		)

@@ -5,7 +5,6 @@ class InvoiceGeneralData extends React.Component {
 	render () {
 		return (<div className={'form--section'}>
 
-				<h2 className={'form--section--title'}>Dane faktury</h2>
 				<div className={'flex--wrapper--1 invoice--general--data--container'}>
 
 					<div className={'form--input invoice--general--data'}>

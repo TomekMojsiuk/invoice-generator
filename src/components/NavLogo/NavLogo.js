@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './NavLogo.scss'
+
 class NavLogo extends React.Component {
 
 	render () {

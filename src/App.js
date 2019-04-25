@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
-import './app.scss';
+import './App.scss';
 import users from './data/data';
 
 import Footer from './components/Footer/Footer';
@@ -96,7 +96,6 @@ class App extends Component {
 	};
 
 	render () {
-		console.log(this.state.isLoggedIn);
 		return (
 			<div className={'container'}>
 				<BrowserRouter>

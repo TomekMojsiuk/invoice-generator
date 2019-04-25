@@ -5,7 +5,7 @@ import './DeleteButton.scss'
 class DeleteButton extends React.Component {
 
 	render () {
-		return (<div className={"button--delete"} onClick={this.props.onClick}></div>)
+		return (<div className={"button--delete"} onClick={this.props.onClick} id={this.props.deleteKey}></div>)
 	}
 }
 

@@ -1,25 +1,25 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "username": "Admin",
       "login": "admin@admin.pl",
       "password": "1234admin"
     },
     {
-      "id": "2",
+      "id": 2,
       "username": "Adam",
       "login": "adam.kowalski@gamil.com",
       "password": "098765"
     },
     {
-      "id": "3",
+      "id": 3,
       "username": "Krzysztof",
       "login": "krzysztof.kowalski@gamil.com",
       "password": "098765"
     },
     {
-      "id": "4",
+      "id": 4,
       "username": "Tomek",
       "login": "tomasz.mojsiuk@gmail.com",
       "password": "123"
@@ -36,7 +36,7 @@
   ],
   "sellers": [
     {
-      "sellerId": "1",
+      "id": 1,
       "sellerName": "Nasza Firma Sp. z o.o.",
       "sellerNIP": "000 000 00 00",
       "sellerStreetAddress": "al. Grunwaldzka",
@@ -47,7 +47,7 @@
   ],
   "clients": [
     {
-      "clientId": "1",
+      "id": 1,
       "clientName": "Ich Firma Sp. z o.o.",
       "clientNIP": "111 000 00 00",
       "clientStreetAddress": "al. Przykładowa",
@@ -56,7 +56,7 @@
       "clientCityName": "Gdańsk"
     },
     {
-      "clientId": "2",
+      "id": 2,
       "clientName": "Jakaś kolejna firma Sp. z o.o.",
       "clientNIP": "000 111 00 00",
       "clientStreetAddress": "al. Kolejowa",
@@ -65,13 +65,31 @@
       "clientCityName": "Gdańsk"
     },
     {
-      "clientId": "3",
+      "id": 3,
       "clientName": "Jeszcze jedna firma SA",
       "clientNIP": "000 222 00 00",
       "clientStreetAddress": "al. Kolejna",
       "clientStreetNumber": "23",
       "clientPostCode": "80-132",
       "clientCityName": "Gdańsk"
+    },
+    {
+      "clientName": "Wymyślona Firma SA",
+      "clientNIP": "456-999-08-73",
+      "clientStreetAddress": "Grzybowa",
+      "clientStreetNumber": "13",
+      "clientPostCode": "80-222",
+      "clientCityName": "Gdańsk",
+      "id": 4
+    },
+    {
+      "clientName": "Ciastkarnia Sp. z o.o",
+      "clientNIP": "222-456-78-45",
+      "clientStreetAddress": "ul. Piekarnicza",
+      "clientStreetNumber": "22",
+      "clientPostCode": "76-200",
+      "clientCityName": "Słupsk",
+      "id": 5
     }
   ],
   "products": [
@@ -319,13 +337,44 @@
       },
       "products": [
         {
-        "name": "product 1",
-        "price": "1200",
-        "quantity": "3",
-        "unit": "kg",
-        "vat": "23"
-      }
-        ]
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "invoiceNumber": "1/04/2019",
+      "issuingDate": "2019-04-25",
+      "dueDate": "2019-04-26",
+      "seller": {
+        "name": "Nasza Firma Sp. z o.o.",
+        "NIP": "000 000 00 00",
+        "streetAddress": "al. Grunwaldzka",
+        "streetNumber": "471",
+        "postCode": "80-309",
+        "cityName": "Gdańsk"
+      },
+      "client": {
+        "name": "Jakaś kolejna firma Sp. z o.o.",
+        "NIP": "000 111 00 00",
+        "streetAddress": "al. Kolejowa",
+        "streetNumber": "55",
+        "postCode": "80-124",
+        "cityName": "Gdańsk"
+      },
+      "products": [
+        {
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
     }
   ]
 }

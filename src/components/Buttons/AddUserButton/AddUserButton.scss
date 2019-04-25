@@ -1,0 +1,26 @@
+@import "../../../sass/colors";
+
+
+.button--add--user{
+
+  background: url("../../../assets/icons/addUser/add-user--black.svg");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 75px;
+  width: 75px;
+  font-size: .9rem;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+
+
+  &:hover {
+    background: url("../../../assets/icons/addUser/add-user--green.svg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include backgroundColor($color-2);
+    border-radius: 50%;
+  }
+
+}

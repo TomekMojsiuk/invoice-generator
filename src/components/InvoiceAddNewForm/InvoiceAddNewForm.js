@@ -49,6 +49,11 @@ class InvoiceAddNewForm extends React.Component {
 	render () {
 
 		return (<div className={'col-10 pages--content--container'}>
+
+				<div className={'flex--wrapper--2'}>
+					<h1>Nowa faktura</h1>
+				</div>
+
 				<form onSubmit={this.props.onSubmit}>
 
 					{/*============================== Dane faktury ==============================*/}

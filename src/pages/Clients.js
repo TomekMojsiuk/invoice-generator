@@ -11,9 +11,9 @@ class Clients extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
+			url: 'http://localhost:3001/clients',
 			clients: [],
 
-			clientId: '',
 			clientName: '',
 			clientNIP: '',
 			clientStreetAddress: '',
@@ -24,12 +24,13 @@ class Clients extends React.Component {
 			addNewClient: false,
 
 			errorMessage: [],
+
 		};
 	}
 
 	componentDidMount () {
 
-		fetch('http://localhost:3001/clients').
+		fetch(this.state.url).
 			then(response => response.json()).
 			then(clients => this.setState({
 				clients: clients,
@@ -40,7 +41,8 @@ class Clients extends React.Component {
 		});
 	}
 
-	handleAddNewClient = () => {
+	displayNewUserForm = () => {
+
 		this.setState({
 			addNewClient: true,
 		});
@@ -58,16 +60,9 @@ class Clients extends React.Component {
 
 	handleClientNIP = (e) => {
 
-		(e.target.value.length < 10) ? (
-			this.setState({
-				nipErrorAlert: false,
-				clientNIP: e.target.value,
-			})
-			) : (
-				this.setState({
-					nipErrorAlert: true,
-		})
-		)
+		this.setState({
+			clientNIP: e.target.value,
+		});
 
 	};
 
@@ -99,10 +94,87 @@ class Clients extends React.Component {
 
 	};
 
+	/*====================================== Client add, remove, edit handlers ======================================*/
+
+	handleAddNewClient = (e) => {
+		e.preventDefault();
+
+		let url = this.state.url;
+
+		let client = {
+			"id": 0,
+			'clientName': this.state.clientName,
+			'clientNIP': this.state.clientNIP,
+			'clientStreetAddress': this.state.clientStreetAddress,
+			'clientStreetNumber': this.state.clientStreetNumber,
+			'clientPostCode': this.state.clientPostCode,
+			'clientCityName': this.state.clientCityName,
+		};
+
+		console.log(client);
+
+		fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(client),
+			redirect: 'manual',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		}).
+			then(res => res.json()).
+			then(response => console.log('Success:', JSON.stringify(response))).
+			catch(error => console.error('Error:', error));
+
+	};
+
+	handleEditClientData = (e) => {
+
+		this.state.clients.find(client => {
+
+			if (client.clientId === e.target.id) {
+
+				return client;
+
+			}
+
+			/*		this.setState({
+
+					})*/
+
+		});
+
+	};
+
+	handleDeleteClientData = (e) => {
+
+		this.state.clients.find(client => {
+
+			if (client.id === +e.target.id) {
+
+				return (fetch('http://localhost:3001/clients' + '/' + client.id, {
+			method: 'DELETE',
+			body: JSON.stringify(client),
+			redirect: 'manual',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		}).
+			then(res => res.json()).
+			then(response => console.log('Success:', JSON.stringify(response))).
+			catch(error => console.error('Error:', error))
+			)
+		}
+		})
+	}
+
 	/*====================================== Form Validation ======================================*/
 
 	showValidationError (elm, msg) {
-		this.setState((prevState) => ({ errorMessage: [...prevState.errorMessage, { elm, msg }] }));
+		this.setState((prevState) => ({
+			errorMessage: [
+				...prevState.errorMessage,
+				{ elm, msg }],
+		}));
 	}
 
 	handleValidation (e) {
@@ -121,7 +193,7 @@ class Clients extends React.Component {
 
 	render () {
 
-		let clientNameError = null
+		let clientNameError = null;
 
 		for (let err of this.state.errorMessage) {
 
@@ -138,12 +210,17 @@ class Clients extends React.Component {
 		}
 
 		return (<div className={'row main--content--box'}>
+
 				<SideNav/>
 
 				{!this.state.addNewClient ? (
 
 					<ClientsList clients={this.state.clients}
-					             handleAddNewClient={this.handleAddNewClient}
+					             handleAddNewClient={this.displayNewUserForm}
+					             handleEditClientData={this.handleEditClientData}
+					             editButtonOnClick={this.handleEditClientData}
+					             deleteButtonOnClick={this.handleDeleteClientData}
+
 					/>
 
 				) : (
@@ -155,6 +232,7 @@ class Clients extends React.Component {
 					           handleClientPostCode={this.handleClientPostCode}
 					           handleClientCityName={this.handleClientCityName}
 					           nipErrorAlert={this.state.errorMessage}
+					           handleAddNewClient={this.handleAddNewClient}
 					/>
 				)
 				}
