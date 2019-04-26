@@ -48,24 +48,42 @@
   "clients": [
     {
       "id": 1,
-      "clientName": "Ich Firma Sp. z o.o.",
-      "clientNIP": "111 000 00 00",
-      "clientStreetAddress": "al. Przykładowa",
-      "clientStreetNumber": "1",
-      "clientPostCode": "80-355",
-      "clientCityName": "Gdańsk"
+      "clientName": "Zakład Stolarski pana Mietka",
+      "clientNIP": "456-999-08-73",
+      "clientStreetAddress": "Drewniana",
+      "clientStreetNumber": "22",
+      "clientPostCode": "83-010",
+      "clientCityName": "Straszyn"
     },
     {
       "id": 2,
-      "clientName": "Jakaś kolejna firma Sp. z o.o.",
-      "clientNIP": "000 111 00 00",
-      "clientStreetAddress": "al. Kolejowa",
-      "clientStreetNumber": "55",
-      "clientPostCode": "80-124",
+      "clientName": "Wymyślona Firma SA",
+      "clientNIP": "222-456-78-45",
+      "clientStreetAddress": "Grzybowa",
+      "clientStreetNumber": "16",
+      "clientPostCode": "80-222",
       "clientCityName": "Gdańsk"
     },
     {
       "id": 3,
+      "clientName": "Ciastkarnia Sp. z o.o",
+      "clientNIP": "234-057-27-03",
+      "clientStreetAddress": "ul. Piekarnicza",
+      "clientStreetNumber": "",
+      "clientPostCode": "80-355",
+      "clientCityName": "Gdańsk"
+    },
+    {
+    "id": 4,
+    "clientName": "Jakaś kolejna firma Sp. z o.o.",
+    "clientNIP": "000 111 00 00",
+    "clientStreetAddress": "al. Kolejowa",
+    "clientStreetNumber": "55",
+    "clientPostCode": "80-124",
+    "clientCityName": "Gdańsk"
+    },
+    {
+      "id": 5,
       "clientName": "Jeszcze jedna firma SA",
       "clientNIP": "000 222 00 00",
       "clientStreetAddress": "al. Kolejna",
@@ -80,7 +98,7 @@
       "clientStreetNumber": "13",
       "clientPostCode": "80-222",
       "clientCityName": "Gdańsk",
-      "id": 4
+      "id": 6
     },
     {
       "clientName": "Ciastkarnia Sp. z o.o",
@@ -89,17 +107,33 @@
       "clientStreetNumber": "22",
       "clientPostCode": "76-200",
       "clientCityName": "Słupsk",
-      "id": 5
+      "id": 7
     }
   ],
   "products": [
     {
-      "productId": "1",
-      "productName": "Produkt 1",
-      "productPrice": "12",
-      "productQuantity": "3",
-      "productUnit": "kg",
-      "productVat": "23"
+      "id": 1,
+      "productName": "Długopis",
+      "productPrice": "5",
+      "productUnit": "szt",
+      "productVat": "23",
+      "productTotal": 0
+    },
+    {
+      "id": 2,
+      "productName": "Zeszyt",
+      "productPrice": "4.20",
+      "productUnit": "szt",
+      "productVat": "23",
+      "productTotal": 0
+    },
+    {
+      "id": 3,
+      "productName": "Oranżada",
+      "productPrice": "2.50",
+      "productUnit": "l",
+      "productVat": "8",
+      "productTotal": 0
     }
   ],
   "invoices": [
@@ -365,6 +399,34 @@
         "streetNumber": "55",
         "postCode": "80-124",
         "cityName": "Gdańsk"
+      },
+      "products": [
+        {
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "seller": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
+      },
+      "client": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
       },
       "products": [
         {

@@ -11,8 +11,7 @@ class ClientsList extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			editClient: false,
-			removeClient: false,
+
 		};
 	}
 

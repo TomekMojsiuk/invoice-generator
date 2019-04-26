@@ -12,7 +12,7 @@ export class LoginForm extends React.Component {
 			password: '',
 
 			hidden: true,
-			toggleShowText: 'show',
+			toggleShowStyle: '',
 
 			errors: [],
 
@@ -84,15 +84,14 @@ export class LoginForm extends React.Component {
 	};
 
 	toggleShow () {
+
 		if (this.state.hidden === true) {
 			this.setState({
 				hidden: !this.state.hidden,
-				toggleShowText: 'hide',
 			});
 		} else {
 			this.setState({
 				hidden: !this.state.hidden,
-				toggleShowText: 'show',
 			});
 		}
 	}
@@ -158,7 +157,7 @@ export class LoginForm extends React.Component {
 
 		return (
 			<div className={'form--body register'}>
-				<h1>Login</h1>
+				<h1>Logowanie</h1>
 				<p className={'alert--msg'}>{this.props.handleError}</p>
 
 				<form onSubmit={this.beforeLogin}>
@@ -191,8 +190,9 @@ export class LoginForm extends React.Component {
 						       value={this.state.password}
 						       onChange={this.handlePasswordChange}
 						       placeholder="hasło"/>
-						<button className={'button toggle'} type="button"
-						        onClick={this.toggleShow}>{this.state.toggleShowText}</button>
+						<button className={`${this.state.hidden ? 'button buttonShow' : 'button buttonHide'}`}
+						        type="button"
+						        onClick={this.toggleShow}>{""}</button>
 						<small className={'validation-error'}>{userPasswordError
 							? userPasswordError
 							: ''}</small>
@@ -204,7 +204,7 @@ export class LoginForm extends React.Component {
 
 					<div className={'col-12'}>
 						<button type="submit" className={'button login'}
-						        onClick={this.handleFormValidation}>Login
+						        onClick={this.handleFormValidation}>Zaloguj
 						</button>
 					</div>
 

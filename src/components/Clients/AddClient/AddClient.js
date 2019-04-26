@@ -7,7 +7,17 @@ class AddClient extends React.Component {
 
 	render () {
 
-		return (
+		const {
+			handleAddNewClient,
+			handleClientName,
+			handleClientStreetAddress,
+			handleClientStreetNumber,
+			handleClientPostCode,
+			handleClientCityName,
+			handleClientNIP,
+			handleReturn } = this.props
+
+			return (
 			<div className={'col-10 pages--content--container'}>
 
 				<div className={'flex--wrapper--2'}>
@@ -16,7 +26,7 @@ class AddClient extends React.Component {
 
 				<div className={'add--client--form__container'}>
 
-					<form onSubmit={this.props.handleAddNewClient}>
+					<form onSubmit={handleAddNewClient}>
 						<div className={'flex--wrapper--2'}>
 
 							<div className={'form--input'}>
@@ -24,7 +34,7 @@ class AddClient extends React.Component {
 								<input type='text'
 								       name="nazwa"
 								       placeholder={'Nazwa firmy'}
-								       onChange={this.props.handleClientName}
+								       onChange={handleClientName}
 								/>
 							</div>
 							<div className={'flex--wrapper--1'}>
@@ -34,7 +44,7 @@ class AddClient extends React.Component {
 									<input type='text'
 									       name="ulica"
 									       placeholder={'Ulica'}
-									       onChange={this.props.handleClientStreetAddress}
+									       onChange={handleClientStreetAddress}
 									/>
 								</div>
 
@@ -43,7 +53,7 @@ class AddClient extends React.Component {
 									<input type='text'
 									       name="numer"
 									       placeholder={'Numer'}
-									       onChange={this.props.handleClientStreetNumber}
+									       onChange={handleClientStreetNumber}
 									/>
 								</div>
 							</div>
@@ -54,7 +64,7 @@ class AddClient extends React.Component {
 								<input type='text'
 								       name="kod"
 								       placeholder='Kod pocztowy'
-								       onChange={this.props.handleClientPostCode}
+								       onChange={handleClientPostCode}
 								/>
 							</div>
 
@@ -63,7 +73,7 @@ class AddClient extends React.Component {
 								<input type='text'
 								       name="miasto"
 								       placeholder={'Miasto'}
-								       onChange={this.props.handleClientCityName}
+								       onChange={handleClientCityName}
 								/>
 							</div>
 
@@ -72,14 +82,19 @@ class AddClient extends React.Component {
 								<input type='text'
 								       name="nip"
 								       placeholder={'NIP'}
-								       onChange={this.props.handleClientNIP}
+								       onChange={handleClientNIP}
 								/>
 								<div
 									className={'error--message'}>{this.props.NipErrorAlert}</div>
 							</div>
 
+							<div className={'flex--wrapper--1'}>
 							<RegularButton text={'Dodaj klienta'}
-							               onClick={this.props.handleAddNewClient}/>
+							               onClick={handleAddNewClient}/>
+
+							<RegularButton text={'Wróć do listy klientów'}
+							               onClick={handleReturn}/>
+							</div>
 						</div>
 
 

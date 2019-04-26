@@ -1,4 +1,5 @@
 @import "../sass/colors";
+@import '../sass/flex';
 
 .main--content--box {
   position: relative;
@@ -10,5 +11,20 @@
 
 .pages--content--container {
   float: right !important;
-  padding-left: 20px!important;
+  padding-left: 20px !important;
+  height: 55vh;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: .5em;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 8px $color-1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-4;
+    outline: 5px solid $color-1;
+  }
 }

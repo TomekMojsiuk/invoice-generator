@@ -115,20 +115,38 @@
         border-bottom-right-radius: 0;
         float: left;
       }
+
       button {
 
         width: 10%;
         margin: 5px 0 5px 0;
+        border: 0;
         border-radius: 0 10px 10px 0;
-        border: 1px solid fade_out($color-4, .3);
-        color: $color-4;
         @include backgroundColor($color-2);
         float: right;
 
         &:hover {
           @include backgroundColor($color-1);
+          border: 0;
           border-radius: 0 10px 10px 0;
         }
+
+      }
+
+      .buttonShow {
+        background: url("../../assets/icons/showHideContent/showContent.svg");
+        background-position: center;
+        background-size: 60%;
+        background-repeat: no-repeat;
+        transition: all .3s ease-in-out;
+      }
+
+      .buttonHide {
+        background: url("../../assets/icons/showHideContent/hideContent.svg");
+        background-position: center;
+        background-size: 60%;
+        background-repeat: no-repeat;
+        transition: all .3s ease-in-out;
       }
 
     }

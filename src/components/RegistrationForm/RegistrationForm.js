@@ -149,8 +149,8 @@ class RegistrationForm extends React.Component {
 
 		return (
 			<div className={'form--body register'}>
-				<h1>Register</h1>
-				<form>
+				<h1>Rejestracja</h1>
+				<form onSubmit={(e) => e.preventDefault()}>
 
 					<div className={'form--input--username col-12'}>
 						<input autoFocus={true} className={'form--input col-12'}
@@ -180,8 +180,9 @@ class RegistrationForm extends React.Component {
 						       value={this.state.password}
 						       onChange={this.handlePasswordChange}
 						       placeholder="hasło"/>
-						<button className={'button toggle'}
-						        onClick={this.toggleShow}>{this.state.toggleShowText}</button>
+						<button className={`${this.state.hidden ? 'button buttonShow' : 'button buttonHide'}`}
+						        type="button"
+						        onClick={this.toggleShow}>{""}</button>
 						<small className={'validation-error'}>{userPasswordError
 							? userPasswordError
 							: ''}</small>
@@ -193,7 +194,7 @@ class RegistrationForm extends React.Component {
 
 					<div className={'col-12'}>
 						<button type="submit" className={'button login'}
-						        onClick={this.handleRegister}>Register
+						        onClick={""}>Zarejestruj
 						</button>
 					</div>
 				</form>

@@ -1,0 +1,41 @@
+@import "../../../sass/colors";
+
+.add--product {
+
+  .flex--wrapper--1 {
+    width: 50%;
+    margin: 0;
+
+    .form--input {
+
+      &:nth-of-type(1) {
+        width: 90%;
+        margin-right: 0;
+      }
+
+      &:nth-of-type(2) {
+        width: 10%;
+      }
+
+    }
+
+  }
+
+  .price-container {
+
+    .price {
+
+      border-radius: 10px 0 0 10px;
+      border-right: 0;
+
+    }
+
+    .currency {
+      border-radius: 0 10px 10px 0;
+      border-left: 0px;
+      text-align: center;
+      background: $color-3;
+
+    }
+  }
+}

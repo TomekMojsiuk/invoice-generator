@@ -14,6 +14,7 @@ class Clients extends React.Component {
 			url: 'http://localhost:3001/clients',
 			clients: [],
 
+			id: 0,
 			clientName: '',
 			clientNIP: '',
 			clientStreetAddress: '',
@@ -96,13 +97,18 @@ class Clients extends React.Component {
 
 	/*====================================== Client add, remove, edit handlers ======================================*/
 
+	handleReturn = (e) => {
+		this.setState({
+			addNewClient: false
+		})
+	}
 	handleAddNewClient = (e) => {
 		e.preventDefault();
 
 		let url = this.state.url;
 
 		let client = {
-			"id": 0,
+			'id': 0,
 			'clientName': this.state.clientName,
 			'clientNIP': this.state.clientNIP,
 			'clientStreetAddress': this.state.clientStreetAddress,
@@ -233,6 +239,7 @@ class Clients extends React.Component {
 					           handleClientCityName={this.handleClientCityName}
 					           nipErrorAlert={this.state.errorMessage}
 					           handleAddNewClient={this.handleAddNewClient}
+					           handleReturn={this.handleReturn}
 					/>
 				)
 				}

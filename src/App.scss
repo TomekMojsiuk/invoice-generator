@@ -19,6 +19,16 @@
   left: 0;
   top: 0;
   z-index: -1;
+
+  &:after {
+    content: '';
+    position: fixed;
+    background: fade_out($color-2, .9);
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+  }
 }
 
 h1 {
@@ -34,4 +44,17 @@ h1 {
 
 .app {
   text-align: center;
+}
+
+body::-webkit-scrollbar {
+  width: .5em;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 8px $color-1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $color-4;
+  outline: 5px solid $color-1;
 }
