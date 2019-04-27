@@ -2,10 +2,15 @@ import React from 'react';
 
 import NewLineElements from '../NewLineElements/NewLineElements'
 import RegularButton from '../../Buttons/RegularButton/RegularButton';
+import InvoiceAddNewForm from '../../../pages/InvoiceAddNew';
 
 class GenerateNewLine extends React.Component {
 	constructor (props) {
 		super(props);
+
+	}
+
+	componentDidUpdate (prevProps, prevState, snapshot) {
 
 	}
 
@@ -16,7 +21,11 @@ class GenerateNewLine extends React.Component {
 
 		for (var i = 0; i < this.props.addNewLineCounter; i++) {
 			counter +=1;
-			newProductLine.push(<NewLineElements products={this.props.products} counter={counter}/>);
+			newProductLine.push(<NewLineElements
+														products={this.props.products}
+														counter={counter}
+														handleAddProducts={this.props.handleAddProducts}
+													/>);
 		}
 
 
@@ -27,7 +36,7 @@ class GenerateNewLine extends React.Component {
 					<h2 className={'form--section--title'}>Linia kosztowa</h2>
 
 					<div className={"invoice--details--buttons--container"}>
-						<RegularButton text={'Dodaj'} onClick={this.props.addNewProduct}/>
+						<RegularButton text={'Dodaj'} onClick={this.props.addNewProductLine}/>
 						<RegularButton text={'Usuń'} onClick={this.props.removeNewProduct}/>
 						<div>{this.props.addNewLineCounterError}</div>
 

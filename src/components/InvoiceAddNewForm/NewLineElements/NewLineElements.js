@@ -2,6 +2,7 @@ import React from 'react';
 import NumberFormat from 'react-number-format';
 
 import './NewLineElements.scss';
+import AddNewButton from '../../Buttons/AddNewButton/AddNewButton';
 
 class NewLineElements extends React.Component {
 
@@ -13,15 +14,22 @@ class NewLineElements extends React.Component {
 
 			product: [
 				{
+					id: '',
 					name: '',
 					price: '',
 					quantity: '',
 					unit: '',
 					vat: '',
-					brutto: '',
+					total: '',
 				},
 			],
 		};
+	}
+
+	componentDidMount () {
+
+
+
 	}
 
 	productNameOnChange = (e) => {
@@ -30,6 +38,7 @@ class NewLineElements extends React.Component {
 
 			if (product.productName === e.target.value) {
 				this.setState({
+					id: product.id,
 					price: product.productPrice,
 					unit: product.productUnit,
 					vat: product.productVat,
@@ -42,23 +51,16 @@ class NewLineElements extends React.Component {
 
 	productQuantityOnChange = (e) => {
 
-		if (e.target.value > 0) {
+		let counter = +e.target.value
 
-			let totalNet = Number(this.state.price * this.state.quantity);
-			let vat = (Number(this.state.price * this.state.vat) / 100) *
-				this.state.quantity;
-			let brutto = totalNet + vat;
+		if (counter.value > 0) {
+
 
 			this.setState({
-				quantity: e.target.value,
-				brutto: brutto,
+				quantity: counter,
+				brutto: counter * +this.state.price,
 			});
 
-		} else {
-			this.setState({
-				quantity: e.target.value,
-				brutto: 0,
-			});
 		}
 
 	};
@@ -95,7 +97,7 @@ class NewLineElements extends React.Component {
 				</div>
 
 				<div className={'form--input'}>
-					<input name="productQuantity" type="number"
+					<input name="productQuantity" type="text"
 					       placeholder="Liczba szt"
 					       onChange={this.productQuantityOnChange}/>
 				</div>

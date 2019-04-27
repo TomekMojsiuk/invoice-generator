@@ -56,15 +56,6 @@
       "clientCityName": "Straszyn"
     },
     {
-      "id": 2,
-      "clientName": "Wymyślona Firma SA",
-      "clientNIP": "222-456-78-45",
-      "clientStreetAddress": "Grzybowa",
-      "clientStreetNumber": "16",
-      "clientPostCode": "80-222",
-      "clientCityName": "Gdańsk"
-    },
-    {
       "id": 3,
       "clientName": "Ciastkarnia Sp. z o.o",
       "clientNIP": "234-057-27-03",
@@ -148,6 +139,93 @@
         "streetNumber": "22",
         "postCode": "83-010",
         "cityName": "Straszyn"
+      },
+      "products": [
+        {
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "invoiceNumber": "2/04/2019",
+      "issuingDate": "2019-04-22",
+      "dueDate": "2019-04-23",
+      "seller": {
+        "name": "Nasza Firma Sp. z o.o.",
+        "NIP": "000 000 00 00",
+        "streetAddress": "al. Grunwaldzka",
+        "streetNumber": "471",
+        "postCode": "80-309",
+        "cityName": "Gdańsk"
+      },
+      "client": {
+        "name": "Ciastkarnia Sp. z o.o",
+        "NIP": "222-456-78-45",
+        "streetAddress": "ul. Piekarnicza",
+        "streetNumber": "22",
+        "postCode": "76-200",
+        "cityName": "Słupsk"
+      },
+      "products": [
+        {
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seller": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
+      },
+      "client": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
+      },
+      "products": [
+        {
+          "name": "product 1",
+          "price": "1200",
+          "quantity": "3",
+          "unit": "kg",
+          "vat": "23"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seller": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
+      },
+      "client": {
+        "name": "",
+        "NIP": "",
+        "streetAddress": "",
+        "streetNumber": "",
+        "postCode": "",
+        "cityName": ""
       },
       "products": [
         {

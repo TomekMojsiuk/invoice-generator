@@ -7,8 +7,6 @@ import './_Pages.scss';
 
 class InvoiceAddNew extends React.Component {
 
-//FIXME jak dodać kilka obiektów do jednej tablicy? - pozycje faktury.
-
 	constructor (props) {
 		super(props);
 
@@ -58,7 +56,7 @@ class InvoiceAddNew extends React.Component {
 					client: '',
 				},
 			],
-			invoiceProducts: '',
+			invoiceProducts: [],
 		};
 	}
 
@@ -68,9 +66,10 @@ class InvoiceAddNew extends React.Component {
 			then(response => response.json()).
 			then(invoices => this.setState({
 				invoices: invoices,
-			})).then(() => {
-			console.log(this.state.invoices);
-		});
+			})).
+			then(() => {
+				console.log(this.state.invoices);
+			});
 
 		fetch('http://localhost:3001/clients').
 			then(response => response.json()).
@@ -139,17 +138,23 @@ class InvoiceAddNew extends React.Component {
 
 	};
 
-	addNewProduct = () => {
+	addNewProductLine = (tab) => {
+
+		let newProductLine = {tab}
 
 		this.setState((prevState) => {
 
 			return {
 				addNewLineCounter: prevState.addNewLineCounter + 1,
 				addNewLineCounterError: '',
+				invoiceProducts: [prevState, newProductLine]
 			};
 
 		});
+
 		console.log(this.state.addNewLineCounter);
+		console.log(this.state.invoiceProducts);
+
 	};
 
 	removeNewProduct = () => {
@@ -176,27 +181,30 @@ class InvoiceAddNew extends React.Component {
 		console.log(this.state.addNewLineCounter);
 	};
 
-	handleProductSelection = (e) => {
+	/*handleAddProducts = (e) => {
 
-	};
+		this.state.products.find(product => {
 
-	handleAddingProducts = () => {
+			if (+product.id === +e.target.id) {
 
-		const newProduct = {
+				const newProduct = {
 
-			name: this.state.chosenProductName,
-			price: this.state.chosenProductPrice,
-			quantity: this.state.chosenProductQuantity,
-			unit: this.state.chosenProductUnit,
-			vat: this.state.chosenProductVAT,
-			total: this.state.chosenProductTotal,
-		};
+					name: this.state.chosenProductName,
+					price: this.state.chosenProductPrice,
+					quantity: this.state.chosenProductQuantity,
+					unit: this.state.chosenProductUnit,
+					vat: this.state.chosenProductVAT,
+					total: this.state.chosenProductTotal,
+				};
 
-		this.setState({
-			invoiceProducts: [...this.state.invoiceProducts, newProduct],
+				this.setState({
+
+					invoiceProducts: [...this.state.invoiceProducts, newProduct],
+				});
+			}
 		});
-
-	};
+		console.log(this.state.invoiceProducts);
+	};*/
 
 	/*=================================== Invoice handlers ===================================*/
 
@@ -341,8 +349,10 @@ class InvoiceAddNew extends React.Component {
 				                   addNewLineCounter={this.state.addNewLineCounter}
 				                   addNewLineCounterError={this.state.addNewLineCounterError}
 				                   productOnChange={this.handleProductSelection}
-				                   addNewProduct={this.addNewProduct}
+				                   addNewProductLine={this.addNewProductLine}
+				                   invoiceProducts={this.state.invoiceProducts}
 				                   removeNewProduct={this.removeNewProduct}
+				                   handleAddProducts={this.handleAddProducts}
 
 				                   onSubmit={this.handleFormSubmit}
 				/>

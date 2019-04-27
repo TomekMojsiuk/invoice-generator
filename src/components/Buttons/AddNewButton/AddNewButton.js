@@ -5,7 +5,7 @@ import './AddNewButton.scss'
 class AddNewButton extends React.Component {
 
 	render () {
-		return (<div className={"button--add--new"} onClick={this.props.onClick}></div>)
+		return (<div className={"button--add--new"} onClick={this.props.onClick} key={this.props.productKey}></div>)
 	}
 }
 

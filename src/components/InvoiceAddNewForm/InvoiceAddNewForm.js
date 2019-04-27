@@ -96,8 +96,11 @@ class InvoiceAddNewForm extends React.Component {
 							addNewLineCounterError={this.props.addNewLineCounterError}
 							onChange={this.props.productOnChange}
 							products={this.props.products}
-							addNewProduct={this.props.addNewProduct}
-							removeNewProduct={this.props.removeNewProduct} />
+							addNewProductLine={this.props.addNewProductLine}
+							removeNewProduct={this.props.removeNewProduct}
+							handleAddProducts={this.props.handleAddProducts}
+							invoiceProducts={this.props.invoiceProducts}
+						/>
 
 					<RegularButton text={'Wystaw fakturę VAT'} onClick={this.props.onSubmit}/>
 

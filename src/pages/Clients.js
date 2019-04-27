@@ -23,10 +23,9 @@ class Clients extends React.Component {
 			clientCityName: '',
 
 			addNewClient: false,
+			editClient: false,
 
-			errorMessage: [],
-
-		};
+	};
 	}
 
 	componentDidMount () {
@@ -135,17 +134,17 @@ class Clients extends React.Component {
 
 	handleEditClientData = (e) => {
 
+		this.setState({
+			editClient: true
+		})
+
 		this.state.clients.find(client => {
 
-			if (client.clientId === e.target.id) {
+			if (client.id === +e.target.id) {
 
 				return client;
 
 			}
-
-			/*		this.setState({
-
-					})*/
 
 		});
 
@@ -173,47 +172,7 @@ class Clients extends React.Component {
 		})
 	}
 
-	/*====================================== Form Validation ======================================*/
-
-	showValidationError (elm, msg) {
-		this.setState((prevState) => ({
-			errorMessage: [
-				...prevState.errorMessage,
-				{ elm, msg }],
-		}));
-	}
-
-	handleValidation (e) {
-
-		if (this.state.clientName === '') {
-			this.showValidationError('clientName',
-				'Nazwa kontrahenta nie może być pusta');
-		}
-		/*if (this.state.email === '') {
-			this.showValidationError('email', 'Email nie może być pusty');
-		}
-		if (this.state.password === '') {
-			this.showValidationError('password', 'Hasło nie może bybć puste');
-		}*/
-	}
-
 	render () {
-
-		let clientNameError = null;
-
-		for (let err of this.state.errorMessage) {
-
-			if (err.elm === 'clientName') {
-				clientNameError = err.msg;
-			}
-			/*if (err.elm === 'email') {
-				userEmailError = err.msg;
-			}
-			if (err.elm === 'password') {
-				userPasswordError = err.msg;
-			}*/
-
-		}
 
 		return (<div className={'row main--content--box'}>
 
@@ -237,7 +196,6 @@ class Clients extends React.Component {
 					           handleClientStreetNumber={this.handleClientStreetNumber}
 					           handleClientPostCode={this.handleClientPostCode}
 					           handleClientCityName={this.handleClientCityName}
-					           nipErrorAlert={this.state.errorMessage}
 					           handleAddNewClient={this.handleAddNewClient}
 					           handleReturn={this.handleReturn}
 					/>
