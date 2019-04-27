@@ -16,9 +16,9 @@ Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 - ES6
 - SASS
 - json-server
-- [react-create-app] (https://github.com/facebook/create-react-app)
-- [react-number-format] (https://github.com/s-yadav/react-number-format) 
-- [react-router] (https://github.com/ReactTraining/react-router)
+- react-create-app (https://github.com/facebook/create-react-app)
+- react-number-format (https://github.com/s-yadav/react-number-format) 
+- react-router (https://github.com/ReactTraining/react-router)
 
 # Podstawowe funkcjonalności:
 
@@ -34,7 +34,7 @@ Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 
 # Instalacja i uruchomienie:
 
-- https://github.com/TomekMojsiuk/invoice-generator.git
+- git clone https://github.com/TomekMojsiuk/invoice-generator.git
 
 - Pobierz repozytorium i zainstaluj node_modules za pomocą polecenia _**npm i**_
 - Zainstaluj json server za pomocą polecenia: _**npm install -g json-server**_

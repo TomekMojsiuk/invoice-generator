@@ -116,6 +116,14 @@
       "productUnit": "l",
       "productVat": "8",
       "productTotal": 0
+    },
+    {
+      "id": 4,
+      "productName": "Okulary słoneczne",
+      "productPrice": "150",
+      "productUnit": "szt",
+      "productVat": "23",
+      "productTotal": 0
     }
   ],
   "invoices": [

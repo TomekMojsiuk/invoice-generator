@@ -1,12 +1,11 @@
 import React from 'react';
 
-import './AddUserButton.scss'
+import './AddUserButton.scss';
 
 class AddUserButton extends React.Component {
-
-	render () {
-		return (<div className={"button--add--user"} onClick={this.props.onClick}></div>)
-	}
+  render() {
+    return <div className={'button--add--user'} onClick={this.props.onClick} />;
+  }
 }
 
 export default AddUserButton;

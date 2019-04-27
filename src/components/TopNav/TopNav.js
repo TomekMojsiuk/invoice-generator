@@ -1,21 +1,22 @@
 import React from 'react';
 
-import './_topNav.scss'
+import './_topNav.scss';
 import NavLogo from '../NavLogo/NavLogo';
 import NavLinks from '../NavLinks/NavLinks';
 import MainPanelShadow from '../MainPanel/MainPanel';
 
 class TopNav extends React.Component {
-
-	render () {
-		return (
-			<div className={'row nav--top'}>
-				<NavLogo />
-				<NavLinks isLoggedIn={this.props.isLoggedIn} handleLogOut={this.props.handleLogOut} />
-			</div>
-		)
-	}
-
+  render() {
+    return (
+      <div className={'row nav--top'}>
+        <NavLogo />
+        <NavLinks
+          isLoggedIn={this.props.isLoggedIn}
+          handleLogOut={this.props.handleLogOut}
+        />
+      </div>
+    );
+  }
 }
 
 export default TopNav;

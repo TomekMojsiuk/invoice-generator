@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-
 import './App.scss';
 import users from './data/data';
 
@@ -16,135 +15,142 @@ import Clients from './pages/Clients';
 import Products from './pages/Products';
 
 class App extends Component {
-	constructor (props) {
-		super(props);
-		this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
 
-			users: [],
+      loading: true,
+      isLoginOpen: true,
+      isRegistrationOpen: false,
 
-			loading: true,
-			isLoginOpen: true,
-			isRegistrationOpen: false,
+      isLoggedIn: false,
+      loginFailAlert: '',
+    };
+  }
 
-			isLoggedIn: false,
-			loginFailAlert: '',
-		};
-	}
+  componentDidMount() {
+    fetch('http://localhost:3001/users')
+      .then((response) => response.json())
+      .then((users) =>
+        this.setState({
+          users: users,
+        }),
+      )
+      .then(() => {});
+  }
 
-	componentDidMount () {
+  showLoginBox = () => {
+    this.setState({
+      isLoginOpen: true,
+      isRegistrationOpen: false,
+    });
+  };
 
-		fetch('http://localhost:3001/users').
-			then(response => response.json()).
-			then(users =>
-				this.setState({
-					users: users,
-				}),
-			).
-			then(() => {
+  showRegistrationBox = () => {
+    this.setState({
+      isRegistrationOpen: true,
+      isLoginOpen: false,
+    });
+  };
 
-			});
-	}
+  handleLogin = (loginData) => {
+    console.log(loginData);
 
-	showLoginBox = () => {
-		this.setState({
-			isLoginOpen: true,
-			isRegistrationOpen: false,
-		});
-	};
+    const username = loginData.username;
+    const password = loginData.password;
 
-	showRegistrationBox = () => {
-		this.setState({
-			isRegistrationOpen: true,
-			isLoginOpen: false,
-		});
-	};
+    console.log(users);
 
-	handleLogin = loginData => {
-		console.log(loginData);
+    const userFound = this.state.users.find((user) => {
+      console.log(user);
+      console.log(username, password);
 
-		//Przekazujemy do zmiennych dane logowania z formularza
-		const username = loginData.username;
-		const password = loginData.password;
+      return user.username === username && user.password === password;
+    });
 
-		console.log(users);
+    if (userFound) {
+      this.setState({
+        isLoggedIn: true,
+        loginFailAlert: '',
+      });
+    } else {
+      this.setState({
+        loginFailAlert: 'Wpisz poprawne dane logowania',
+      });
+    }
+  };
 
-		const userFound = this.state.users.find(user => {
-			console.log(user);
-			console.log(username, password);
+  handleLogOut = () => {
+    setTimeout(() => {
+      this.setState({
+        isLoggedIn: false,
+      });
+    }, 1000);
+  };
 
-			return user.username === username && user.password === password;
-		});
+  render() {
+    return (
+      <div className={'container'}>
+        <BrowserRouter>
+          <BackgroundImg />
 
-		if (userFound) {
-			this.setState({
-				isLoggedIn: true,
-				loginFailAlert: '',
-			});
-		} else {
-			this.setState({
-				loginFailAlert: 'Wpisz poprawne dane logowania',
-			});
-		}
-	};
+          <TopNav
+            handleLogOut={this.handleLogOut}
+            isLoggedIn={this.state.isLoggedIn}
+          />
+          {!this.state.isLoggedIn ? (
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <InvoiceList
+                    isLoggedIn={this.props.isLoggedIn}
+                    loginFailAlert={this.props.loginFailAlert}
+                  />
+                )}
+              />
 
-	handleLogOut = () => {
-		setTimeout(() => {
-			this.setState({
-				isLoggedIn: false,
-			});
-		}, 1000);
-	};
+              <Route
+                exact
+                path="/add-invoice"
+                render={() => <InvoiceAddNew />}
+              />
 
-	render () {
-		return (
-			<div className={'container'}>
-				<BrowserRouter>
-					<BackgroundImg/>
+              <Route exact path="/clients" render={() => <Clients />} />
 
-					<TopNav handleLogOut={this.handleLogOut} isLoggedIn={this.state.isLoggedIn}/>
-					{!this.state.isLoggedIn ? (
+              <Route exact path="/products" render={() => <Products />} />
 
-						<Switch>
+              <Route component={NotFound} />
+            </Switch>
+          ) : (
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <Login
+                    handleLogin={this.handleLogin}
+                    handleLogOut={this.handleLogOut}
+                    showLoginBox={this.showLoginBox}
+                    showRegistrationBox={this.showRegistrationBox}
+                    isLoggedIn={this.state.isLoggedIn}
+                    isLoginOpen={this.state.isLoginOpen}
+                    isRegistrationOpen={this.state.isRegistrationOpen}
+                    loginFailAlert={this.state.loginFailAlert}
+                  />
+                )}
+              />
 
-							<Route exact path="/" render={() => (
-								<InvoiceList isLoggedIn={this.props.isLoggedIn} loginFailAlert={this.props.loginFailAlert}/>)} />
-
-							<Route exact path="/add-invoice" render={() =>
-								<InvoiceAddNew />}/>
-
-							<Route exact path="/clients" render={() =>
-								<Clients />}/>
-
-							<Route exact path="/products" render={() =>
-								<Products />}/>
-
-							<Route component={NotFound}/>
-
-						</Switch>
-					) : (
-						<Switch>
-							<Route exact path="/" render={() => (
-									<Login
-										handleLogin={this.handleLogin}
-										handleLogOut={this.handleLogOut}
-										showLoginBox={this.showLoginBox}
-										showRegistrationBox={this.showRegistrationBox}
-										isLoggedIn={this.state.isLoggedIn}
-										isLoginOpen={this.state.isLoginOpen}
-										isRegistrationOpen={this.state.isRegistrationOpen}
-										loginFailAlert={this.state.loginFailAlert}
-									/>
-								)}/>
-
-							<Route component={NotFound}/>
-
-						</Switch>
-					)}
-					<Footer/>
-				</BrowserRouter>
-			</div>
-		);
-	}
+              <Route component={NotFound} />
+            </Switch>
+          )}
+          <Footer />
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;

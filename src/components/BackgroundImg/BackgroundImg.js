@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const BackgroundImg = () => {
-	return (
-		<div className={'background--image'}></div>
-	)
-}
+  return <div className={'background--image'} />;
+};
 
 export default BackgroundImg;
