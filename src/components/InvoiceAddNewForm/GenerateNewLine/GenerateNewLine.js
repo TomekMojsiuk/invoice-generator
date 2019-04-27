@@ -4,27 +4,14 @@ import NewLineElements from '../NewLineElements/NewLineElements';
 import RegularButton from '../../Buttons/RegularButton/RegularButton';
 import InvoiceAddNewForm from '../../../pages/InvoiceAddNew';
 
+
+
 class GenerateNewLine extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {}
-
   render() {
-    let newProductLine = [];
-    let counter = 0;
+    console.log({ invoiceProducts: this.props.invoiceProducts })
+    const invoiceProductsArray = Object.values(this.props.invoiceProducts);
 
-    for (var i = 0; i < this.props.addNewLineCounter; i++) {
-      counter += 1;
-      newProductLine.push(
-        <NewLineElements
-          products={this.props.products}
-          counter={counter}
-          handleAddProducts={this.props.handleAddProducts}
-        />,
-      );
-    }
+    console.log({ invoiceProductsArray });
 
     return (
       <div className={'form--section invoice--details'}>
@@ -38,7 +25,14 @@ class GenerateNewLine extends React.Component {
           <RegularButton text={'Usuń'} onClick={this.props.removeNewProduct} />
           <div>{this.props.addNewLineCounterError}</div>
         </div>
-        {newProductLine}
+        {invoiceProductsArray.map((line) => (
+          <NewLineElements
+            key={line.id}
+            line={line}
+            products={this.props.products}
+            onLineChange={this.props.onLineChange}
+          />
+        ))}
       </div>
     );
   }

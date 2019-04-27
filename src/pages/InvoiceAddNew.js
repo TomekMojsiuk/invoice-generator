@@ -4,6 +4,12 @@ import InvoiceAddNewForm from '../components/InvoiceAddNewForm/InvoiceAddNewForm
 
 import './_Pages.scss';
 
+const emptyProduct = {
+  id: '',
+  productId: '',
+  quantity: 1,
+};
+
 class InvoiceAddNew extends React.Component {
   constructor(props) {
     super(props);
@@ -54,8 +60,20 @@ class InvoiceAddNew extends React.Component {
           client: '',
         },
       ],
-      invoiceProducts: [],
+      invoiceProducts: {},
     };
+  }
+
+  onLineChange = (id, lineData) => {
+    this.setState({
+      invoiceProducts: {
+        ...this.state.invoiceProducts,
+        [id]: lineData,
+      },
+    });
+
+    // zamiana obiektu na tablice
+    // Object.keys(this.state.invoiceProducts).map(() => ())
   }
 
   componentDidMount() {
@@ -142,15 +160,24 @@ class InvoiceAddNew extends React.Component {
   };
 
   addNewProductLine = () => {
+    console.log('addNewProductLine');
+    const id = Math.floor(Math.random() * 1000000);
     this.setState((prevState) => {
       return {
+        invoiceProducts: {
+          ...this.state.invoiceProducts,
+          [id]: {
+            ...emptyProduct,
+            id,
+          },
+        },
         addNewLineCounter: prevState.addNewLineCounter + 1,
         addNewLineCounterError: '',
       };
     });
 
-    console.log(this.state.addNewLineCounter);
-    console.log(this.state.invoiceProducts);
+    // console.log(this.state.addNewLineCounter);
+    // console.log(this.state.invoiceProducts);
   };
 
   removeNewProduct = () => {
@@ -358,6 +385,7 @@ class InvoiceAddNew extends React.Component {
           removeNewProduct={this.removeNewProduct}
           handleAddProducts={this.handleAddProducts}
           onSubmit={this.handleFormSubmit}
+          onLineChange={this.onLineChange}
         />
       </div>
     );
