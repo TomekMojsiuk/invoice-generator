@@ -1,38 +1,62 @@
+@import "../../sass/colors";
 
-.invoice--list--header {
-  background-color: lightgrey;
-  border-bottom: 1px solid black;
-  line-height: 30px;
-
-
+h1 {
+  align-self: center;
 }
 
-.invoice--list--header_title {
-  font-size: .8rem;
-  //width: 100px!important;
-  padding: 0 10px;
+.item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  height: auto;
+  margin-right: 2px;
 
-  &:first-child {
-    width: 20px!important;
+  @include backgroundColor($color-2);
+  border-radius: 5px;
+  border: 1px solid $color-4;
+
+  &:nth-of-type(1) {
+    width: 5%;
+    justify-content: center;
   }
+  &:nth-of-type(2) {
+    width: 15%;
+  }
+  &:nth-of-type(3) {
+    width: 18%;
+  }
+  &:nth-of-type(4) {
+    width: 15%;
+  }
+  &:nth-of-type(5) {
+    width: 30%;
+  }
+  &:nth-of-type(6) {
+    width: 15%;
+  }
+}
+
+.invoice--list--header {
+
+  padding: 10px 0;
+
+  .item {
+    @include backgroundColor($color-1);
+    float: left;
+  }
+
 }
 
 .invoice--list--body {
-  padding: 0!important;
+  display: flex;
+  flex-direction: column;
 }
-$color: #e1e8e2;
 
-[class*="invoice--item--"] {
+.invoice--container {
 
-  padding: 0!important;
-  line-height: 1.5rem;
-  font-weight: 500;
-  width: 100%;
-  &:nth-child(even) {
-    background: fade_out($color, .1);
+  padding: 3px 0;
+
+  .item {
+    float: left;
   }
-  &:last-of-type {
-    border-bottom: 1px solid grey;
-  }
-
 }

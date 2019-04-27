@@ -1,5 +1,5 @@
 import React from 'react';
-import './_invoice.scss'
+import './_invoice.scss';
 
 class Invoices extends React.Component {
 
@@ -23,46 +23,45 @@ class Invoices extends React.Component {
 		let counter = 0;
 
 		const MyCol = props => {
-			return <div className={'col-2 invoice--list--header_title'} {...props} />
-		}
+			return <div className={'item'} {...props} />;
+		};
 
 		return (<div className={'pages--content--container col-10'}>
-				{invoices && invoices.length ? <h1>Lista faktur</h1> : <h1>Brak
-					faktur</h1>}
-				<div className={'row invoice--list--header'}>
+				<div className={'flex--wrapper--4'}>
+				{invoices && invoices.length
+					? <h1>Lista faktur</h1>
+					: <h1>Brak faktur</h1>}
+				<div className={'invoice--list--header'}>
 					<MyCol>LP</MyCol>
 					<MyCol>Numer faktury</MyCol>
 					<MyCol>Data wystawienia</MyCol>
 					<MyCol>Data płatności</MyCol>
-					<MyCol>Sprzedający</MyCol>
 					<MyCol>Kupujący</MyCol>
 					<MyCol>Kwota</MyCol>
+
 				</div>
 
-				<div className={'row invoice--list--body col-12'}>
-
+				<div className={'invoice--list--body'}>
 					{this.props.invoices.map(invoice => {
 						return (
-							<div key={invoice.invoiceNumber} className={`invoice--item--${counter} col-12`}>
+							<div key={invoice.invoiceNumber} className={`invoice--container`}>
 								<MyCol>{counter += 1}</MyCol>
 								<MyCol>{invoice.invoiceNumber}</MyCol>
 								<MyCol>{invoice.issuingDate}</MyCol>
 								<MyCol>{invoice.dueDate}</MyCol>
-								<MyCol>{invoice.seller.name}</MyCol>
 								<MyCol>{invoice.client.name}</MyCol>
-								{/*<MyCol>{invoice.seller.name}</MyCol>
-								<MyCol>{invoice.buyer.name}</MyCol>*/}
 								<MyCol>{`${invoice.products.reduce((acc, product) => {
 									return acc + (product.quantity * product.price);
-								},0)} zł`}</MyCol>
+								}, 0)} zł`}</MyCol>
 							</div>
 						);
 					})}
-
 				</div>
+
 				<div className={'row invoice--list--footer'}>
 					<MyCol>{counter}</MyCol>
 				</div>
+			</div>
 			</div>
 		);
 	}

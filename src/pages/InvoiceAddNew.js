@@ -51,14 +51,14 @@ class InvoiceAddNew extends React.Component {
 
 			invoice: [
 				{
-					invoiceNumber: "",
-					issuingDate: "",
-					dueDate: "",
-					seller: "",
-					client: "",
-				}
+					invoiceNumber: '',
+					issuingDate: '',
+					dueDate: '',
+					seller: '',
+					client: '',
+				},
 			],
-			invoiceProducts:'',
+			invoiceProducts: '',
 		};
 	}
 
@@ -184,17 +184,17 @@ class InvoiceAddNew extends React.Component {
 
 		const newProduct = {
 
-				name: this.state.chosenProductName,
-				price: this.state.chosenProductPrice,
-				quantity: this.state.chosenProductQuantity,
-				unit: this.state.chosenProductUnit,
-				vat: this.state.chosenProductVAT,
-				total: this.state.chosenProductTotal
+			name: this.state.chosenProductName,
+			price: this.state.chosenProductPrice,
+			quantity: this.state.chosenProductQuantity,
+			unit: this.state.chosenProductUnit,
+			vat: this.state.chosenProductVAT,
+			total: this.state.chosenProductTotal,
 		};
 
 		this.setState({
-			invoiceProducts: [...this.state.invoiceProducts, newProduct]
-		})
+			invoiceProducts: [...this.state.invoiceProducts, newProduct],
+		});
 
 	};
 
@@ -205,103 +205,106 @@ class InvoiceAddNew extends React.Component {
 	handleInvoiceNumber = (e) => {
 
 		this.setState({
-			invoiceNumber: e.target.value
-		})
-	}
+			invoiceNumber: e.target.value,
+		});
+	};
 
 	handleIssueDate = (e) => {
 		this.setState({
-			issuingDate: e.target.value
-		})
-	}
+			issuingDate: e.target.value,
+		});
+	};
 
 	handleDueDate = (e) => {
 		this.setState({
-			dueDate: e.target.value
-		})
-	}
+			dueDate: e.target.value,
+		});
+	};
 
 	/*=================================== Seller & Buyer handlers ===================================*/
 
 	handleInvoiceSeller = () => {
 
 		this.setState({
-			seller: [{
-				name: this.state.chosenSellerName,
-				NIP: this.state.chosenSellerNIP,
-				streetAddress: this.state.chosenSellerStreetAddress,
-				streetNumber: this.state.chosenSellerStreetNumber,
-				postCode: this.state.chosenSellerPostCode,
-				cityName: this.state.chosenSellerCityName
-			}]
-		})
-	}
+			seller: [
+				{
+					name: this.state.chosenSellerName,
+					NIP: this.state.chosenSellerNIP,
+					streetAddress: this.state.chosenSellerStreetAddress,
+					streetNumber: this.state.chosenSellerStreetNumber,
+					postCode: this.state.chosenSellerPostCode,
+					cityName: this.state.chosenSellerCityName,
+				}],
+		});
+	};
 
 	handleInvoiceClient = () => {
 
 		this.setState({
-			buyer: [{
-				name: this.state.chosenClientName,
-				NIP: this.state.chosenClientNIP,
-				streetAddress: this.state.chosenClientStreetAddress,
-				streetNumber: this.state.chosenClientStreetNumber,
-				postCode: this.state.chosenClientPostCode,
-				cityName: this.state.chosenClientCityName
-			}]
-		})
-	}
+			buyer: [
+				{
+					name: this.state.chosenClientName,
+					NIP: this.state.chosenClientNIP,
+					streetAddress: this.state.chosenClientStreetAddress,
+					streetNumber: this.state.chosenClientStreetNumber,
+					postCode: this.state.chosenClientPostCode,
+					cityName: this.state.chosenClientCityName,
+				}],
+		});
+	};
 
 	/*=================================== Submit handler ===================================*/
 
 	handleFormSubmit = (e) => {
 		e.preventDefault();
 
-		const url = 'http://localhost:3001/invoices'
+		const url = 'http://localhost:3001/invoices';
 		const invoice = {
-			"id": 0,
-			"invoiceNumber": this.state.invoiceNumber,
-			"issuingDate": this.state.issuingDate,
-			"dueDate": this.state.dueDate,
-			"seller": {
-				"name": this.state.chosenSellerName,
-				"NIP": this.state.chosenSellerNIP,
-				"streetAddress": this.state.chosenSellerStreetAddress,
-				"streetNumber": this.state.chosenSellerStreetNumber,
-				"postCode": this.state.chosenSellerPostCode,
-				"cityName": this.state.chosenSellerCityName
-			} ,
-			"client": {
-				"name": this.state.chosenClientName,
-				"NIP": this.state.chosenClientNIP,
-				"streetAddress": this.state.chosenClientStreetAddress,
-				"streetNumber": this.state.chosenClientStreetNumber,
-				"postCode": this.state.chosenClientPostCode,
-				"cityName": this.state.chosenClientCityName
+			'id': 0,
+			'invoiceNumber': this.state.invoiceNumber,
+			'issuingDate': this.state.issuingDate,
+			'dueDate': this.state.dueDate,
+			'seller': {
+				'name': this.state.chosenSellerName,
+				'NIP': this.state.chosenSellerNIP,
+				'streetAddress': this.state.chosenSellerStreetAddress,
+				'streetNumber': this.state.chosenSellerStreetNumber,
+				'postCode': this.state.chosenSellerPostCode,
+				'cityName': this.state.chosenSellerCityName,
 			},
-			"products": [
+			'client': {
+				'name': this.state.chosenClientName,
+				'NIP': this.state.chosenClientNIP,
+				'streetAddress': this.state.chosenClientStreetAddress,
+				'streetNumber': this.state.chosenClientStreetNumber,
+				'postCode': this.state.chosenClientPostCode,
+				'cityName': this.state.chosenClientCityName,
+			},
+			'products': [
 				{
-				"name": "product 1",
-				"price": "1200",
-				"quantity": "3",
-				"unit": "kg",
-				"vat": "23"
-			}
-			]
-		}
+					'name': 'product 1',
+					'price': '1200',
+					'quantity': '3',
+					'unit': 'kg',
+					'vat': '23',
+				},
+			],
+		};
 
 		console.log(invoice);
 
 		fetch(url, {
 			method: 'POST',
 			body: JSON.stringify(invoice),
-			redirect: "manual",
+			redirect: 'manual',
 			headers: {
-				"Content-Type": "application/json",
-			}
-		}).then(res => res.json())
-		.then(response => console.log('Success:', JSON.stringify(response)))
-		.catch(error => console.error('Error:', error));
-	}
+				'Content-Type': 'application/json',
+			},
+		}).
+			then(res => res.json()).
+			then(response => console.log('Success:', JSON.stringify(response))).
+			catch(error => console.error('Error:', error));
+	};
 
 	render () {
 		return (<div className={'row main--content--box'}>
@@ -317,11 +320,11 @@ class InvoiceAddNew extends React.Component {
 				                   sellerSelectOnChange={this.handleSellerSelection}
 				                   sellerSelectValue={this.state.chosenSellerName}
 				                   sellerTextAreaValue={(this.state.chosenSellerName) +
-														'\n' + (this.state.chosenSellerStreetAddress) + ' ' +
-														(this.state.chosenSellerStreetNumber) +
-														'\n' + (this.state.chosenSellerPostCode) + ' ' +
-														(this.state.chosenSellerCityName) +
-														'\n' + (this.state.chosenSellerNIP)}
+				                   '\n' + (this.state.chosenSellerStreetAddress) + ' ' +
+				                   (this.state.chosenSellerStreetNumber) +
+				                   '\n' + (this.state.chosenSellerPostCode) + ' ' +
+				                   (this.state.chosenSellerCityName) +
+				                   '\n' + (this.state.chosenSellerNIP)}
 
 				                   clientSelectOnChange={this.handleClientSelection}
 				                   clientSelectValue={this.state.chosenClientName}

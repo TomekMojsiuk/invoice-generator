@@ -74,13 +74,13 @@
       "clientCityName": "Gdańsk"
     },
     {
-    "id": 4,
-    "clientName": "Jakaś kolejna firma Sp. z o.o.",
-    "clientNIP": "000 111 00 00",
-    "clientStreetAddress": "al. Kolejowa",
-    "clientStreetNumber": "55",
-    "clientPostCode": "80-124",
-    "clientCityName": "Gdańsk"
+      "id": 4,
+      "clientName": "Jakaś kolejna firma Sp. z o.o.",
+      "clientNIP": "000 111 00 00",
+      "clientStreetAddress": "al. Kolejowa",
+      "clientStreetNumber": "55",
+      "clientPostCode": "80-124",
+      "clientCityName": "Gdańsk"
     },
     {
       "id": 5,
@@ -90,15 +90,6 @@
       "clientStreetNumber": "23",
       "clientPostCode": "80-132",
       "clientCityName": "Gdańsk"
-    },
-    {
-      "clientName": "Wymyślona Firma SA",
-      "clientNIP": "456-999-08-73",
-      "clientStreetAddress": "Grzybowa",
-      "clientStreetNumber": "13",
-      "clientPostCode": "80-222",
-      "clientCityName": "Gdańsk",
-      "id": 6
     },
     {
       "clientName": "Ciastkarnia Sp. z o.o",
@@ -139,219 +130,8 @@
   "invoices": [
     {
       "id": 1,
-      "invoiceNumber": "FV/01/2018",
-      "issuingDate": "25.06.2018",
-      "dueDate": "01.07.2018",
-      "seller": {
-        "name": "Nasza firma",
-        "NIP": "1234567890",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "nazwaKlienta",
-        "NIP": "0987654321",
-        "streetAddress": "Szkolna",
-        "streetNumber": "25",
-        "postCode": "80-222",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 2,
       "invoiceNumber": "1/04/2019",
-      "issuingDate": "2019-04-01",
-      "dueDate": "2019-04-11",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Jeszcze jedna firma SA",
-        "NIP": "000 222 00 00",
-        "streetAddress": "al. Kolejna",
-        "streetNumber": "23",
-        "postCode": "80-132",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "invoiceNumber": "1/04/2019",
-      "issuingDate": "2019-04-07",
-      "dueDate": "2019-04-17",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Jakaś kolejna firma Sp. z o.o.",
-        "NIP": "000 111 00 00",
-        "streetAddress": "al. Kolejowa",
-        "streetNumber": "55",
-        "postCode": "80-124",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "invoiceNumber": "1/04/2019",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Ich Firma Sp. z o.o.",
-        "NIP": "111 000 00 00",
-        "streetAddress": "al. Przykładowa",
-        "streetNumber": "1",
-        "postCode": "80-355",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "invoiceNumber": "1/04/2019",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Ich Firma Sp. z o.o.",
-        "NIP": "111 000 00 00",
-        "streetAddress": "al. Przykładowa",
-        "streetNumber": "1",
-        "postCode": "80-355",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "invoiceNumber": "1/04/2019",
-      "seller": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
-      },
-      "client": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "invoiceNumber": "2/-4/2019",
-      "issuingDate": "2019-04-24",
-      "dueDate": "2019-04-26",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Jakaś kolejna firma Sp. z o.o.",
-        "NIP": "000 111 00 00",
-        "streetAddress": "al. Kolejowa",
-        "streetNumber": "55",
-        "postCode": "80-124",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "invoiceNumber": "5/04/2019",
-      "issuingDate": "2019-04-08",
+      "issuingDate": "2019-04-27",
       "dueDate": "2019-04-30",
       "seller": {
         "name": "Nasza Firma Sp. z o.o.",
@@ -362,71 +142,12 @@
         "cityName": "Gdańsk"
       },
       "client": {
-        "name": "Jakaś kolejna firma Sp. z o.o.",
-        "NIP": "000 111 00 00",
-        "streetAddress": "al. Kolejowa",
-        "streetNumber": "55",
-        "postCode": "80-124",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "invoiceNumber": "1/04/2019",
-      "issuingDate": "2019-04-25",
-      "dueDate": "2019-04-26",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Jakaś kolejna firma Sp. z o.o.",
-        "NIP": "000 111 00 00",
-        "streetAddress": "al. Kolejowa",
-        "streetNumber": "55",
-        "postCode": "80-124",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "seller": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
-      },
-      "client": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
+        "name": "Zakład Stolarski pana Mietka",
+        "NIP": "456-999-08-73",
+        "streetAddress": "Drewniana",
+        "streetNumber": "22",
+        "postCode": "83-010",
+        "cityName": "Straszyn"
       },
       "products": [
         {
