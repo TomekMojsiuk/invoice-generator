@@ -4,53 +4,26 @@ import NumberFormat from 'react-number-format';
 import './NewLineElements.scss';
 
 class NewLineElements extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      product: [
-        {
-          id: '',
-          name: '',
-          price: '',
-          quantity: '',
-          unit: '',
-          vat: '',
-          total: '',
-        },
-      ],
-    };
-  }
-
-  componentDidMount() {}
-
-  productNameOnChange = (e) => {
-    this.props.products.map((product) => {
-      if (product.productName === e.target.value) {
-        return this.setState({
-          id: product.id,
-          price: product.productPrice,
-          unit: product.productUnit,
-          vat: product.productVat,
-        });
-      } else {
-        return null;
-      }
-    });
+  productOnChange = (lineId, productId) => {
+    this.props.onLineChange(lineId, {
+      productId,
+    })
   };
 
-  productQuantityOnChange = (e) => {
-    let counter = +e.target.value;
-
-    if (counter.value > 0) {
-      this.setState({
-        quantity: counter,
-        brutto: counter * +this.state.price,
-      });
+  productQuantityOnChange = (lineId, quantity) => {
+    if (quantity > 0) {
+      this.props.onLineChange(lineId, {
+        quantity,
+      })
     }
   };
 
   render() {
-    let NumberFormat = require('react-number-format');
+    const selectedProduct = this.props.products.find((product) => product.id === this.props.line.productId)
+    // console.log({ selectedProduct })
+    const grossAmount = selectedProduct ? selectedProduct.vat / 100 * this.props.line.quantity * selectedProduct.price : '';
+
+    // return null
 
     return (
       <div className={'new--line--container'}>
@@ -62,13 +35,13 @@ class NewLineElements extends React.Component {
         {/*========================= product inputs =========================*/}
         <div className={'form--input'}>
           <select
-            onChange={this.productNameOnChange}
-            value={this.props.chosenProductName}
+            onChange={(e) => this.productOnChange(this.props.line.id, e.target.value)}
+            value={this.props.line.productId}
           >
             <option defaultValue={''}>Wybierz produkt</option>
             {this.props.products.map((product) => {
               return (
-                <option key={product.productId} value={product.productName}>
+                <option key={product.productId} value={product.productId}>
                   {product.productName}
                 </option>
               );
@@ -80,7 +53,7 @@ class NewLineElements extends React.Component {
             thousandSeparator={true}
             placeholder={'Cena netto'}
             suffix={' zł'}
-            value={this.state.price}
+            value={selectedProduct ? selectedProduct.price : ''}
           />
         </div>
 
@@ -89,7 +62,7 @@ class NewLineElements extends React.Component {
             name="productQuantity"
             type="text"
             placeholder="Liczba szt"
-            onChange={this.productQuantityOnChange}
+            onChange={(e) => this.productQuantityOnChange(this.props.line.id, +e.target.value)}
           />
         </div>
 
@@ -98,7 +71,7 @@ class NewLineElements extends React.Component {
             name="productUnit"
             type="text"
             placeholder="Jednostka"
-            defaultValue={this.state.unit}
+            defaultValue={selectedProduct ? selectedProduct.unit : ''}
           />
         </div>
 
@@ -107,7 +80,7 @@ class NewLineElements extends React.Component {
             thousandSeparator={false}
             placeholder={'stawka VAT'}
             suffix={'%'}
-            value={this.state.vat}
+            value={selectedProduct ? selectedProduct.vat : ''}
           />
         </div>
 
@@ -116,7 +89,7 @@ class NewLineElements extends React.Component {
             thousandSeparator={true}
             placeholder={'Cena brutto'}
             suffix={' zł'}
-            value={this.state.brutto}
+            value={grossAmount}
           />
         </div>
       </div>

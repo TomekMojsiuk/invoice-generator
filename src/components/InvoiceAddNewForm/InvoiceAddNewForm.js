@@ -93,6 +93,7 @@ class InvoiceAddNewForm extends React.Component {
             removeNewProduct={this.props.removeNewProduct}
             handleAddProducts={this.props.handleAddProducts}
             invoiceProducts={this.props.invoiceProducts}
+            onLineChange={this.props.onLineChange}
           />
 
           <RegularButton
