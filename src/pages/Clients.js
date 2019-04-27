@@ -23,10 +23,12 @@ class Clients extends React.Component {
 
       addNewClient: false,
       editClient: false,
+      clientAdded: false
     };
   }
 
   componentDidMount() {
+
     fetch(this.state.url)
       .then((response) => response.json())
       .then((clients) =>
@@ -94,7 +96,6 @@ class Clients extends React.Component {
     });
   };
   handleAddNewClient = (e) => {
-    e.preventDefault();
 
     let url = this.state.url;
 
@@ -108,8 +109,6 @@ class Clients extends React.Component {
       clientCityName: this.state.clientCityName,
     };
 
-    console.log(client);
-
     fetch(url, {
       method: 'POST',
       body: JSON.stringify(client),
@@ -121,6 +120,7 @@ class Clients extends React.Component {
       .then((res) => res.json())
       .then((response) => console.log('Success:', JSON.stringify(response)))
       .catch((error) => console.error('Error:', error));
+
   };
 
   // handleEditClientData = (e) => {
@@ -141,6 +141,8 @@ class Clients extends React.Component {
   // };
 
   handleDeleteClientData = (e) => {
+
+
     this.state.clients.find((client) => {
       if (client.id === +e.target.id) {
         return fetch('http://localhost:3001/clients' + '/' + client.id, {
@@ -155,7 +157,10 @@ class Clients extends React.Component {
           .then((response) => console.log('Success:', JSON.stringify(response)))
           .catch((error) => console.error('Error:', error));
       }
-    });
+    })
+
+    this.forceUpdate()
+
   };
 
   render() {

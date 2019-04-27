@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.scss';
-import users from './data/data';
 
 import Footer from './components/Footer/Footer';
 import BackgroundImg from './components/BackgroundImg/BackgroundImg';
@@ -55,16 +54,11 @@ class App extends Component {
   };
 
   handleLogin = (loginData) => {
-    console.log(loginData);
 
     const username = loginData.username;
     const password = loginData.password;
 
-    console.log(users);
-
     const userFound = this.state.users.find((user) => {
-      console.log(user);
-      console.log(username, password);
 
       return user.username === username && user.password === password;
     });

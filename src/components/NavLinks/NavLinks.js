@@ -18,9 +18,12 @@ class NavLinks extends React.Component {
               <MyLink exact to="/">
                 Faktury
               </MyLink>
-              <MyLink exact to="/clients">
+              {/*<MyLink exact to="/clients">
                 Kontrahenci
               </MyLink>
+              <MyLink exact to="/products">
+                Produkty
+              </MyLink>*/}
               <MyLink
                 exact
                 to="/"

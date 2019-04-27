@@ -6,7 +6,7 @@ class Footer extends React.Component {
     return (
       <div className={'footer row'}>
         <div className={'footer--text col-12'}>
-          <p className={''}>Copyright TM 2019</p>
+          <p className={''}>Tomasz Mojsiuk 2019</p>
           <p>Photo by Expect Best from Pexels</p>
         </div>
       </div>

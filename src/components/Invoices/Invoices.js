@@ -45,11 +45,10 @@ class Invoices extends React.Component {
           <div className={'invoice--list--body'}>
             {this.props.invoices.map((invoice) => {
               return (
-                <div
-                  key={invoice.invoiceNumber}
+                <div key={() => Math.floor(Math.random() * 100000)}
                   className={`invoice--container`}
                 >
-                  <MyCol>{(counter += 1)}</MyCol>
+                  <MyCol key={invoice.invoiceNumber}>{(counter += 1)}</MyCol>
                   <MyCol>{invoice.invoiceNumber}</MyCol>
                   <MyCol>{invoice.issuingDate}</MyCol>
                   <MyCol>{invoice.dueDate}</MyCol>
@@ -58,7 +57,7 @@ class Invoices extends React.Component {
                     return acc + product.quantity * product.price;
                   }, 0)} zł`}</MyCol>
 
-                  <div className={'invoice--details'}>
+                  <div className={'invoice--details'} key={invoice}>
                     <div className={'invoice--details--header'}>
                       <MyCol>Produkt</MyCol>
                       <MyCol>Cena cetto</MyCol>

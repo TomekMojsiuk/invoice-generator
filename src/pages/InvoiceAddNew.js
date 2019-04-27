@@ -74,7 +74,7 @@ class InvoiceAddNew extends React.Component {
 
     // zamiana obiektu na tablice
     // Object.keys(this.state.invoiceProducts).map(() => ())
-  }
+  };
 
   componentDidMount() {
     fetch('http://localhost:3001/invoices')
@@ -85,7 +85,7 @@ class InvoiceAddNew extends React.Component {
         }),
       )
       .then(() => {
-        console.log(this.state.invoices);
+        // console.log(this.state.invoices);
       });
 
     fetch('http://localhost:3001/clients')
@@ -96,7 +96,7 @@ class InvoiceAddNew extends React.Component {
         }),
       )
       .then(() => {
-        console.log(this.state.clients);
+        // console.log(this.state.clients);
       })
       .catch((error) => {
         return error.message;
@@ -110,7 +110,7 @@ class InvoiceAddNew extends React.Component {
         }),
       )
       .then(() => {
-        console.log(this.state.sellers);
+       // console.log(this.state.sellers);
       })
       .catch((error) => {
         return error.message;
@@ -124,7 +124,7 @@ class InvoiceAddNew extends React.Component {
         }),
       )
       .then(() => {
-        console.log(this.state.products);
+       // console.log(this.state.products);
       })
       .catch((error) => {
         return error.message;
@@ -160,7 +160,7 @@ class InvoiceAddNew extends React.Component {
   };
 
   addNewProductLine = () => {
-    console.log('addNewProductLine');
+
     const id = Math.floor(Math.random() * 1000000);
     this.setState((prevState) => {
       return {
@@ -175,9 +175,6 @@ class InvoiceAddNew extends React.Component {
         addNewLineCounterError: '',
       };
     });
-
-    // console.log(this.state.addNewLineCounter);
-    // console.log(this.state.invoiceProducts);
   };
 
   removeNewProduct = () => {
@@ -197,35 +194,7 @@ class InvoiceAddNew extends React.Component {
       });
     }
 
-    console.log(this.state.addNewLineCounter);
   };
-
-  updateInvoiceProducts = () => {};
-
-  /*handleAddProducts = (e) => {
-
-		this.state.products.find(product => {
-
-			if (+product.id === +e.target.id) {
-
-				const newProduct = {
-
-					name: this.state.chosenProductName,
-					price: this.state.chosenProductPrice,
-					quantity: this.state.chosenProductQuantity,
-					unit: this.state.chosenProductUnit,
-					vat: this.state.chosenProductVAT,
-					total: this.state.chosenProductTotal,
-				};
-
-				this.setState({
-
-					invoiceProducts: [...this.state.invoiceProducts, newProduct],
-				});
-			}
-		});
-		console.log(this.state.invoiceProducts);
-	};*/
 
   /*=================================== Invoice handlers ===================================*/
 
@@ -318,8 +287,6 @@ class InvoiceAddNew extends React.Component {
         },
       ],
     };
-
-    console.log(invoice);
 
     fetch(url, {
       method: 'POST',

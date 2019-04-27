@@ -9,7 +9,7 @@ class RegularButton extends React.Component {
 
   render() {
     return (
-      <div className={'button--regular'} onClick={this.props.onClick}>
+      <div className={'button--regular'} onClick={this.props.onClick} >
         {this.props.text}
       </div>
     );

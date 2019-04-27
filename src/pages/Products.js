@@ -96,8 +96,6 @@ class Products extends React.Component {
       productTotal: 0,
     };
 
-    console.log(product);
-
     fetch(url, {
       method: 'POST',
       body: JSON.stringify(product),
