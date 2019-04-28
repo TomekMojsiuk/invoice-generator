@@ -27,7 +27,6 @@ class Products extends React.Component {
   }
 
   componentDidMount() {
-
     fetch(this.state.url)
       .then((response) => response.json())
       .then((products) =>
@@ -109,19 +108,6 @@ class Products extends React.Component {
       .catch((error) => console.error('Error:', error));
 
     this.handleReturn()
-
-  };
-
-  handleEditProductData = (e) => {
-    this.state.products.find((product) => {
-      if (product.productId === e.target.id) {
-        return product;
-      }
-
-      /*		this.setState({
-
-					})*/
-    });
   };
 
   handleDeleteProductData = (e) => {

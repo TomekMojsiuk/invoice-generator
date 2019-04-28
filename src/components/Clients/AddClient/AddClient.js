@@ -4,6 +4,7 @@ import RegularButton from '../../Buttons/RegularButton/RegularButton';
 import './AddClient.scss';
 
 class AddClient extends React.Component {
+  componentWillReceiveProps() {}
 
   render() {
     const {

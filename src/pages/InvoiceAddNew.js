@@ -3,7 +3,6 @@ import SideNav from '../components/SideNav/SideNav';
 import InvoiceAddNewForm from '../components/InvoiceAddNewForm/InvoiceAddNewForm';
 
 import './_Pages.scss';
-import InvoiceList from './InvoiceList';
 
 const emptyProduct = {
   id: '',
@@ -297,12 +296,9 @@ class InvoiceAddNew extends React.Component {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json(this.componentDidMount()))
+      .then((res) => res.json())
       .then((response) => console.log('Success:', JSON.stringify(response)))
       .catch((error) => console.error('Error:', error));
-
-    this.componentDidMount()
-
   };
 
   render() {
