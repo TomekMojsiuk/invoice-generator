@@ -54,12 +54,10 @@ class App extends Component {
   };
 
   handleLogin = (loginData) => {
-
     const username = loginData.username;
     const password = loginData.password;
 
     const userFound = this.state.users.find((user) => {
-
       return user.username === username && user.password === password;
     });
 
@@ -93,7 +91,7 @@ class App extends Component {
             handleLogOut={this.handleLogOut}
             isLoggedIn={this.state.isLoggedIn}
           />
-          {!this.state.isLoggedIn ? (
+          {this.state.isLoggedIn ? (
             <Switch>
               <Route
                 exact

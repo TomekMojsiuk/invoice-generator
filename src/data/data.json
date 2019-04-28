@@ -2,36 +2,9 @@
   "users": [
     {
       "id": 1,
-      "username": "Admin",
+      "username": "admin",
       "login": "admin@admin.pl",
       "password": "1234admin"
-    },
-    {
-      "id": 2,
-      "username": "Adam",
-      "login": "adam.kowalski@gamil.com",
-      "password": "098765"
-    },
-    {
-      "id": 3,
-      "username": "Krzysztof",
-      "login": "krzysztof.kowalski@gamil.com",
-      "password": "098765"
-    },
-    {
-      "id": 4,
-      "username": "Tomek",
-      "login": "tomasz.mojsiuk@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "ZHBNv0_"
-    },
-    {
-      "id": "ujhKaP_"
-    },
-    {
-      "id": "A0m8VWc"
     }
   ],
   "sellers": [
@@ -50,13 +23,22 @@
       "id": 1,
       "clientName": "Wymyślona Firma SA",
       "clientNIP": "111 000 00 00",
-      "clientStreetAddress": "Grzybowa",
-      "clientStreetNumber": "22",
-      "clientPostCode": "80-222",
+      "clientStreetAddress": "ul. Piekarnicza",
+      "clientStreetNumber": "11",
+      "clientPostCode": "80-355",
       "clientCityName": "Gdańsk"
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": 1,
+      "productName": "Długopis",
+      "productPrice": "5",
+      "productUnit": "szt",
+      "productVat": "23",
+      "productTotal": 0
+    }
+  ],
   "invoices": [
     {
       "id": 1,
@@ -122,21 +104,24 @@
     },
     {
       "id": 3,
+      "invoiceNumber": "5/04/2019",
+      "issuingDate": "2019-04-08",
+      "dueDate": "2019-04-30",
       "seller": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
+        "name": "Nasza Firma Sp. z o.o.",
+        "NIP": "000 000 00 00",
+        "streetAddress": "al. Grunwaldzka",
+        "streetNumber": "471",
+        "postCode": "80-309",
+        "cityName": "Gdańsk"
       },
       "client": {
-        "name": "",
-        "NIP": "",
-        "streetAddress": "",
-        "streetNumber": "",
-        "postCode": "",
-        "cityName": ""
+        "name": "Wymyślona Firma SA",
+        "NIP": "111 000 00 00",
+        "streetAddress": "ul. Piekarnicza",
+        "streetNumber": "11",
+        "postCode": "80-355",
+        "cityName": "Gdańsk"
       },
       "products": [
         {

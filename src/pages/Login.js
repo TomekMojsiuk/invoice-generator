@@ -16,6 +16,7 @@ class Login extends React.Component {
     return (
       <div>
         <div className="box--controller row">
+
           <div className={'controls col-5'}>
             <div
               className={

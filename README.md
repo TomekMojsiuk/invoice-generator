@@ -1,11 +1,11 @@
 # Invoice-me
 
-Aplikacja pozwala na zarządzanie fakturami; archiwizacja, wystawianie faktur. 
-Ma proste zabezpieczenie w postaci panelu logowania użytkownika. 
+Aplikacja pozwala na zarządzanie fakturami, klientami i produktami; archiwizacja, wystawianie faktur, dodawanie i usuwanie produktów i klientów.
+Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 
 # Logowanie:
 
-    Nazwa użytkownika: Admin,
+    Nazwa użytkownika: admin,
     Login: admin@admin.pl
     Hasło: 1234admin
 
@@ -23,14 +23,15 @@ Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 # Podstawowe funkcjonalności:
 
 - logowanie
-- dodawanie i usuwanie danych do pliku json
+- dodawanie i usuwanie danych w pliku json
 
 # To do:
 
 - rejestracja nowego użytkownika w aplikacji. Na razie możemy tylko logować się jako już dodany użytkownik.
-- input mask - walidacja pól formularza pod kątem dozwolonych znaków, formatów wpisywania np. dla kodu pocztowego czy nipu.
+- walidacja pól formularza pod kątem dozwolonych znaków, formatów wpisywania np. dla kodu pocztowego czy nipu.
 - kalkultor walutowy, jeśli chcielibyśmy wystawić fakturę w obcej walucie.
 - modyfikowanie danych kontrahentów, produktów i faktur
+- wyświetlanie szczegółów faktury po kliknięciu w daną fakturę na liście. Popup z opcją drukowania
 
 # Instalacja i uruchomienie:
 

@@ -23,12 +23,10 @@ class Clients extends React.Component {
 
       addNewClient: false,
       editClient: false,
-      clientAdded: false
     };
   }
 
   componentDidMount() {
-
     fetch(this.state.url)
       .then((response) => response.json())
       .then((clients) =>
@@ -95,9 +93,9 @@ class Clients extends React.Component {
       addNewClient: false,
     });
   };
-  handleAddNewClient = (e) => {
 
-    let url = this.state.url;
+  handleAddNewClient = (e) => {
+    const url = this.state.url;
 
     let client = {
       id: 0,
@@ -121,28 +119,10 @@ class Clients extends React.Component {
       .then((response) => console.log('Success:', JSON.stringify(response)))
       .catch((error) => console.error('Error:', error));
 
+    this.handleReturn()
   };
 
-  // handleEditClientData = (e) => {
-  //
-  // 	this.setState({
-  // 		editClient: true
-  // 	})
-  //
-  // 	this.state.clients.find(client => {
-  //
-  // 			if (client.id === +e.target.id) {
-  //
-  // 			return client;
-  //
-  // 		}
-  //
-  // 	});
-  // };
-
   handleDeleteClientData = (e) => {
-
-
     this.state.clients.find((client) => {
       if (client.id === +e.target.id) {
         return fetch('http://localhost:3001/clients' + '/' + client.id, {
@@ -157,10 +137,7 @@ class Clients extends React.Component {
           .then((response) => console.log('Success:', JSON.stringify(response)))
           .catch((error) => console.error('Error:', error));
       }
-    })
-
-    this.forceUpdate()
-
+    });
   };
 
   render() {
@@ -168,15 +145,7 @@ class Clients extends React.Component {
       <div className={'row main--content--box'}>
         <SideNav />
 
-        {!this.state.addNewClient ? (
-          <ClientsList
-            clients={this.state.clients}
-            handleAddNewClient={this.displayNewUserForm}
-            handleEditClientData={this.handleEditClientData}
-            editButtonOnClick={this.handleEditClientData}
-            deleteButtonOnClick={this.handleDeleteClientData}
-          />
-        ) : (
+        {this.state.addNewClient ? (
           <AddClient
             handleClientName={this.handleClientName}
             handleClientNIP={this.handleClientNIP}
@@ -186,6 +155,14 @@ class Clients extends React.Component {
             handleClientCityName={this.handleClientCityName}
             handleAddNewClient={this.handleAddNewClient}
             handleReturn={this.handleReturn}
+          />
+        ) : (
+          <ClientsList
+            clients={this.state.clients}
+            handleAddNewClient={this.displayNewUserForm}
+            handleEditClientData={this.handleEditClientData}
+            editButtonOnClick={this.handleEditClientData}
+            deleteButtonOnClick={this.handleDeleteClientData}
           />
         )}
       </div>

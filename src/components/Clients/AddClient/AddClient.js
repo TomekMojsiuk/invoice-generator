@@ -4,8 +4,7 @@ import RegularButton from '../../Buttons/RegularButton/RegularButton';
 import './AddClient.scss';
 
 class AddClient extends React.Component {
-
-  componentWillReceiveProps () {}
+  componentWillReceiveProps() {}
 
   render() {
     const {
@@ -24,7 +23,6 @@ class AddClient extends React.Component {
         <div className={'flex--wrapper--2'}>
           <h1>Dodaj klienta</h1>
         </div>
-
         <div className={'add--client--form__container'}>
           <form onSubmit={handleAddNewClient}>
             <div className={'flex--wrapper--2'}>

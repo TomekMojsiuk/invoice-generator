@@ -160,6 +160,12 @@ export class LoginForm extends React.Component {
 
     return (
       <div className={'form--body register'}>
+
+        <div className={'login--data--temp'}>Dane logowania:
+          <p>Nazwa: admin</p>
+          <p>Login: admin@admin.pl</p>
+          <p>Hasło: 1234admin</p></div>
+
         <h1>Logowanie</h1>
         <p className={'alert--msg'}>{this.props.handleError}</p>
 
