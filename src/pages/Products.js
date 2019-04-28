@@ -27,6 +27,7 @@ class Products extends React.Component {
   }
 
   componentDidMount() {
+
     fetch(this.state.url)
       .then((response) => response.json())
       .then((products) =>
@@ -83,7 +84,6 @@ class Products extends React.Component {
   };
 
   handleAddNewProduct = (e) => {
-    e.preventDefault();
 
     let url = this.state.url;
 
@@ -104,9 +104,12 @@ class Products extends React.Component {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json())
+      .then((res) => res.json(this.componentDidMount()))
       .then((response) => console.log('Success:', JSON.stringify(response)))
       .catch((error) => console.error('Error:', error));
+
+    this.handleReturn()
+
   };
 
   handleEditProductData = (e) => {
@@ -132,7 +135,7 @@ class Products extends React.Component {
             'Content-Type': 'application/json',
           },
         })
-          .then((res) => res.json())
+          .then((res) => res.json(this.componentDidMount()))
           .then((response) => console.log('Success:', JSON.stringify(response)))
           .catch((error) => console.error('Error:', error));
       }

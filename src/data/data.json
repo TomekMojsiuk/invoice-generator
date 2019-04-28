@@ -11,127 +11,14 @@
     {
       "id": 1,
       "sellerName": "Nasza Firma Sp. z o.o.",
-      "sellerNIP": "000 000 00 00",
+      "sellerNIP": "111 000 00 00",
       "sellerStreetAddress": "al. Grunwaldzka",
       "sellerStreetNumber": "471",
       "sellerPostCode": "80-309",
       "sellerCityName": "Gdańsk"
     }
   ],
-  "clients": [
-    {
-      "id": 1,
-      "clientName": "Wymyślona Firma SA",
-      "clientNIP": "111 000 00 00",
-      "clientStreetAddress": "ul. Piekarnicza",
-      "clientStreetNumber": "11",
-      "clientPostCode": "80-355",
-      "clientCityName": "Gdańsk"
-    }
-  ],
-  "products": [
-    {
-      "id": 1,
-      "productName": "Długopis",
-      "productPrice": "5",
-      "productUnit": "szt",
-      "productVat": "23",
-      "productTotal": 0
-    }
-  ],
-  "invoices": [
-    {
-      "id": 1,
-      "invoiceNumber": "1/04/2019",
-      "issuingDate": "2019-04-27",
-      "dueDate": "2019-04-30",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Zakład Stolarski pana Mietka",
-        "NIP": "456-999-08-73",
-        "streetAddress": "Drewniana",
-        "streetNumber": "22",
-        "postCode": "83-010",
-        "cityName": "Straszyn"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "invoiceNumber": "2/04/2019",
-      "issuingDate": "2019-04-22",
-      "dueDate": "2019-04-23",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Ciastkarnia Sp. z o.o",
-        "NIP": "222-456-78-45",
-        "streetAddress": "ul. Piekarnicza",
-        "streetNumber": "22",
-        "postCode": "76-200",
-        "cityName": "Słupsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "invoiceNumber": "5/04/2019",
-      "issuingDate": "2019-04-08",
-      "dueDate": "2019-04-30",
-      "seller": {
-        "name": "Nasza Firma Sp. z o.o.",
-        "NIP": "000 000 00 00",
-        "streetAddress": "al. Grunwaldzka",
-        "streetNumber": "471",
-        "postCode": "80-309",
-        "cityName": "Gdańsk"
-      },
-      "client": {
-        "name": "Wymyślona Firma SA",
-        "NIP": "111 000 00 00",
-        "streetAddress": "ul. Piekarnicza",
-        "streetNumber": "11",
-        "postCode": "80-355",
-        "cityName": "Gdańsk"
-      },
-      "products": [
-        {
-          "name": "product 1",
-          "price": "1200",
-          "quantity": "3",
-          "unit": "kg",
-          "vat": "23"
-        }
-      ]
-    }
-  ]
+  "clients": [],
+  "products": [],
+  "invoices": []
 }

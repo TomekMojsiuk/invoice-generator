@@ -115,7 +115,7 @@ class Clients extends React.Component {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json())
+      .then((res) => res.json(this.componentDidMount()))
       .then((response) => console.log('Success:', JSON.stringify(response)))
       .catch((error) => console.error('Error:', error));
 
@@ -133,7 +133,7 @@ class Clients extends React.Component {
             'Content-Type': 'application/json',
           },
         })
-          .then((res) => res.json())
+          .then((res) => res.json(this.componentDidMount()))
           .then((response) => console.log('Success:', JSON.stringify(response)))
           .catch((error) => console.error('Error:', error));
       }
