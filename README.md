@@ -22,8 +22,8 @@ Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 
 # Podstawowe funkcjonalności:
 
-- logowanie
-- dodawanie i usuwanie danych w pliku json
+- logowanie użytkownika
+- dodawanie i usuwanie danych produktów i klientów
 
 # To do:
 
@@ -31,7 +31,8 @@ Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 - walidacja pól formularza pod kątem dozwolonych znaków, formatów wpisywania np. dla kodu pocztowego czy nipu.
 - kalkultor walutowy, jeśli chcielibyśmy wystawić fakturę w obcej walucie.
 - modyfikowanie danych kontrahentów, produktów i faktur
-- wyświetlanie szczegółów faktury po kliknięciu w daną fakturę na liście. Popup z opcją drukowania
+- wyświetlanie szczegółów faktury po kliknięciu w daną fakturę na liście. Popup z opcją drukowania faktury
+- przeniesienie danych do zewnętrznej bazy, np. firebase
 
 # Instalacja i uruchomienie:
 
@@ -39,7 +40,7 @@ Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 
 - Pobierz repozytorium i zainstaluj node_modules za pomocą polecenia _**npm i**_
 - Zainstaluj json server za pomocą polecenia: _**npm install -g json-server**_
-- Uruchom watchery dla aplikacji oraz pliku danych. Użyj poleceń:
+- Uruchom watchery dla aplikacji oraz pliku danych. Pamiętaj, żeby uruchomić json server na porcie 3001. Użyj poleceń:
     - npm start
     - json-server -p 3001  ./src/data/data.json
 
