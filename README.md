@@ -1,16 +1,17 @@
 # Invoice-me
 
-Aplikacja pozwala na zarządzanie fakturami, klientami i produktami; archiwizacja, wystawianie faktur, dodawanie i usuwanie produktów i klientów.
-Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
+The app lets you manage your company's invoices, customers and products. Issue and archive invoices, add, delete and modify your customers and products.
 
-# Logowanie:
+A simple login form is also included in order to implement basic security within the app data.
 
-    Nazwa użytkownika: admin,
-    Login: admin@admin.pl
-    Hasło: 1234admin
+# Login:
+
+    User name: admin,
+    User login: admin@admin.pl
+    Password: 1234admin
 
 
-# Technologie i paczki:
+# Technologies and tools:
 
 - React
 - ES6
@@ -20,27 +21,27 @@ Ma proste zabezpieczenie w postaci panelu logowania użytkownika.
 - react-number-format (https://github.com/s-yadav/react-number-format) 
 - react-router (https://github.com/ReactTraining/react-router)
 
-# Podstawowe funkcjonalności:
+# Basic functionality:
 
-- logowanie użytkownika
-- dodawanie i usuwanie danych produktów i klientów
+- login form, data validation
+- add, modify or delete products and customers data
 
 # To do:
 
-- rejestracja nowego użytkownika w aplikacji. Na razie możemy tylko logować się jako już dodany użytkownik.
-- walidacja pól formularza pod kątem dozwolonych znaków, formatów wpisywania np. dla kodu pocztowego czy nipu.
-- kalkultor walutowy, jeśli chcielibyśmy wystawić fakturę w obcej walucie.
-- modyfikowanie danych kontrahentów, produktów i faktur
-- wyświetlanie szczegółów faktury po kliknięciu w daną fakturę na liście. Popup z opcją drukowania faktury
-- przeniesienie danych do zewnętrznej bazy, np. firebase
+- New user registration form. For now, a login form has been implemented.
+- Validation of form fields - check if provided characters are allowed.
+- Currency calculator.
+- Client and product data edition.
+- Show invoice details on click. For now, the user can see only basic invoice data.
+- Print invoice functionality.
 
-# Instalacja i uruchomienie:
+# Installation:
 
 - git clone https://github.com/TomekMojsiuk/invoice-generator.git
 
-- Pobierz repozytorium i zainstaluj node_modules za pomocą polecenia _**npm i**_
-- Zainstaluj json server za pomocą polecenia: _**npm install -g json-server**_
-- Uruchom watchery dla aplikacji oraz pliku danych. Pamiętaj, żeby uruchomić json server na porcie 3001. Użyj poleceń:
+- Clone and download repository and install node_modules. Use **npm i**_
+- Install json server. Use: _**npm install -g json-server**_
+- Run react app and json server. For json server use port 3001. Use:
     - npm start
     - json-server -p 3001  ./src/data/data.json
 
